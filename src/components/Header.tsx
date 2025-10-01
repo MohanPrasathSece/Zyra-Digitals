@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,16 +18,26 @@ export const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Scroll to top if clicking the same route; also close mobile menu
+  const handleNavClick = (to: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === to) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover-scale overflow-visible" aria-label="Zyra Digitals Home">
+          <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale" aria-label="Zyra Digitals Home">
             <img
               src="/images/icon.jpg"
               alt="Zyra Digitals logo"
-              className="h-[60px] md:h-[80px] w-auto object-contain mt-0.3 md:mt-1.7 shrink-0"
+              className="h-12 md:h-14 w-auto object-contain shrink-0"
             />
           </Link>
 
@@ -36,6 +47,7 @@ export const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
+                onClick={handleNavClick(link.to)}
                 className={`font-body text-base font-medium transition-colors ${
                   isActive(link.to)
                     ? "text-gold"
@@ -69,7 +81,7 @@ export const Header = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={handleNavClick(link.to)}
                   className={`font-body text-base font-medium transition-colors ${
                     isActive(link.to)
                       ? "text-gold"

@@ -1,5 +1,8 @@
-import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
+import { Code, User, Briefcase, ShoppingCart, Search, Server, RefreshCw, Bot } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
+import project1 from "@/assets/project-1.jpg";
+import project2 from "@/assets/project-2.jpg";
+import project3 from "@/assets/project-3.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -25,6 +28,26 @@ const Services = () => {
       title: "E‑commerce Websites",
       description: "Conversion‑focused online stores with smooth UX and secure checkout.",
     },
+    {
+      icon: Search,
+      title: "SEO Optimization",
+      description: "On‑page SEO foundations to improve visibility and organic reach.",
+    },
+    {
+      icon: Server,
+      title: "Domain & Hosting",
+      description: "Guidance and setup for domain, DNS, and reliable hosting environments.",
+    },
+    {
+      icon: RefreshCw,
+      title: "Website Redesign",
+      description: "Refresh outdated sites with modern design and improved usability.",
+    },
+    {
+      icon: Bot,
+      title: "AI‑Integrated Websites",
+      description: "Integrate AI features like chat, search, and automation into your site.",
+    },
   ];
 
   return (
@@ -41,6 +64,58 @@ const Services = () => {
               delivered with precision and elegance.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Services (alternating image/text) */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {[
+            {
+              key: "business",
+              title: "Business Websites",
+              description:
+                "Professional company sites that communicate credibility, highlight services, and generate qualified leads.",
+              image: project1,
+            },
+            {
+              key: "portfolio",
+              title: "Personal Portfolios",
+              description:
+                "Elegant, minimal portfolios to showcase your work, case studies, and personal brand effectively.",
+              image: project2,
+            },
+            {
+              key: "ecommerce",
+              title: "E‑commerce Websites",
+              description:
+                "Conversion‑focused online stores with smooth browsing, secure checkout, and intuitive product discovery.",
+              image: project3,
+            },
+            {
+              key: "ai",
+              title: "AI‑Integrated Websites",
+              description:
+                "Bring intelligent features to your site – chatbots, smart search, content assistance, and automation.",
+              image: project2,
+            },
+          ].map((item, idx) => (
+            <div
+              key={item.key}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${idx !== 0 ? "mt-12" : ""}`}
+            >
+              {/* Image left/right alternation */}
+              <div className={idx % 2 === 0 ? "order-1" : "order-1 md:order-2"}>
+                <div className="overflow-hidden rounded-xl border border-border bg-card">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div className={idx % 2 === 0 ? "order-2" : "order-2 md:order-1"}>
+                <h2 className="font-heading text-3xl font-bold mb-3">{item.title}</h2>
+                <p className="font-body text-lg text-foreground/80">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

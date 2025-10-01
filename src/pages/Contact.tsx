@@ -51,10 +51,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-heading font-semibold text-foreground mb-1">Email</h3>
                     <a
-                      href="mailto:hello@zyradigitals.com"
+                      href="mailto:zyradigitalsofficial@email.com"
                       className="font-body text-muted-foreground hover:text-gold transition-colors"
                     >
-                      hello@zyradigitals.com
+                      zyradigitalsofficial@email.com
                     </a>
                   </div>
                 </div>
@@ -66,12 +66,12 @@ const Contact = () => {
                   <div>
                     <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
                     <a
-                      href="https://wa.me/1234567890"
+                      href="https://wa.me/9025421149"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-body text-muted-foreground hover:text-gold transition-colors"
                     >
-                      WhatsApp: +1 (234) 567-890
+                      WhatsApp: 9025421149
                     </a>
                   </div>
                 </div>

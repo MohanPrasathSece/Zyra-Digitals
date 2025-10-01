@@ -5,9 +5,9 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   // TODO: Replace with your real contact details
   const CONTACT = {
-    email: "hello@zyradigitals.com",
-    phone: "+0000000000",
-    whatsapp: "+0000000000",
+    email: "zyradigitalsofficial@email.com",
+    phone: "9025421149",
+    whatsapp: "9025421149",
   };
 
   return (
@@ -17,10 +17,16 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 flex items-center justify-center border-2 border-primary-foreground rounded-sm">
-                <span className="font-heading text-2xl font-bold">ZD</span>
-              </div>
-              <span className="font-heading text-2xl font-semibold">Zyra Digitals</span>
+              <img
+                src="/images/icon.jpg"
+                alt="Zyra Digitals icon"
+                className="w-12 h-12 rounded-sm object-contain border-2 border-primary-foreground"
+              />
+              <img
+                src="/images/logo.jpg"
+                alt="Zyra Digitals logo"
+                className="h-8 w-auto object-contain"
+              />
             </div>
             <p className="text-base text-primary-foreground/80">
               Crafting premium digital experiences with precision and elegance.
@@ -58,7 +64,7 @@ export const Footer = () => {
                 <span>{CONTACT.email}</span>
               </a>
               <a
-                href={`tel:${CONTACT.phone}`}
+                href={`tel:${CONTACT.phone.replace(/[^\d+]/g, "")}`}
                 className="text-base text-primary-foreground/80 hover:text-gold transition-colors flex items-center gap-2"
               >
                 <Phone size={20} />

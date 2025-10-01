@@ -119,16 +119,43 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-secondary">
+      {/* Core Enhancements: Hosting, SEO, Redesign */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
-            ))}
+          <div className="text-center mb-10">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-2">Essential Enhancements</h2>
+            <p className="font-body text-lg text-muted-foreground">Hosting, SEO, and Redesign to strengthen your foundation</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[{
+              icon: Search,
+              title: "SEO Optimization",
+              description: "On‑page structure, meta data, and performance tweaks for better visibility.",
+            },{
+              icon: Server,
+              title: "Domain & Hosting",
+              description: "Domain guidance, DNS setup, and reliable, secure hosting environments.",
+            },{
+              icon: RefreshCw,
+              title: "Website Redesign",
+              description: "Modernize look-and-feel, improve UX, and refresh content structure.",
+            }].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div key={i} className="rounded-xl border border-border bg-secondary p-8 text-left">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-md border border-border">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="font-body text-muted-foreground">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      
 
       
 

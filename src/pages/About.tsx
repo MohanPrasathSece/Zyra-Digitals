@@ -59,8 +59,8 @@ const About = () => {
             </div>
             <div>
               <div className="h-full rounded-2xl bg-background border border-border p-10 text-center flex flex-col items-center justify-center">
-                <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mb-6">
-                  <span className="font-heading text-2xl font-bold">ZD</span>
+                <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card p-2">
+                  <img src="/images/icon.jpg" alt="Zyra Digitals icon" className="w-full h-full object-contain rounded-full" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold mb-2">Premium Digital Craftsmanship</h3>
                 <p className="font-body text-muted-foreground max-w-md">

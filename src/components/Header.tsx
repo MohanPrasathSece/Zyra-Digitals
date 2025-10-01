@@ -22,11 +22,12 @@ export const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 hover-scale" aria-label="Zyra Digitals Home">
-            <div className="w-10 h-10 flex items-center justify-center border-2 border-primary rounded-sm">
-              <span className="font-heading text-2xl font-bold text-primary">ZD</span>
-            </div>
-            <span className="font-heading text-2xl font-semibold hidden sm:block">Zyra Digitals</span>
+          <Link to="/" className="flex items-center hover-scale overflow-visible" aria-label="Zyra Digitals Home">
+            <img
+              src="/images/icon.jpg"
+              alt="Zyra Digitals logo"
+              className="h-[60px] md:h-[80px] w-auto object-contain mt-0.3 md:mt-1.7 shrink-0"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,7 +57,7 @@ export const Header = () => {
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen ? 'true' : 'false'}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={36} /> : <Menu size={36} />}
           </button>
         </div>
 

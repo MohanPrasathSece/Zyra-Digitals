@@ -58,12 +58,12 @@ const About = () => {
               </div>
             </div>
             <div>
-              <div className="h-full rounded-2xl bg-background border border-border p-10 text-center flex flex-col items-center justify-center">
+              <div className="group h-full rounded-2xl bg-background border border-border p-10 text-center flex flex-col items-center justify-center ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
                 <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card">
                   <img src="/images/icon.jpg" alt="Zyra Digitals icon" className="w-full h-full object-cover rounded-full" />
                 </div>
-                <h3 className="font-subheading text-xl font-semibold mb-2">Premium Digital Craftsmanship</h3>
-                <p className="font-secondary text-muted-foreground max-w-md">
+                <h3 className="font-subheading text-xl font-semibold mb-2 transition-colors duration-200 group-hover:text-foreground">Premium Digital Craftsmanship</h3>
+                <p className="font-secondary text-muted-foreground max-w-md transition-colors duration-200 group-hover:text-foreground/80">
                   Every line of code, every design element, and every interaction is carefully considered to create experiences that are beautiful and functional.
                 </p>
               </div>
@@ -84,9 +84,9 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="rounded-xl border border-border bg-secondary p-8">
-                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">{value.title}</h3>
-                <p className="font-secondary text-muted-foreground">{value.description}</p>
+              <div key={index} className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
+                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2 transition-colors duration-200 group-hover:text-foreground">{value.title}</h3>
+                <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">{value.description}</p>
               </div>
             ))}
           </div>
@@ -110,12 +110,12 @@ const About = () => {
                 { number: "03", title: "Development", description: "Reliable code and performance" },
                 { number: "04", title: "Launch", description: "Deploy, monitor, refine" },
               ].map((step, idx) => (
-                <div key={step.number} className="p-6 text-center">
+                <div key={step.number} className="p-6 text-center rounded-xl border border-border ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-foreground/20 hover:ring-foreground/10">
                   <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-gold font-heading text-sm font-semibold">
                     {step.number}
                   </div>
-                  <h3 className="font-subheading text-lg font-semibold mb-1">{step.title}</h3>
-                  <p className="font-secondary text-sm text-muted-foreground max-w-[18rem] mx-auto">{step.description}</p>
+                  <h3 className="font-subheading text-lg font-semibold mb-1 transition-colors duration-200 group-hover:text-foreground">{step.title}</h3>
+                  <p className="font-secondary text-sm text-muted-foreground max-w-[18rem] mx-auto transition-colors duration-200 group-hover:text-foreground/80">{step.description}</p>
                 </div>
               ))}
             </div>

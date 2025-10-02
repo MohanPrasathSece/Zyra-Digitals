@@ -7,14 +7,7 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Pattern: minimal, sparse diagonal tiles */}
-      <div className="absolute inset-0 z-0">
-        {/* Base overlay */}
-        <div className="absolute inset-0 bg-background/92" />
-        {/* Minimal CSS-only pattern, no images */}
-        <div className="absolute inset-0 hero-minimal-pattern opacity-20 rotate-[-25deg] scale-[1.2] origin-center pointer-events-none" />
-        {/* Soft vignette to fade edges */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-transparent to-background/40" />
-      </div>
+      <div className="absolute inset-0 z-0 bg-background" />
 
       {/* Small Orb at top-right */}
       <div className="absolute top-24 right-4 sm:top-28 sm:right-10 z-10">
@@ -29,7 +22,7 @@ export const Hero = () => {
           <p className="font-heading text-3xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">
             Crafting Premium Digital Experiences
           </p>
-          <p className="font-secondary text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Where innovation meets artistry. We transform ideas into exceptional digital experiences that captivate, convert, and inspire lasting connections.
           </p>
 

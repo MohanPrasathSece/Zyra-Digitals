@@ -217,6 +217,14 @@ All colors MUST be HSL.
     100% { transform: translateY(0); }
   }
 
+  /* Quick eyelid blink with long idle period */
+  @keyframes orb-blink {
+    0% { transform: scaleY(1); }
+    2% { transform: scaleY(0.1); }
+    4% { transform: scaleY(1); }
+    100% { transform: scaleY(1); }
+  }
+
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -231,6 +239,11 @@ All colors MUST be HSL.
 
   .animate-float-slow {
     animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .animate-blink-5s {
+    animation: orb-blink 5s ease-in-out infinite;
+    transform-origin: center;
   }
 
   .translate-z-8 {

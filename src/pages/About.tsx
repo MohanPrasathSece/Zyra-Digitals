@@ -29,7 +29,7 @@ const About = () => {
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-6">
               About Zyra Digitals
             </h1>
-            <p className="font-body text-xl text-muted-foreground leading-relaxed">
+            <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
               A boutique web development studio dedicated to crafting premium digital experiences 
               with a focus on elegance, performance, and exclusivity.
             </p>
@@ -42,7 +42,7 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <div>
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-subheading text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Our Story
               </h2>
               <div className="space-y-6 font-body text-lg text-foreground/80 leading-relaxed">
@@ -62,8 +62,8 @@ const About = () => {
                 <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card">
                   <img src="/images/icon.jpg" alt="Zyra Digitals icon" className="w-full h-full object-cover rounded-full" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold mb-2">Premium Digital Craftsmanship</h3>
-                <p className="font-body text-muted-foreground max-w-md">
+                <h3 className="font-subheading text-xl font-semibold mb-2">Premium Digital Craftsmanship</h3>
+                <p className="font-secondary text-muted-foreground max-w-md">
                   Every line of code, every design element, and every interaction is carefully considered to create experiences that are beautiful and functional.
                 </p>
               </div>
@@ -76,8 +76,8 @@ const About = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-4">Our Values</h2>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="font-subheading text-4xl sm:text-5xl font-bold text-foreground mb-4">Our Values</h2>
+            <p className="font-secondary text-lg text-muted-foreground max-w-2xl mx-auto">
               The principles that guide every project and client relationship we build.
             </p>
           </div>
@@ -85,8 +85,8 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {values.map((value, index) => (
               <div key={index} className="rounded-xl border border-border bg-secondary p-8">
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{value.title}</h3>
-                <p className="font-body text-muted-foreground">{value.description}</p>
+                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">{value.title}</h3>
+                <p className="font-secondary text-muted-foreground">{value.description}</p>
               </div>
             ))}
           </div>
@@ -98,8 +98,8 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl bg-secondary text-foreground p-10 sm:p-12">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-2">Our Process</h2>
-              <p className="font-body text-base sm:text-lg text-muted-foreground">
+              <h2 className="font-subheading text-3xl sm:text-4xl font-bold mb-2">Our Process</h2>
+              <p className="font-secondary text-base sm:text-lg text-muted-foreground">
                 A simple 4‑step workflow from brief to launch.
               </p>
             </div>
@@ -114,8 +114,8 @@ const About = () => {
                   <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-gold font-heading text-sm font-semibold">
                     {step.number}
                   </div>
-                  <h3 className="font-heading text-lg font-semibold mb-1">{step.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground max-w-[18rem] mx-auto">{step.description}</p>
+                  <h3 className="font-subheading text-lg font-semibold mb-1">{step.title}</h3>
+                  <p className="font-secondary text-sm text-muted-foreground max-w-[18rem] mx-auto">{step.description}</p>
                 </div>
               ))}
             </div>

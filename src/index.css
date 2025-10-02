@@ -44,6 +44,8 @@ All colors MUST be HSL.
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
+    --font-subheading: 'Manrope', sans-serif;
+    --font-secondary: 'Manrope', sans-serif;
     --font-body: 'Inter', sans-serif;
     
     /* Premium transitions */
@@ -154,6 +156,14 @@ All colors MUST be HSL.
     font-family: var(--font-heading);
   }
   
+  .font-subheading {
+    font-family: var(--font-subheading);
+  }
+  
+  .font-secondary {
+    font-family: var(--font-secondary);
+  }
+  
   .font-body {
     font-family: var(--font-body);
   }
@@ -190,5 +200,40 @@ All colors MUST be HSL.
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float-slow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .translate-z-8 {
+    transform: translateZ(8px);
   }
 }

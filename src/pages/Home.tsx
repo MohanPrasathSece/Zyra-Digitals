@@ -37,10 +37,10 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
+            <h2 className="font-subheading text-5xl sm:text-6xl font-bold text-foreground mb-4">
               Our Expertise
             </h2>
-            <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-secondary text-xl text-muted-foreground max-w-2xl mx-auto">
               Delivering premium digital solutions with precision and elegance
             </p>
           </div>
@@ -62,10 +62,10 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-5xl sm:text-6xl font-bold mb-6">
+          <h2 className="font-subheading text-5xl sm:text-6xl font-bold mb-6">
             Ready to Elevate Your Digital Presence?
           </h2>
-          <p className="font-body text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
             Let's collaborate to create something exceptional that sets you apart.
           </p>
           <Button variant="gold" size="lg" asChild>

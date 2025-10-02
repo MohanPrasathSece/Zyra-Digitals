@@ -45,7 +45,7 @@ const Portfolio = () => {
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-6">
               Our Portfolio
             </h1>
-            <p className="font-body text-xl text-muted-foreground leading-relaxed">
+            <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
               A curated selection of our finest work, showcasing our commitment to 
               excellence, elegance, and performance.
             </p>
@@ -102,7 +102,7 @@ const Portfolio = () => {
           <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
             Want to See Your Project Here?
           </h2>
-          <p className="font-body text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's collaborate to create something exceptional that showcases your brand.
           </p>
         </div>

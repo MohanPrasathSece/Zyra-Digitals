@@ -15,10 +15,10 @@ export const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps
           <Icon size={24} strokeWidth={1.75} className="text-foreground" />
         </div>
       </div>
-      <h3 className="font-heading text-xl font-semibold text-card-foreground mb-3">
+      <h3 className="font-subheading text-xl font-semibold text-card-foreground mb-3">
         {title}
       </h3>
-      <p className="font-body text-base text-muted-foreground leading-relaxed">
+      <p className="font-secondary text-base text-muted-foreground leading-relaxed">
         {description}
       </p>
     </div>

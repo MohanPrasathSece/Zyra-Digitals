@@ -15,8 +15,8 @@ export const ProjectCard = ({ image, title, category, onClick }: ProjectCardProp
         <img src={image} alt={title} className="w-full h-full object-cover" loading="lazy" />
       </div>
       <div className="p-4 text-left">
-        <p className="font-body text-sm text-muted-foreground mb-1">{category}</p>
-        <h3 className="font-heading text-lg font-semibold">{title}</h3>
+        <p className="font-secondary text-sm text-muted-foreground mb-1">{category}</p>
+        <h3 className="font-subheading text-lg font-semibold">{title}</h3>
       </div>
     </button>
   );

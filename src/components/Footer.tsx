@@ -37,7 +37,7 @@ export const Footer = () => {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="font-heading text-2xl font-semibold mb-4">Connect</h3>
+            <h3 className="font-subheading text-2xl font-semibold mb-4">Connect</h3>
             <div className="flex flex-col space-y-3 mb-4">
               <a
                 href={`mailto:${CONTACT.email}`}

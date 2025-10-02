@@ -59,7 +59,7 @@ const Services = () => {
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-6">
               Our Services
             </h1>
-            <p className="font-body text-xl text-muted-foreground leading-relaxed">
+            <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
               Comprehensive web development solutions tailored to your unique needs, 
               delivered with precision and elegance.
             </p>
@@ -112,7 +112,7 @@ const Services = () => {
               </div>
               <div className={idx % 2 === 0 ? "order-2" : "order-2 md:order-1"}>
                 <h2 className="font-heading text-3xl font-bold mb-3">{item.title}</h2>
-                <p className="font-body text-lg text-foreground/80">{item.description}</p>
+                <p className="font-secondary text-lg text-foreground/80">{item.description}</p>
               </div>
             </div>
           ))}
@@ -124,7 +124,7 @@ const Services = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-2">Essential Enhancements</h2>
-            <p className="font-body text-lg text-muted-foreground">Hosting, SEO, and Redesign to strengthen your foundation</p>
+            <p className="font-secondary text-lg text-muted-foreground">Hosting, SEO, and Redesign to strengthen your foundation</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[{
@@ -147,7 +147,7 @@ const Services = () => {
                     <Icon size={20} />
                   </div>
                   <h3 className="font-heading text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="font-body text-muted-foreground">{item.description}</p>
+                  <p className="font-secondary text-muted-foreground">{item.description}</p>
                 </div>
               );
             })}
@@ -165,7 +165,7 @@ const Services = () => {
           <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="font-body text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
             Let's discuss your project and create something exceptional together.
           </p>
           <Button variant="gold" size="lg" asChild>

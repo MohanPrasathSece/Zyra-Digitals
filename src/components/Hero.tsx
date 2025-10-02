@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { FloatingOrb } from "@/components/FloatingOrb";
 
 export const Hero = () => {
   return (
@@ -15,6 +16,11 @@ export const Hero = () => {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-transparent to-background/40" />
       </div>
 
+      {/* Small Orb at top-right */}
+      <div className="absolute top-24 right-4 sm:top-28 sm:right-10 z-10">
+        <FloatingOrb />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
           <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
@@ -23,7 +29,7 @@ export const Hero = () => {
           <p className="font-heading text-3xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">
             Crafting Premium Digital Experiences
           </p>
-          <p className="font-body text-xl sm:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="font-secondary text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Where innovation meets artistry. We transform ideas into exceptional digital experiences that captivate, convert, and inspire lasting connections.
           </p>
 

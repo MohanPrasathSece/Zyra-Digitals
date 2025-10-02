@@ -64,6 +64,8 @@ export default {
       },
       fontFamily: {
         heading: ["var(--font-heading)"],
+        subheading: ["var(--font-subheading)"],
+        secondary: ["var(--font-secondary)"],
         body: ["var(--font-body)"],
       },
       borderRadius: {

@@ -11,7 +11,7 @@ const Contact = () => {
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-6">
               Let's Create Together
             </h1>
-            <p className="font-body text-xl text-muted-foreground leading-relaxed">
+            <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
               Have a project in mind? We'd love to hear about it. 
               Reach out and let's discuss how we can bring your vision to life.
             </p>
@@ -25,7 +25,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <div className="bg-background p-8 rounded-lg border border-border">
-              <h2 className="font-heading text-3xl font-bold text-foreground mb-6">
+              <h2 className="font-subheading text-3xl font-bold text-foreground mb-6">
                 Send a Message
               </h2>
               <ContactForm />
@@ -34,10 +34,10 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-3xl font-bold text-foreground mb-6">
+                <h2 className="font-subheading text-3xl font-bold text-foreground mb-6">
                   Get in Touch
                 </h2>
-                <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
+                <p className="font-secondary text-lg text-muted-foreground leading-relaxed mb-8">
                   Whether you have a detailed project brief or just an idea you'd like to explore, 
                   we're here to help. Contact us through the form or reach out directly.
                 </p>
@@ -49,10 +49,10 @@ const Contact = () => {
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Email</h3>
+                    <h3 className="font-subheading font-semibold text-foreground mb-1">Email</h3>
                     <a
                       href="mailto:zyradigitalsofficial@email.com"
-                      className="font-body text-muted-foreground hover:text-gold transition-colors"
+                      className="font-secondary text-muted-foreground hover:text-gold transition-colors"
                     >
                       zyradigitalsofficial@email.com
                     </a>
@@ -64,12 +64,12 @@ const Contact = () => {
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
+                    <h3 className="font-subheading font-semibold text-foreground mb-1">Phone</h3>
                     <a
                       href="https://wa.me/9025421149"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-body text-muted-foreground hover:text-gold transition-colors"
+                      className="font-secondary text-muted-foreground hover:text-gold transition-colors"
                     >
                       WhatsApp: 9025421149
                     </a>
@@ -81,8 +81,8 @@ const Contact = () => {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Location</h3>
-                    <p className="font-body text-muted-foreground">
+                    <h3 className="font-subheading font-semibold text-foreground mb-1">Location</h3>
+                    <p className="font-secondary text-muted-foreground">
                       Remote • Worldwide
                     </p>
                   </div>
@@ -90,10 +90,10 @@ const Contact = () => {
               </div>
 
               <div className="pt-8 border-t border-border">
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-3">
+                <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">
                   Business Hours
                 </h3>
-                <p className="font-body text-muted-foreground">
+                <p className="font-secondary text-muted-foreground">
                   Monday - Friday: 9:00 AM - 6:00 PM EST<br />
                   Saturday - Sunday: By appointment
                 </p>
@@ -107,7 +107,7 @@ const Contact = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-4xl font-bold text-center text-foreground mb-12">
+            <h2 className="font-subheading text-4xl font-bold text-center text-foreground mb-12">
               Frequently Asked Questions
             </h2>
 
@@ -127,10 +127,10 @@ const Contact = () => {
                 },
               ].map((faq, index) => (
                 <div key={index} className="border-b border-border pb-6">
-                  <h3 className="font-heading text-xl font-semibold text-foreground mb-3">
+                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">
                     {faq.question}
                   </h3>
-                  <p className="font-body text-muted-foreground leading-relaxed">
+                  <p className="font-secondary text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

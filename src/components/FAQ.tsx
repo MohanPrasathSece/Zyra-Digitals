@@ -1,10 +1,5 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 interface FAQItem {
   id: string;
@@ -17,6 +12,7 @@ interface FAQProps {
   subtitle?: string;
   faqs?: FAQItem[];
   className?: string;
+  questionFont?: "primary" | "secondary";
 }
 
 const defaultFAQs: FAQItem[] = [
@@ -28,7 +24,7 @@ const defaultFAQs: FAQItem[] = [
   {
     id: "faq-2",
     question: "How long does it take to build a website?",
-    answer: "The timeline depends on the complexity and scope of your project. A simple portfolio website typically takes 1-2 weeks, while a complex e-commerce site may take 4-8 weeks. We'll provide a detailed timeline during our initial consultation."
+    answer: "The timeline depends on the complexity and scope of your project. A simple portfolio website typically takes 1-2 weeks, while more complex projects may take up to 2-4 weeks maximum. We'll provide a detailed timeline during our initial consultation."
   },
   {
     id: "faq-3",
@@ -63,43 +59,80 @@ const defaultFAQs: FAQItem[] = [
 ];
 
 export const FAQ = ({ 
-  title = "Frequently Asked Questions", 
-  subtitle = "Find answers to common questions about our services and process",
+  title = "Common Questions", 
+  subtitle = "We use only the best quality materials and modern techniques to provide the best outcomes for our clients.",
   faqs = defaultFAQs,
-  className = ""
+  className = "",
+  questionFont = "primary"
 }: FAQProps) => {
+  const [openItem, setOpenItem] = useState<string>("faq-1"); // First item open by default
+
+  const toggleItem = (id: string) => {
+    setOpenItem(openItem === id ? "" : id);
+  };
+
+  const questionFontClass = questionFont === "primary" ? "font-heading" : "font-secondary";
+
   return (
     <section id="faq" className={`py-20 bg-background ${className}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-4">
-            <HelpCircle className="h-8 w-8 text-gold mr-3" />
-            <h2 className="font-subheading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground">
-              {title}
-            </h2>
-          </div>
-          <p className="font-secondary text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            {title}
+          </h2>
+          <p className="font-secondary text-lg text-muted-foreground max-w-3xl mx-auto">
             {subtitle}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {faqs.map((faq) => (
-              <AccordionItem 
-                key={faq.id} 
-                value={faq.id}
-                className="border border-border rounded-lg px-6 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-colors"
-              >
-                <AccordionTrigger className="text-left font-subheading text-lg font-semibold text-foreground hover:text-gold transition-colors py-6">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-secondary text-muted-foreground leading-relaxed pb-6">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openItem === faq.id;
+            const isFirst = index === 0;
+            
+            return (
+              <div key={faq.id} className="group">
+                {isOpen ? (
+                  // Expanded FAQ Item (using primary color like the design)
+                  <div className="bg-primary text-primary-foreground rounded-2xl p-6 sm:p-8 shadow-lg">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className={`${questionFontClass} text-lg sm:text-xl font-semibold pr-4 leading-relaxed`}>
+                        {faq.question}
+                      </h3>
+                      <button
+                        onClick={() => toggleItem(faq.id)}
+                        className="flex-shrink-0 w-8 h-8 bg-gold rounded-full flex items-center justify-center hover:bg-gold/90 transition-colors"
+                        aria-label="Collapse answer"
+                      >
+                        <Minus className="w-4 h-4 text-primary font-bold" />
+                      </button>
+                    </div>
+                    <p className="font-secondary text-primary-foreground/90 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ) : (
+                  // Collapsed FAQ Items
+                  <div 
+                    className="bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-gold/30 hover:shadow-md transition-all duration-200 cursor-pointer"
+                    onClick={() => toggleItem(faq.id)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className={`${questionFontClass} text-lg sm:text-xl font-semibold text-foreground pr-4`}>
+                        {faq.question}
+                      </h3>
+                      <button
+                        className="flex-shrink-0 w-8 h-8 bg-gold/10 border border-gold/20 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-200"
+                        aria-label="Expand answer"
+                      >
+                        <Plus className="w-4 h-4 text-gold font-bold" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">

@@ -39,7 +39,7 @@ const Home = () => {
     {
       id: "faq-home-2",
       question: "How long does it take to build a website?",
-      answer: "The timeline depends on the complexity and scope of your project. A simple portfolio website typically takes 1-2 weeks, while a complex e-commerce site may take 4-8 weeks. We'll provide a detailed timeline during our initial consultation."
+      answer: "The timeline depends on the complexity and scope of your project. A simple portfolio website typically takes 1-2 weeks, while more complex projects may take up to 2-4 weeks maximum. We'll provide a detailed timeline during our initial consultation."
     },
     {
       id: "faq-home-3",
@@ -62,7 +62,7 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-subheading text-5xl sm:text-6xl font-bold text-foreground mb-4">
+            <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
               Our Expertise
             </h2>
             <p className="font-secondary text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -90,6 +90,7 @@ const Home = () => {
         subtitle="Quick answers to help you get started with your project"
         faqs={homeFAQs}
         className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
+        questionFont="secondary"
       />
 
       {/* CTA Section */}
@@ -105,7 +106,7 @@ const Home = () => {
             <Button variant="gold" size="lg" asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
-            <Button variant="ghost-gold" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="bg-white text-primary border-white hover:bg-white/90">
               <Link to="/contact#faq">View All FAQs</Link>
             </Button>
           </div>

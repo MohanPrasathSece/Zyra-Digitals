@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ } from "@/components/FAQ";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -94,9 +94,39 @@ const Contact = () => {
                 <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">
                   Business Hours
                 </h3>
-                <p className="font-secondary text-muted-foreground">
+                <p className="font-secondary text-muted-foreground mb-6">
                   Monday – Sunday: 6:00 AM – 6:00 PM
                 </p>
+              </div>
+
+              <div className="pt-6 border-t border-border">
+                <h3 className="font-subheading text-xl font-semibold text-foreground mb-4">
+                  Follow Us
+                </h3>
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/zyradigitals.co/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-gold hover:bg-gold/5 transition-all duration-200 group"
+                  >
+                    <Instagram className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
+                    <span className="font-secondary text-muted-foreground group-hover:text-foreground transition-colors">
+                      Instagram
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/zyra-digitals/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-gold hover:bg-gold/5 transition-all duration-200 group"
+                  >
+                    <Linkedin className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
+                    <span className="font-secondary text-muted-foreground group-hover:text-foreground transition-colors">
+                      LinkedIn
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -105,7 +135,7 @@ const Contact = () => {
 
       {/* FAQ Section */}
       <FAQ 
-        title="Frequently Asked Questions"
+        title="Common Questions"
         subtitle="Find answers to common questions about our services and process"
         className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
       />

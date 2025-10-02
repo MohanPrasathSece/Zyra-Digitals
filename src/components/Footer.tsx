@@ -48,9 +48,8 @@ export const Footer = () => {
           <div className="md:text-right">
             <h3 className="font-subheading text-lg font-semibold mb-4">Follow</h3>
             <div className="flex md:justify-end items-center gap-6">
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Instagram size={30} /></a>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Facebook size={30} /></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Linkedin size={30} /></a>
+              <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/80 hover:text-gold transition-colors"><Instagram size={30} /></a>
+              <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-gold transition-colors"><Linkedin size={30} /></a>
             </div>
           </div>
         </div>

@@ -1,25 +1,22 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Pattern: minimal, sparse diagonal tiles */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt=""
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-background/90" />
+        {/* Base overlay */}
+        <div className="absolute inset-0 bg-background/92" />
+        {/* Minimal CSS-only pattern, no images */}
+        <div className="absolute inset-0 hero-minimal-pattern opacity-20 rotate-[-25deg] scale-[1.2] origin-center pointer-events-none" />
+        {/* Soft vignette to fade edges */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-transparent to-background/40" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-        <div className="max-w-4xl mx-auto">
           <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
             Zyra Digitals
           </h1>
@@ -43,7 +40,6 @@ export const Hero = () => {
             </Button>
           </div>
         </div>
-      </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">

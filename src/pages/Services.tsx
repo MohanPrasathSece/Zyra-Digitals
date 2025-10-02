@@ -119,8 +119,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Core Enhancements: Hosting, SEO, Redesign */}
-      <section className="py-16 bg-background">
+      {/* Core Enhancements: Hosting, SEO, Redesign (Minimal) */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-2">Essential Enhancements</h2>
@@ -130,21 +130,21 @@ const Services = () => {
             {[{
               icon: Search,
               title: "SEO Optimization",
-              description: "On‑page structure, meta data, and performance tweaks for better visibility.",
+              description: "On‑page structure, meta tags, and performance for higher visibility.",
             },{
               icon: Server,
               title: "Domain & Hosting",
-              description: "Domain guidance, DNS setup, and reliable, secure hosting environments.",
+              description: "Domain guidance, DNS setup, SSL, and reliable hosting environments.",
             },{
               icon: RefreshCw,
               title: "Website Redesign",
-              description: "Modernize look-and-feel, improve UX, and refresh content structure.",
+              description: "Refresh UI, improve UX, and reorganize content for clarity.",
             }].map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="rounded-xl border border-border bg-secondary p-8 text-left">
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-md border border-border">
-                    <Icon size={22} />
+                <div key={i} className="rounded-xl border border-border bg-secondary p-8">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md border border-border">
+                    <Icon size={20} />
                   </div>
                   <h3 className="font-heading text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="font-body text-muted-foreground">{item.description}</p>

@@ -13,14 +13,14 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground" role="contentinfo">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="/images/icon.jpg"
+                src="/images/white%20icon.jpg"
                 alt="Zyra Digitals icon"
-                className="w-12 h-12 rounded-sm object-contain border-2 border-primary-foreground"
+                className="w-16 h-16 rounded-sm object-contain"
               />
               <img
                 src="/images/logo.jpg"
@@ -33,24 +33,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-heading text-2xl font-semibold mb-4">Quick Links</h3>
-            <nav className="flex flex-col space-y-2" aria-label="Footer navigation">
-              <Link to="/about" className="text-base text-primary-foreground/80 hover:text-gold transition-colors">
-                About
-              </Link>
-              <Link to="/services" className="text-base text-primary-foreground/80 hover:text-gold transition-colors">
-                Services
-              </Link>
-              <Link to="/portfolio" className="text-base text-primary-foreground/80 hover:text-gold transition-colors">
-                Portfolio
-              </Link>
-              <Link to="/contact" className="text-base text-primary-foreground/80 hover:text-gold transition-colors">
-                Contact
-              </Link>
-            </nav>
-          </div>
+          
 
           {/* Contact & Social */}
           <div>

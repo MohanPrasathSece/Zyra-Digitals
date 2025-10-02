@@ -24,7 +24,7 @@ export const Hero = () => {
             Crafting Premium Digital Experiences
           </p>
           <p className="font-body text-xl sm:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Bespoke web development tailored to your vision. Elevate your digital presence with precision, elegance, and performance.
+            Where innovation meets artistry. We transform ideas into exceptional digital experiences that captivate, convert, and inspire lasting connections.
           </p>
 
           {/* CTA Buttons */}

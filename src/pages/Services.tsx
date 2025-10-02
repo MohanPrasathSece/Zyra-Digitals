@@ -77,55 +77,75 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Core Services */}
+      {/* Core Services - Modern Card Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gold/10 rounded-full px-4 py-2 mb-6">
+              <Palette size={16} className="text-gold" />
+              <span className="font-secondary text-sm text-gold font-medium">Our Expertise</span>
+            </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-4">Core Services</h2>
             <p className="font-secondary text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive solutions designed to meet your unique business needs and goals.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
             {coreServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="group relative rounded-2xl border border-border bg-card p-8 ring-1 ring-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:border-foreground/30 hover:ring-foreground/15 overflow-hidden">
-                  {/* Subtle gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/0 to-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div 
+                  key={index} 
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 hover:border-gold/20 hover:-translate-y-1 hover:scale-[1.02]"
+                >
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
+                  {/* Content */}
                   <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="inline-flex items-center justify-center rounded-2xl border-2 border-border w-16 h-16 bg-background transition-all duration-300 group-hover:border-foreground/40 group-hover:bg-foreground/5 group-hover:scale-110">
-                        <Icon size={30} strokeWidth={1.75} className="text-foreground transition-all duration-300 group-hover:text-foreground group-hover:scale-110" />
+                    {/* Header */}
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/20 flex items-center justify-center transition-all duration-300 group-hover:from-gold/20 group-hover:to-gold/10 group-hover:border-gold/30 group-hover:shadow-lg group-hover:shadow-gold/10">
+                        <Icon size={28} strokeWidth={1.5} className="text-gold transition-all duration-300 group-hover:scale-110" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-subheading text-2xl font-bold text-card-foreground transition-colors duration-300 group-hover:text-foreground">{service.title}</h3>
+                        <h3 className="font-subheading text-2xl font-bold text-foreground mb-2 transition-colors duration-300 group-hover:text-gold">
+                          {service.title}
+                        </h3>
+                        <p className="font-secondary text-base text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
                       </div>
                     </div>
                     
-                    <p className="font-secondary text-base text-muted-foreground leading-relaxed mb-6 transition-colors duration-300 group-hover:text-foreground/80">
-                      {service.description}
-                    </p>
-                    
-                    <div className="space-y-2 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 group/feature">
-                          <CheckCircle size={18} className="text-foreground/50 transition-colors group-hover:text-foreground/70" />
-                          <span className="font-secondary text-sm text-foreground/80">{feature}</span>
-                        </div>
-                      ))}
+                    {/* Features */}
+                    <div className="mb-6">
+                      <div className="grid grid-cols-2 gap-3">
+                        {service.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle size={16} className="text-gold flex-shrink-0" />
+                            <span className="font-secondary text-sm text-foreground/80 font-medium">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     
-                    <div className="pt-4 border-t border-border/50 flex items-center justify-end">
-                      <Button variant="ghost" size="sm" asChild className="group-hover:bg-foreground/5">
-                        <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                          Request Quote
+                    {/* CTA */}
+                    <div className="flex justify-end pt-4 border-t border-border/50">
+                      <Button variant="ghost" size="sm" asChild className="text-gold hover:text-gold-foreground hover:bg-gold group/btn">
+                        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          Get Quote 
+                          <ArrowRight size={14} className="transition-transform duration-200 group-hover/btn:translate-x-1" />
                         </a>
                       </Button>
                     </div>
                   </div>
+                  
+                  {/* Hover Effect Border */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gold/20 transition-all duration-300" />
                 </div>
               );
             })}
@@ -133,7 +153,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Additional Services */}
+      {/* Additional Services - Minimal Grid */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -143,20 +163,23 @@ const Services = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="group rounded-xl border border-border bg-background p-6 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-foreground/20 hover:ring-foreground/10">
-                  <div className="mb-4">
-                    <div className="inline-flex items-center justify-center rounded-lg border border-border w-12 h-12 bg-secondary transition-colors group-hover:border-foreground/30 group-hover:bg-foreground/5">
-                      <Icon size={24} strokeWidth={1.75} className="text-foreground transition-colors group-hover:text-foreground" />
-                    </div>
+                <div 
+                  key={index} 
+                  className="group flex items-start gap-4 rounded-lg border border-border bg-background p-6 transition-all duration-200 hover:border-foreground/30 hover:shadow-md hover:bg-secondary/20"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center transition-colors group-hover:bg-foreground/5">
+                    <Icon size={20} strokeWidth={1.75} className="text-foreground" />
                   </div>
-                  <h3 className="font-subheading text-lg font-semibold text-foreground mb-2 transition-colors duration-200 group-hover:text-foreground">{service.title}</h3>
-                  <p className="font-secondary text-sm text-muted-foreground leading-relaxed transition-colors duration-200 group-hover:text-foreground/80">
-                    {service.description}
-                  </p>
+                  <div className="flex-1">
+                    <h3 className="font-subheading text-lg font-semibold text-foreground mb-1">{service.title}</h3>
+                    <p className="font-secondary text-sm text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}

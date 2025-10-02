@@ -28,13 +28,13 @@ export const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="gold" size="lg" asChild className="h-16 px-10 text-lg sm:text-xl [&_svg]:size-6">
+            <Button variant="gold" size="lg" asChild className="h-16 px-10 text-sm sm:text-base [&_svg]:size-5">
               <Link to="/contact" className="flex items-center gap-2">
                 Start Your Project
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </Link>
             </Button>
-            <Button variant="ghost-gold" size="lg" asChild className="h-16 px-10 text-lg sm:text-xl">
+            <Button variant="ghost-gold" size="lg" asChild className="h-16 px-10 text-sm sm:text-base">
               <Link to="/portfolio">View Our Work</Link>
             </Button>
           </div>

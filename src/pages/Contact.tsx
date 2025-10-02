@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
+import { FAQ } from "@/components/FAQ";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
@@ -103,41 +104,11 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-subheading text-4xl font-bold text-center text-foreground mb-12">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-8">
-              {[
-                {
-                  question: "What is your typical project timeline?",
-                  answer: "Project timelines vary based on scope and complexity. A standard website typically takes 4-8 weeks from initial consultation to launch. We'll provide a detailed timeline during our discovery phase.",
-                },
-                {
-                  question: "Do you work with clients internationally?",
-                  answer: "Absolutely! As a remote studio, we work with clients worldwide. We're experienced in managing projects across different time zones and ensure clear communication throughout.",
-                },
-                {
-                  question: "What is your pricing structure?",
-                  answer: "We offer custom quotes based on your specific requirements. Each project is unique, and we believe in transparent pricing tailored to your needs and budget.",
-                },
-              ].map((faq, index) => (
-                <div key={index} className="border-b border-border pb-6">
-                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="font-secondary text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQ 
+        title="Frequently Asked Questions"
+        subtitle="Find answers to common questions about our services and process"
+        className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
+      />
     </div>
   );
 };

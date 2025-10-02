@@ -71,17 +71,32 @@ const Portfolio = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto bg-primary text-primary-foreground rounded-2xl p-10 sm:p-12">
-            <div className="flex flex-col items-center text-center gap-6">
-              <Quote className="text-gold" size={40} />
-              <p className="font-heading text-xl sm:text-2xl leading-relaxed font-semibold">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-card border border-border rounded-2xl p-8 sm:p-10 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* Quote Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20">
+                  <Quote className="text-gold" size={24} />
+                </div>
+              </div>
+              
+              {/* Testimonial Content */}
+              <blockquote className="font-heading text-lg sm:text-xl leading-relaxed text-foreground mb-6 font-medium text-center">
                 "Zyra Digitals built a beautiful, fast website for our cafe. Online menu, gallery, and Google Maps integration made it easy for customers to discover us and visit. Sales and footfall at California Cafe have noticeably improved."
-              </p>
-              <p className="font-body text-gold italic font-medium">
-                Martin, Owner — California Cafe
-              </p>
+              </blockquote>
+              
+              {/* Author Section */}
+              <div className="flex items-center justify-center gap-4 pt-4 border-t border-border/50">
+                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20">
+                  <span className="font-heading text-base font-bold text-gold">M</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-subheading text-base font-semibold text-foreground">Martin</p>
+                  <p className="font-secondary text-sm text-muted-foreground">Owner, California Cafe</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -12,94 +12,52 @@ export const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground" role="contentinfo">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Brand */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Top grid: Brand / Connect / Social */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          {/* Brand / About */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <img
-                src="/images/white%20icon.jpg"
-                alt="Zyra Digitals icon"
-                className="w-16 h-16 rounded-sm object-contain"
-              />
-              <img
-                src="/images/logo.jpg"
-                alt="Zyra Digitals logo"
-                className="h-8 w-auto object-contain"
-              />
+            <div className="flex items-center gap-3 mb-5">
+              <img src="/images/white%20icon.jpg" alt="Zyra Digitals icon" className="w-12 h-12 rounded-sm object-contain" />
+              <img src="/images/logo.jpg" alt="Zyra Digitals logo" className="h-7 w-auto object-contain" />
             </div>
-            <p className="text-base text-primary-foreground/80">
+            <p className="text-sm text-primary-foreground/80 mb-3">
               Crafting premium digital experiences with precision and elegance.
             </p>
+            <p className="text-sm text-primary-foreground/60">Remote • Worldwide</p>
           </div>
 
-          
-
-          {/* Contact & Social */}
+          {/* Connect */}
           <div>
-            <h3 className="font-subheading text-2xl font-semibold mb-4">Connect</h3>
-            <div className="flex flex-col space-y-3 mb-4">
+            <h3 className="font-subheading text-lg font-semibold mb-4">Connect</h3>
+            <div className="space-y-2 text-primary-foreground/80">
               <a
-                href={`mailto:${CONTACT.email}`}
-                className="text-base text-primary-foreground/80 hover:text-gold transition-colors flex items-center gap-2"
-              >
-                <Mail size={20} />
-                <span>{CONTACT.email}</span>
-              </a>
-              <a
-                href={`tel:${CONTACT.phone.replace(/[^\d+]/g, "")}`}
-                className="text-base text-primary-foreground/80 hover:text-gold transition-colors flex items-center gap-2"
-              >
-                <Phone size={20} />
-                <span>{CONTACT.phone}</span>
-              </a>
-              <a
-                href={`https://wa.me/${CONTACT.whatsapp.replace(/[^\d]/g, "")}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT.email)}&su=${encodeURIComponent('Project Inquiry from Website')}&body=${encodeURIComponent("Hi Zyra Digitals,\n\nI'm interested in working with you. Please get back to me with next steps.\n\nThanks,")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base text-primary-foreground/80 hover:text-gold transition-colors flex items-center gap-2"
+                className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
               >
-                <MessageCircle size={20} />
-                <span>WhatsApp</span>
+                <Mail size={18} /> {CONTACT.email}
               </a>
-              <p className="text-base text-primary-foreground/80">Remote • Worldwide</p>
+              <a href={`tel:${CONTACT.phone.replace(/[^\d+]/g, "")}`} className="flex items-center gap-2 hover:text-primary-foreground transition-colors"><Phone size={18} /> {CONTACT.phone}</a>
+              <a href={`https://wa.me/${CONTACT.whatsapp.replace(/[^\d]/g, "")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary-foreground transition-colors"><MessageCircle size={18} /> WhatsApp</a>
             </div>
-            <div className="flex space-x-4">
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-gold transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-gold transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-gold transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </a>
+          </div>
+
+          {/* Social (right aligned) */}
+          <div className="md:text-right">
+            <h3 className="font-subheading text-lg font-semibold mb-4">Follow</h3>
+            <div className="flex md:justify-end items-center gap-6">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Instagram size={30} /></a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Facebook size={30} /></a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"><Linkedin size={30} /></a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-          <p className="text-base text-primary-foreground/60">
-            © {currentYear} Zyra Digitals. All rights reserved.
-          </p>
+        {/* Bottom bar */}
+        <div className="mt-8 pt-6 border-t border-primary-foreground/15 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-primary-foreground/60">© {currentYear} Zyra Digitals. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -77,10 +77,10 @@ const Portfolio = () => {
             <div className="flex flex-col items-center text-center gap-6">
               <Quote className="text-gold" size={40} />
               <p className="font-heading text-xl sm:text-2xl leading-relaxed font-semibold">
-                "Working with Zyra Digitals was an excellent experience. The attention to detail and premium quality exceeded my expectations. The new website perfectly represents my dental clinic and helps patients find and book appointments easily."
+                "Zyra Digitals built a beautiful, fast website for our cafe. Online menu, gallery, and Google Maps integration made it easy for customers to discover us and visit. Sales and footfall at California Cafe have noticeably improved."
               </p>
               <p className="font-body text-gold italic font-medium">
-                Chetan, Dentist
+                Martin, Owner — California Cafe
               </p>
             </div>
           </div>

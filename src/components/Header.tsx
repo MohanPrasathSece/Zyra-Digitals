@@ -28,6 +28,11 @@ export const Header = () => {
       setIsMenuOpen(false);
     }
   };
+
+  // WhatsApp CTA
+  const WHATSAPP_NUMBER = "9025421149"; // digits only; include country code if needed
+  const WHATSAPP_MESSAGE = "Hi, I'm interested in working with Zyra Digitals. Please share more details.";
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
@@ -58,7 +63,7 @@ export const Header = () => {
               </Link>
             ))}
             <Button variant="gold" size="lg" asChild>
-              <Link to="/contact">Work with us</Link>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">Work with us</a>
             </Button>
           </div>
 
@@ -92,9 +97,9 @@ export const Header = () => {
                 </Link>
               ))}
               <Button variant="gold" size="lg" asChild className="w-fit">
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
                   Work with us
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

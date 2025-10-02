@@ -9,20 +9,20 @@ export const Hero = () => {
       {/* Background Pattern: minimal, sparse diagonal tiles */}
       <div className="absolute inset-0 z-0 bg-background" />
 
-      {/* Small Orb at top-right */}
-      <div className="absolute top-24 right-4 sm:top-28 sm:right-10 z-10">
+      {/* Small Orb at top-right (hidden on mobile) */}
+      <div className="hidden sm:block absolute top-24 right-4 sm:top-28 sm:right-10 z-10">
         <FloatingOrb />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-          <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
             Zyra Digitals
           </h1>
-          <p className="font-heading text-3xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">
+          <p className="font-heading text-2xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">
             Crafting Premium Digital Experiences
           </p>
-          <p className="font-secondary text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-sm sm:text-base text-muted-foreground mb-8 max-w-2xl mx-auto">
             Where innovation meets artistry. We transform ideas into exceptional digital experiences that captivate, convert, and inspire lasting connections.
           </p>
 

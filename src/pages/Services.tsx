@@ -91,34 +91,40 @@ const Services = () => {
             {coreServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="group rounded-2xl border border-border bg-card p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="inline-flex items-center justify-center rounded-xl border border-border w-14 h-14 bg-background transition-all duration-200 group-hover:border-foreground/30 group-hover:bg-foreground/5">
-                      <Icon size={28} strokeWidth={1.75} className="text-foreground transition-colors duration-200 group-hover:text-foreground" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-subheading text-xl font-semibold text-card-foreground mb-2 transition-colors duration-200 group-hover:text-foreground">{service.title}</h3>
-                      <p className="font-secondary text-base text-muted-foreground leading-relaxed transition-colors duration-200 group-hover:text-foreground/80 mb-4">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
+                <div key={index} className="group relative rounded-2xl border border-border bg-card p-8 ring-1 ring-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:border-foreground/30 hover:ring-foreground/15 overflow-hidden">
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/0 to-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   
-                  <div className="grid grid-cols-2 gap-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle size={16} className="text-foreground/60" />
-                        <span className="font-secondary text-sm text-foreground/80">{feature}</span>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="inline-flex items-center justify-center rounded-2xl border-2 border-border w-16 h-16 bg-background transition-all duration-300 group-hover:border-foreground/40 group-hover:bg-foreground/5 group-hover:scale-110">
+                        <Icon size={30} strokeWidth={1.75} className="text-foreground transition-all duration-300 group-hover:text-foreground group-hover:scale-110" />
                       </div>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-end">
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                        Request Quote
-                      </a>
-                    </Button>
+                      <div className="flex-1">
+                        <h3 className="font-subheading text-2xl font-bold text-card-foreground transition-colors duration-300 group-hover:text-foreground">{service.title}</h3>
+                      </div>
+                    </div>
+                    
+                    <p className="font-secondary text-base text-muted-foreground leading-relaxed mb-6 transition-colors duration-300 group-hover:text-foreground/80">
+                      {service.description}
+                    </p>
+                    
+                    <div className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2 group/feature">
+                          <CheckCircle size={18} className="text-foreground/50 transition-colors group-hover:text-foreground/70" />
+                          <span className="font-secondary text-sm text-foreground/80">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="pt-4 border-t border-border/50 flex items-center justify-end">
+                      <Button variant="ghost" size="sm" asChild className="group-hover:bg-foreground/5">
+                        <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                          Request Quote
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               );

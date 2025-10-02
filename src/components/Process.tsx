@@ -1,11 +1,8 @@
-import { Search, Palette, Code, Rocket } from "lucide-react";
-
 interface ProcessStep {
   id: string;
   number: string;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
 }
 
 interface ProcessProps {
@@ -20,35 +17,31 @@ const defaultSteps: ProcessStep[] = [
     id: "discovery",
     number: "01",
     title: "Discovery",
-    description: "Goals, audience, and requirements",
-    icon: Search
+    description: "Goals, audience, and requirements"
   },
   {
     id: "design",
     number: "02",
     title: "Design",
-    description: "Wireframes and clean interfaces",
-    icon: Palette
+    description: "Wireframes and clean interfaces"
   },
   {
     id: "development",
     number: "03",
     title: "Development",
-    description: "Reliable code and performance",
-    icon: Code
+    description: "Reliable code and performance"
   },
   {
     id: "launch",
     number: "04",
     title: "Launch",
-    description: "Deploy, monitor, refine",
-    icon: Rocket
+    description: "Deploy, monitor, refine"
   }
 ];
 
 export const Process = ({
   title = "Our Process",
-  subtitle = "From brief to launch — a clear, simple 4-step journey",
+  subtitle = "From brief to launch — a clear, simple 4‑step journey",
   steps = defaultSteps,
   className = ""
 }: ProcessProps) => {
@@ -56,90 +49,78 @@ export const Process = ({
     <section className={`py-20 bg-background ${className}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+        <div className="text-center mb-20">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
             {title}
           </h2>
-          <p className="font-secondary text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-secondary text-lg text-muted-foreground max-w-2xl mx-auto">
             {subtitle}
           </p>
         </div>
 
-        {/* Process Steps */}
-        <div className="max-w-6xl mx-auto">
+        {/* Process Steps - Minimal Design */}
+        <div className="max-w-5xl mx-auto">
           {/* Desktop Layout */}
-          <div className="hidden lg:block">
+          <div className="hidden md:block">
             <div className="relative">
-              {/* Connection Line */}
-              <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-gold/20 via-gold to-gold/20 z-0"></div>
+              {/* Minimal Connection Line */}
+              <div className="absolute top-8 left-0 right-0 h-px bg-border z-0"></div>
               
               {/* Steps */}
               <div className="grid grid-cols-4 gap-8 relative z-10">
-                {steps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <div key={step.id} className="text-center group">
-                      {/* Icon Container */}
-                      <div className="relative mb-8">
-                        <div className="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center group-hover:bg-gold transition-colors duration-300 shadow-lg">
-                          <Icon className="w-8 h-8 text-primary-foreground group-hover:text-primary transition-colors duration-300" />
-                        </div>
-                        {/* Step Number */}
-                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                          <span className="font-heading text-sm font-bold text-primary">
-                            {step.number}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="space-y-3">
-                        <h3 className="font-heading text-2xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                        <p className="font-secondary text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
+                {steps.map((step, index) => (
+                  <div key={step.id} className="text-center group">
+                    {/* Minimal Number Circle */}
+                    <div className="relative mb-8">
+                      <div className="w-16 h-16 mx-auto bg-background border-2 border-gold rounded-full flex items-center justify-center group-hover:bg-gold transition-all duration-300">
+                        <span className="font-heading text-lg font-bold text-gold group-hover:text-primary transition-colors duration-300">
+                          {step.number}
+                        </span>
                       </div>
                     </div>
-                  );
-                })}
+                    
+                    {/* Content */}
+                    <div className="space-y-2">
+                      <h3 className="font-heading text-xl font-semibold text-foreground">
+                        {step.title}
+                      </h3>
+                      <p className="font-secondary text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Mobile/Tablet Layout */}
-          <div className="lg:hidden space-y-8">
+          {/* Mobile Layout */}
+          <div className="md:hidden space-y-6">
             {steps.map((step, index) => {
-              const Icon = step.icon;
               const isLast = index === steps.length - 1;
               
               return (
                 <div key={step.id} className="relative">
-                  <div className="flex items-start gap-6">
-                    {/* Icon and Line */}
+                  <div className="flex items-start gap-4">
+                    {/* Number Circle */}
                     <div className="relative flex-shrink-0">
-                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                        <Icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      {/* Step Number */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gold rounded-full flex items-center justify-center">
-                        <span className="font-heading text-xs font-bold text-primary">
+                      <div className="w-12 h-12 bg-background border-2 border-gold rounded-full flex items-center justify-center">
+                        <span className="font-heading text-sm font-bold text-gold">
                           {step.number}
                         </span>
                       </div>
                       {/* Vertical Line */}
                       {!isLast && (
-                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-0.5 h-16 bg-gradient-to-b from-gold to-gold/20"></div>
+                        <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-px h-8 bg-border"></div>
                       )}
                     </div>
                     
                     {/* Content */}
-                    <div className="flex-1 pt-2">
-                      <h3 className="font-heading text-xl sm:text-2xl font-semibold text-foreground mb-2">
+                    <div className="flex-1 pt-1">
+                      <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
                         {step.title}
                       </h3>
-                      <p className="font-secondary text-muted-foreground leading-relaxed">
+                      <p className="font-secondary text-sm text-muted-foreground leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -148,19 +129,6 @@ export const Process = ({
               );
             })}
           </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <p className="font-secondary text-muted-foreground mb-6">
-            Ready to start your project journey?
-          </p>
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center font-heading font-semibold text-gold hover:text-gold/80 transition-colors text-lg"
-          >
-            Let's Begin →
-          </button>
         </div>
       </div>
     </section>

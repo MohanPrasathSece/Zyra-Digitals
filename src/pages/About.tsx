@@ -93,58 +93,37 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Process Section (responsive stepper) */}
-      <section className="py-20 bg-background">
+      {/* Our Process Section - Completely Minimal */}
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-secondary text-foreground p-8 sm:p-12">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="font-subheading text-3xl sm:text-4xl font-bold mb-2">Our Process</h2>
-              <p className="font-secondary text-base sm:text-lg text-muted-foreground">
-                From brief to launch — a clear, simple 4‑step journey.
-              </p>
-            </div>
-
-            {/* Mobile: vertical timeline */}
-            <div className="md:hidden space-y-6">
-              {[
-                { number: "01", title: "Discovery", description: "Goals, audience, and requirements" },
-                { number: "02", title: "Design", description: "Wireframes and clean interfaces" },
-                { number: "03", title: "Development", description: "Reliable code and performance" },
-                { number: "04", title: "Launch", description: "Deploy, monitor, refine" },
-              ].map((step, idx) => (
-                <div key={step.number} className="relative pl-10">
-                  <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
-                  <div className="relative">
-                    <div className="absolute -left-1 top-0 flex h-6 w-6 items-center justify-center rounded-full border border-foreground/30 bg-background font-heading text-xs font-semibold">
-                      {step.number}
-                    </div>
-                    <h3 className="font-subheading text-lg font-semibold mb-1">{step.title}</h3>
-                    <p className="font-secondary text-sm text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Desktop: horizontal stepper */}
-            <div className="hidden md:block">
-              <div className="relative">
-                <div className="absolute left-0 right-0 top-5 h-px bg-border" />
-                <div className="grid grid-cols-4 gap-6">
-                  {[
-                    { number: "01", title: "Discovery", description: "Goals, audience, and requirements" },
-                    { number: "02", title: "Design", description: "Wireframes and clean interfaces" },
-                    { number: "03", title: "Development", description: "Reliable code and performance" },
-                    { number: "04", title: "Launch", description: "Deploy, monitor, refine" },
-                  ].map((step) => (
-                    <div key={step.number} className="text-center px-3">
-                      <div className="relative mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border-2 border-foreground/30 bg-background font-heading text-sm font-semibold">
-                        <span>{step.number}</span>
-                      </div>
-                      <h3 className="font-subheading text-lg font-semibold mb-1">{step.title}</h3>
-                      <p className="font-secondary text-sm text-muted-foreground max-w-[16rem] mx-auto">{step.description}</p>
-                    </div>
-                  ))}
-                </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-8">
+              Our Process
+            </h2>
+            
+            <div className="space-y-8">
+              <div className="text-left">
+                <span className="font-heading text-base text-gold mr-4">01</span>
+                <span className="font-heading text-lg font-medium text-foreground mr-3">Discovery</span>
+                <span className="font-secondary text-base text-muted-foreground">Goals, audience, and requirements</span>
+              </div>
+              
+              <div className="text-left">
+                <span className="font-heading text-base text-gold mr-4">02</span>
+                <span className="font-heading text-lg font-medium text-foreground mr-3">Design</span>
+                <span className="font-secondary text-base text-muted-foreground">Wireframes and clean interfaces</span>
+              </div>
+              
+              <div className="text-left">
+                <span className="font-heading text-base text-gold mr-4">03</span>
+                <span className="font-heading text-lg font-medium text-foreground mr-3">Development</span>
+                <span className="font-secondary text-base text-muted-foreground">Reliable code and performance</span>
+              </div>
+              
+              <div className="text-left">
+                <span className="font-heading text-base text-gold mr-4">04</span>
+                <span className="font-heading text-lg font-medium text-foreground mr-3">Launch</span>
+                <span className="font-secondary text-base text-muted-foreground">Deploy, monitor, refine</span>
               </div>
             </div>
           </div>

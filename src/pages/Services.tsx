@@ -234,7 +234,7 @@ const Services = () => {
                 Start Your Project <ArrowRight size={18} />
               </a>
             </Button>
-            <Button variant="ghost" size="lg" asChild className="text-primary-foreground border-primary-foreground/20 hover:bg-primary-foreground/10">
+            <Button variant="ghost" size="lg" asChild className="text-primary-foreground border-primary-foreground/20 hover:bg-white hover:text-primary">
               <Link to="/portfolio">View Portfolio</Link>
             </Button>
           </div>

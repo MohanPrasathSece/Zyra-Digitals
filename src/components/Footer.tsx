@@ -17,11 +17,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
           {/* Brand / About */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <img src="/images/white%20icon.jpg" alt="Zyra Digitals icon" className="w-12 h-12 rounded-sm object-contain" />
-              <img src="/images/logo.jpg" alt="Zyra Digitals logo" className="h-7 w-auto object-contain" />
+            <div className="flex items-center gap-1 mb-1">
+              <img src="/images/zyra_logo_white-removebg-preview.png" alt="Zyra Digitals logo" className="w-52 h-34 object-contain" />
             </div>
-            <p className="text-sm text-primary-foreground/80 mb-3">
+            <p className="text-sm text-primary-foreground/80 mb-1">
               Crafting premium digital experiences with precision and elegance.
             </p>
             <p className="text-sm text-primary-foreground/60">Remote • Worldwide</p>

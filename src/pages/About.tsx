@@ -59,8 +59,8 @@ const About = () => {
             </div>
             <div>
               <div className="group h-full rounded-2xl bg-background border border-border p-10 text-center flex flex-col items-center justify-center ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-                <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card p-3">
-                  <img src="/images/icon.jpg" alt="Zyra Digitals icon" className="w-full h-full object-contain" />
+                <div className="w-48 h-48 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card p-6">
+                  <img src="/images/logo.jpg" alt="Zyra Digitals logo" className="w-[120%] h-[120%] object-contain scale-110" />
                 </div>
                 <h3 className="font-subheading text-lg sm:text-xl font-semibold mb-2 transition-colors duration-200 group-hover:text-foreground">Premium Digital Craftsmanship</h3>
                 <p className="font-secondary text-muted-foreground max-w-md transition-colors duration-200 group-hover:text-foreground/80">

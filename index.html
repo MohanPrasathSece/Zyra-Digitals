@@ -19,9 +19,55 @@
     <meta name="twitter:site" content="@zyradigitals" />
     <meta name="twitter:image" content="/og-image.jpg" />
     <link rel="canonical" href="https://zyradigitals.com" />
-    <!-- Favicon (white icon) -->
-    <link rel="icon" href="/images/white%20icon.jpg" type="image/jpeg" />
-    <link rel="apple-touch-icon" href="/images/white%20icon.jpg" />
+    <!-- Theme colors for better mobile experience -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Favicon (large black logo for maximum visibility) -->
+    <link rel="icon" href="/images/logo-black.jpeg" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="512x512" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="256x256" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="128x128" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="64x64" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="48x48" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="32x32" type="image/jpeg" />
+    <link rel="icon" href="/images/logo-black.jpeg" sizes="16x16" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="180x180" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="152x152" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="144x144" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="120x120" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="114x114" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="76x76" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="72x72" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="60x60" />
+    <link rel="apple-touch-icon" href="/images/logo-black.jpeg" sizes="57x57" />
+
+    <!-- Enhanced favicon styling for circular appearance -->
+    <style>
+      /* Modern browsers - use clip-path for perfect circles */
+      link[rel="icon"], link[rel*="apple-touch-icon"] {
+        clip-path: circle(50%);
+        -webkit-clip-path: circle(50%);
+        border-radius: 0; /* Reset any border-radius that might interfere */
+      }
+
+      /* Fallback for older browsers */
+      @supports not (clip-path: circle(50%)) {
+        link[rel="icon"], link[rel*="apple-touch-icon"] {
+          border-radius: 50% !important;
+        }
+      }
+
+      /* Ensure proper scaling and positioning */
+      link[rel="icon"] {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    </style>
   </head>
 
   <body>

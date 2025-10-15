@@ -17,6 +17,7 @@ interface ProjectModalProps {
     image: string;
     technologies: string[];
     link?: string;
+    scale?: string;
   };
 }
 
@@ -33,7 +34,7 @@ export const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) =>
           <img
             src={project.image}
             alt={project.title}
-            className="w-full rounded-lg"
+            className="w-full rounded-lg scale-100"
             loading="lazy"
           />
 

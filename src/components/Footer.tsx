@@ -12,7 +12,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground" role="contentinfo">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Top grid: Brand / Connect / Social */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
           {/* Brand / About */}

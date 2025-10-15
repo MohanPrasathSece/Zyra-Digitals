@@ -11,30 +11,47 @@ const Portfolio = () => {
   const testimonials = [
     {
       quote:
-        "Amazing experience. The website delivery was fast, the quality was very good, and the pricing was affordable. Highly recommend!",
+        "Working with Mohan from Zyra Digitals for our Sevak AI project was exceptional. His deep understanding of AI-driven platforms and attention to detail created a website that showcases our mobile app development expertise beautifully.",
       author: "Debasish",
       role: "CEO and Founder, Sevak AI",
       avatarInitial: "D",
     },
     {
       quote:
-        "Zyra Digitals built a beautiful, fast website for our cafe. Online menu, gallery, and Google Maps integration made it easy for customers to discover us and visit.",
+        "Zyra Digitals transformed our cafe's online presence with their innovative approach. Mohan delivered a fast, responsive website for California Cafe that integrates online menus and location services seamlessly.",
       author: "Martin",
       role: "Owner, California Cafe",
       avatarInitial: "M",
     },
     {
       quote:
-        "Zyra Digitals created an exceptional platform for Present Staffing. The site makes it seamless for recruiters to find employees, with modern features and smooth performance. Excellent work!",
+        "Mohan and the Zyra Digitals team exceeded expectations for GreenTech Solutions. Their innovative design approach and flawless execution delivered a website that captures our sustainable technology mission perfectly.",
+      author: "Jennifer",
+      role: "CEO, GreenTech Solutions",
+      avatarInitial: "J",
+    },
+    {
+      quote:
+        "Zyra Digitals created an exceptional recruitment platform for Present Staffing. Mohan's expertise in modern web technologies resulted in a seamless, feature-rich site that streamlines our hiring processes.",
       author: "Ashish",
       role: "Founder, Present Staffing",
       avatarInitial: "A",
+    },
+    {
+      quote:
+        "Working with Mohan from Zyra Digitals was an absolute pleasure for TechStart Inc. His professional approach and technical expertise transformed our vision into a stunning marketing platform.",
+      author: "Sarah",
+      role: "Marketing Director, TechStart Inc.",
+      avatarInitial: "S",
     },
   ];
 
   const [tIndex, setTIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [projectIndex, setProjectIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   const projects = [
     {
@@ -83,7 +100,7 @@ const Portfolio = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setTIndex((i) => (i + 1) % testimonials.length);
-    }, 4000);
+    }, 11000);
     return () => clearInterval(id);
   }, [testimonials.length]);
 
@@ -103,6 +120,26 @@ const Portfolio = () => {
       });
     }
   }, [projectIndex]);
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
 
   return (
     <div className="pt-20">
@@ -154,6 +191,9 @@ const Portfolio = () => {
             <div
               ref={scrollRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 scroll-smooth [scrollbar-gutter:stable] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:bg-border"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               {projects.map((project, index) => (
                 <div key={index} className="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] snap-start">

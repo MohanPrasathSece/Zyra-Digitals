@@ -28,7 +28,7 @@ export const Footer = () => {
 
           {/* Connect - Centered */}
           <div className="text-center">
-            <h3 className="font-subheading text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="font-subheading text-lg font-semibold mb-4 mt-4">Connect</h3>
             <div className="space-y-2 text-primary-foreground/80">
               <a
                 href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT.email)}&su=${encodeURIComponent('Project Inquiry from Website')}&body=${encodeURIComponent("Hi Zyra Digitals,\n\nI'm interested in working with you. Please get back to me with next steps.\n\nThanks,")}`}
@@ -45,7 +45,7 @@ export const Footer = () => {
 
           {/* Social (right aligned) */}
           <div className="text-center md:text-right">
-            <h3 className="font-subheading text-lg font-semibold mb-4">Follow</h3>
+            <h3 className="font-subheading text-lg font-semibold mb-4 mt-4">Follow</h3>
             <div className="flex justify-center md:justify-end items-center gap-6">
               <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/80 hover:text-gold transition-colors"><Instagram size={30} /></a>
               <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-gold transition-colors"><Linkedin size={30} /></a>

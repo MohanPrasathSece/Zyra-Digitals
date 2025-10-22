@@ -5,6 +5,7 @@ import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import { Quote, ChevronRight, ChevronLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -48,7 +49,6 @@ const Portfolio = () => {
 
   const [tIndex, setTIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [projectIndex, setProjectIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -104,22 +104,6 @@ const Portfolio = () => {
     return () => clearInterval(id);
   }, [testimonials.length]);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setProjectIndex((i) => (i + 1) % projects.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, [projects.length]);
-
-  useEffect(() => {
-    if (scrollRef.current && projectIndex > 0) {
-      const cardWidth = 380; // lg:min-w-[380px] + gap-6 (24px) = ~404px, but using 380 for safety
-      scrollRef.current.scrollTo({
-        left: projectIndex * cardWidth,
-        behavior: "smooth"
-      });
-    }
-  }, [projectIndex]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -143,6 +127,26 @@ const Portfolio = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Portfolio | Zyra Digitals</title>
+        <meta name="description" content="Explore selected projects by Zyra Digitals showcasing premium design, performance, and elegant user experiences." />
+        <link rel="canonical" href="https://www.zyradigitals.info/portfolio" />
+        <meta property="og:title" content="Portfolio | Zyra Digitals" />
+        <meta property="og:description" content="A curated selection of work that demonstrates our commitment to quality and performance." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zyradigitals.info/portfolio" />
+        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
+            { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.zyradigitals.info/portfolio" }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,6 +166,27 @@ const Portfolio = () => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 scroll-smooth [scrollbar-gutter:stable] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:bg-border"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {projects.map((project, index) => (
+              <div key={index} className="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] snap-start">
+                <ProjectCard
+                  image={project.image}
+                  title={project.title}
+                  category={project.category}
+                  onClick={() => setSelectedProject(index)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom navigation controls */}
+          <div className="flex items-center justify-center gap-3 mt-6">
             <button
               type="button"
               onClick={() => {
@@ -169,12 +194,11 @@ const Portfolio = () => {
                 if (!el) return;
                 el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
               }}
-              aria-label="Scroll left"
-              className="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-card/90 backdrop-blur border border-border rounded-full p-2 shadow-lg hover:bg-card transition-all duration-200 hover:scale-110"
+              aria-label="Previous projects"
+              className="inline-flex items-center justify-center bg-card/90 backdrop-blur border border-border rounded-full p-2 shadow-md hover:bg-card transition-all duration-200 hover:scale-105"
             >
               <ChevronLeft className="text-foreground" size={20} />
             </button>
-
             <button
               type="button"
               onClick={() => {
@@ -182,31 +206,13 @@ const Portfolio = () => {
                 if (!el) return;
                 el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
               }}
-              aria-label="Scroll right"
-              className="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-card/90 backdrop-blur border border-border rounded-full p-2 shadow-lg hover:bg-card transition-all duration-200 hover:scale-110"
+              aria-label="Next projects"
+              className="inline-flex items-center justify-center bg-card/90 backdrop-blur border border-border rounded-full p-2 shadow-md hover:bg-card transition-all duration-200 hover:scale-105"
             >
               <ChevronRight className="text-foreground" size={20} />
             </button>
-
-            <div
-              ref={scrollRef}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 scroll-smooth [scrollbar-gutter:stable] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:bg-border"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {projects.map((project, index) => (
-                <div key={index} className="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] snap-start">
-                  <ProjectCard
-                    image={project.image}
-                    title={project.title}
-                    category={project.category}
-                    onClick={() => setSelectedProject(index)}
-                  />
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
         </div>
       </section>
 

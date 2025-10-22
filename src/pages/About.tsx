@@ -1,5 +1,7 @@
 // About page reworked to match the requested layout (Story + Values + Approach)
 
+import { Helmet } from "react-helmet-async";
+
 const About = () => {
   const values = [
     {
@@ -22,6 +24,26 @@ const About = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>About | Zyra Digitals</title>
+        <meta name="description" content="Boutique web development studio crafting elegant, high-performance digital experiences with precision and care." />
+        <link rel="canonical" href="https://www.zyradigitals.info/about" />
+        <meta property="og:title" content="About | Zyra Digitals" />
+        <meta property="og:description" content="Premium digital craftsmanship: our story, values, and approach to building exceptional websites." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zyradigitals.info/about" />
+        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "https://www.zyradigitals.info/about" }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

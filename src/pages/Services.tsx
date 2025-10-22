@@ -1,6 +1,7 @@
 import { Code, User, Briefcase, ShoppingCart, Search, Server, RefreshCw, Bot, CheckCircle, ArrowRight, Zap, Shield, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const coreServices = [
@@ -49,6 +50,26 @@ const Services = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Services | Zyra Digitals</title>
+        <meta name="description" content="Premium website development, business sites, portfolios, e‑commerce, SEO, hosting, and redesign services crafted to perform and convert." />
+        <link rel="canonical" href="https://www.zyradigitals.info/services" />
+        <meta property="og:title" content="Services | Zyra Digitals" />
+        <meta property="og:description" content="From concept to launch: web development, portfolios, business websites, e‑commerce, SEO and more." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zyradigitals.info/services" />
+        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://www.zyradigitals.info/services" }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

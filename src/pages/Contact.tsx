@@ -1,10 +1,31 @@
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ } from "@/components/FAQ";
 import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Contact | Zyra Digitals</title>
+        <meta name="description" content="Contact Zyra Digitals to discuss your project. Let's build a premium, high-performance website together." />
+        <link rel="canonical" href="https://www.zyradigitals.info/contact" />
+        <meta property="og:title" content="Contact | Zyra Digitals" />
+        <meta property="og:description" content="Have a project in mind? Reach out and let's create something exceptional." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zyradigitals.info/contact" />
+        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
+            { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.zyradigitals.info/contact" }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

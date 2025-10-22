@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQ } from "@/components/FAQ";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const services = [
@@ -55,6 +56,25 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Zyra Digitals | Premium Web Development Studio</title>
+        <meta name="description" content="Zyra Digitals crafts premium, high-performance websites and digital experiences. Bespoke design, modern tech, and SEO-first builds for brands that care about quality." />
+        <link rel="canonical" href="https://www.zyradigitals.info/" />
+        <meta property="og:title" content="Zyra Digitals | Premium Web Development Studio" />
+        <meta property="og:description" content="Premium, high-performance websites and digital experiences with bespoke design and SEO-first builds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zyradigitals.info/" />
+        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <Hero />
 

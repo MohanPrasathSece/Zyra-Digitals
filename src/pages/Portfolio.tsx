@@ -13,38 +13,45 @@ const Portfolio = () => {
   const testimonials = [
     {
       quote:
-        "Working with Mohan from Zyra Digitals for our Sevak AI project was exceptional. His deep understanding of AI-driven platforms and attention to detail created a website that showcases our mobile app development expertise beautifully.",
-      author: "Debasish",
-      role: "CEO and Founder, Sevak AI",
-      avatarInitial: "D",
-    },
-    {
-      quote:
-        "Zyra Digitals transformed our cafe's online presence with their innovative approach. Mohan delivered a fast, responsive website for California Cafe that integrates online menus and location services seamlessly.",
-      author: "Martin",
-      role: "Owner, California Cafe",
-      avatarInitial: "M",
-    },
-    {
-      quote:
-        "Mohan and the Zyra Digitals team exceeded expectations for GreenTech Solutions. Their innovative design approach and flawless execution delivered a website that captures our sustainable technology mission perfectly.",
-      author: "Jennifer",
-      role: "CEO, GreenTech Solutions",
-      avatarInitial: "J",
-    },
-    {
-      quote:
-        "Zyra Digitals created an exceptional recruitment platform for Present Staffing. Mohan's expertise in modern web technologies resulted in a seamless, feature-rich site that streamlines our hiring processes.",
-      author: "Ashish",
-      role: "Founder, Present Staffing",
+        "SevakAi Labs finally looks as smart as the AI we build. Mohan understood the nuance of our business and shipped a site that feels premium, fast, and investor-ready.",
+      author: "Arjun Nambiar",
+      role: "Founder, SevakAi Labs",
       avatarInitial: "A",
     },
     {
       quote:
-        "Working with Mohan from Zyra Digitals was an absolute pleasure for TechStart Inc. His professional approach and technical expertise transformed our vision into a stunning marketing platform.",
-      author: "Sarah",
-      role: "Marketing Director, TechStart Inc.",
+        "AmzCoz needed a partner who could show our Amazon growth story with proof and polish. Zyra Digitals nailed the messaging and gave us a lead magnet that converts.",
+      author: "Priya Deshpande",
+      role: "Co-Founder, AmzCoz",
+      avatarInitial: "P",
+    },
+    {
+      quote:
+        "Our endodontic practice relies on trust. The Precision Root Canal website Mohan crafted reflects our clinical precision and makes booking effortless for London patients.",
+      author: "Dr. Rohan Kulkarni",
+      role: "Specialist Endodontist, Precision Root Canal Therapy",
+      avatarInitial: "R",
+    },
+    {
+      quote:
+        "Hamburg Homeopathy Clinic now feels as warm online as it does in person. The storytelling, timelines, and team section capture our ethos beautifully.",
+      author: "Meera Iyer",
+      role: "Founder, Hamburg Homeopathy Clinic",
+      avatarInitial: "M",
+    },
+    {
+      quote:
+        "Elevaré needed a digital space that matched our leadership labs. Zyra Digitals translated our narrative into a bold WordPress experience that wins corporate mandates.",
+      author: "Sanjana Mehta",
+      role: "Principal Consultant, Elevaré Leadership Consulting",
       avatarInitial: "S",
+    },
+    {
+      quote:
+        "$404X is meant to feel like a glitchy adventure. Mohan's team delivered an immersive React experience that our community can't stop talking about.",
+      author: "Varun Rao",
+      role: "Creative Producer, 404X Collective",
+      avatarInitial: "V",
     },
   ];
 

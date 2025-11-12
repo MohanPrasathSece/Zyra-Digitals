@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
@@ -18,27 +19,36 @@ interface ProjectModalProps {
     technologies: string[];
     link?: string;
     scale?: string;
+    details?: ReactNode;
   };
 }
 
 export const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="w-[92vw] max-w-xl sm:w-[90vw] sm:max-w-3xl">
         <DialogHeader>
           <DialogTitle className="font-heading text-2xl">{project.title}</DialogTitle>
           <DialogDescription className="text-gold">{project.category}</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full rounded-lg scale-100"
-            loading="lazy"
-          />
+          <div className="w-full overflow-hidden rounded-lg bg-muted aspect-video">
+            <img
+              src={project.image}
+              alt={project.title}
+              className={`h-full w-full object-cover ${project.scale ?? "scale-100"}`}
+              loading="lazy"
+            />
+          </div>
 
           <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+
+          {project.details && (
+            <div className="space-y-6 text-sm sm:text-base text-muted-foreground">
+              {project.details}
+            </div>
+          )}
 
           <div>
             <h4 className="font-heading font-semibold mb-2">Technologies Used</h4>

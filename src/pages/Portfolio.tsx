@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectModal } from "@/components/ProjectModal";
+import { Button } from "@/components/ui/button";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
-import { Quote, ChevronRight, ChevronLeft } from "lucide-react";
+import { Quote, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 const Portfolio = () => {
@@ -55,13 +56,59 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Sevak AI",
+      title: "SevakAi Labs",
       category: "Portfolio",
       image: "https://i.ibb.co/7xdvzpWm/Untitled-design-1.png",
       description:
         "A portfolio website for a mobile app development company leveraging AI and ad-driven growth. Showcasing many clients and successful apps, built to highlight credibility, case studies, and services.",
       technologies: ["HTML", "CSS", "JavaScript"],
       scale: "scale-80",
+      link: "https://sevak-ai-blue.vercel.app",
+    },
+    {
+      title: "AmzCoz",
+      category: "E-Commerce Growth",
+      image: "/images/Portfolio_projects/amzcoz.png",
+      description:
+        "An Amazon growth and e-commerce success partner offering end-to-end account management, advertising, and strategic support for brands across the globe.",
+      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      link: "https://amzcoz.com",
+    },
+    {
+      title: "Precision Root Canal Therapy & Hygiene",
+      category: "Healthcare",
+      image: "/images/Portfolio_projects/precision.png",
+      description:
+        "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
+      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      link: "https://precision-rootcanal.vercel.app/index.html",
+    },
+    {
+      title: "Hamburg Homeopathy Clinic",
+      category: "Healthcare",
+      image: "/images/Portfolio_projects/hamburg.png",
+      description:
+        "A holistic homeopathy clinic experience highlighting mission, milestones, practitioner bios, and patient success to build trust and drive appointment bookings.",
+      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      link: "https://hamburghomeopathy.com",
+    },
+    {
+      title: "Elevaré Leadership Consulting",
+      category: "Consulting",
+      image: "/images/Portfolio_projects/elevare.png",
+      description:
+        "A leadership consulting site built with WordPress and Elementor, designed to showcase transformative programs, focus areas, and consultant profiles with strong calls to action.",
+      technologies: ["WordPress", "Elementor", "CSS"],
+      link: "https://elevare-leadership.com",
+    },
+    {
+      title: "Error 404",
+      category: "Web Experience",
+      image: "/images/Portfolio_projects/error-404.png",
+      description:
+        "A playful, glitch-inspired landing experience for the $404X token, packed with terminal-style effects, interactive puzzles, and immersive storytelling.",
+      technologies: ["React", "Tailwind CSS"],
+      link: "https://www.lostinthe404.world",
     },
     {
       title: "Luxe Commerce",
@@ -78,22 +125,6 @@ const Portfolio = () => {
       description:
         "A platform for recruiters to find employees, featuring advanced search filters, candidate matching, and streamlined hiring processes. Built for efficiency and user experience.",
       technologies: ["React", "TypeScript", "Node.js"],
-    },
-    {
-      title: "Portfolio Studio",
-      category: "Portfolio",
-      image: project2,
-      description:
-        "A minimalist portfolio website for a creative professional, showcasing work with elegant galleries, smooth transitions, and responsive design.",
-      technologies: ["React", "Next.js", "Framer Motion", "Sanity CMS"],
-    },
-    {
-      title: "Corporate Elite",
-      category: "Corporate",
-      image: project3,
-      description:
-        "A sophisticated corporate website featuring dynamic content management, team profiles, and integrated contact solutions for a professional services firm.",
-      technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     },
   ];
 
@@ -168,7 +199,7 @@ const Portfolio = () => {
           <div className="relative">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 scroll-smooth [scrollbar-gutter:stable] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:bg-border"
+            className="flex gap-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-2 scroll-smooth [scrollbar-gutter:stable] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:bg-border"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -180,6 +211,26 @@ const Portfolio = () => {
                   title={project.title}
                   category={project.category}
                   onClick={() => setSelectedProject(index)}
+                  action={
+                    project.link && (
+                      <Button
+                        asChild
+                        variant="gold"
+                        size="sm"
+                        className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-full px-5 py-0.5 text-sm font-semibold shadow-md transition hover:shadow-lg sm:w-auto"
+                      >
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1"
+                        >
+                          View Live Site
+                          <ExternalLink size={16} className="transition group-hover:translate-x-0.5" />
+                        </a>
+                      </Button>
+                    )
+                  }
                 />
               </div>
             ))}

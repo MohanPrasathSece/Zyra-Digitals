@@ -63,6 +63,15 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "Precision Root Canal Therapy & Hygiene",
+      category: "Healthcare",
+      image: "/images/Portfolio_projects/precision.png",
+      description:
+        "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      link: "https://precision-rootcanal.vercel.app/index.html",
+    },
+    {
       title: "Lumi & Co.",
       category: "Luxury Jewelry",
       image: "/images/Portfolio_projects/lumi.png",
@@ -128,16 +137,6 @@ const Portfolio = () => {
       ),
     },
     {
-      title: "SevakAi Labs",
-      category: "Portfolio",
-      image: "https://i.ibb.co/7xdvzpWm/Untitled-design-1.png",
-      description:
-        "A portfolio website for a mobile app development company leveraging AI and ad-driven growth. Showcasing many clients and successful apps, built to highlight credibility, case studies, and services.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      scale: "scale-80",
-      link: "https://sevak-ai-blue.vercel.app",
-    },
-    {
       title: "AmzCoz",
       category: "E-Commerce Growth",
       image: "/images/Portfolio_projects/amzcoz.png",
@@ -147,15 +146,6 @@ const Portfolio = () => {
       link: "https://amzcoz.com",
     },
     {
-      title: "Precision Root Canal Therapy & Hygiene",
-      category: "Healthcare",
-      image: "/images/Portfolio_projects/precision.png",
-      description:
-        "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      link: "https://precision-rootcanal.vercel.app/index.html",
-    },
-    {
       title: "Hamburg Homeopathy Clinic",
       category: "Healthcare",
       image: "/images/Portfolio_projects/hamburg.png",
@@ -163,6 +153,16 @@ const Portfolio = () => {
         "A holistic homeopathy clinic experience highlighting mission, milestones, practitioner bios, and patient success to build trust and drive appointment bookings.",
       technologies: ["WordPress", "Elementor"],
       link: "https://hamburghomeopathy.com",
+    },
+    {
+      title: "SevakAi Labs",
+      category: "Portfolio",
+      image: "https://i.ibb.co/7xdvzpWm/Untitled-design-1.png",
+      description:
+        "A portfolio website for a mobile app development company leveraging AI and ad-driven growth. Showcasing many clients and successful apps, built to highlight credibility, case studies, and services.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      scale: "scale-80",
+      link: "https://sevak-ai-blue.vercel.app",
     },
     {
       title: "Elevaré Leadership Consulting",
@@ -181,14 +181,6 @@ const Portfolio = () => {
         "A playful, glitch-inspired landing experience for the $404X token, packed with terminal-style effects, interactive puzzles, and immersive storytelling.",
       technologies: ["HTML", "CSS", "JavaScript"],
       link: "https://www.lostinthe404.world",
-    },
-    {
-      title: "Luxe Commerce",
-      category: "E-Commerce",
-      image: project1,
-      description:
-        "A premium e-commerce platform featuring custom product filtering, seamless checkout, and an elegant shopping experience. Built with performance and conversion in mind.",
-      technologies: ["React", "Node.js", "Stripe", "Tailwind CSS"],
     },
     {
       title: "Present Staffing",

@@ -40,7 +40,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale" aria-label="Zyra Digitals Home">
             <img
-              src="/images/whitelogo.png"
+              src="/images/logo.jpg"
               alt="Zyra Digitals logo"
               className="h-10 md:h-22 w-auto object-contain shrink-0"
             />

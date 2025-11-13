@@ -76,66 +76,9 @@ const Portfolio = () => {
       category: "Luxury Jewelry",
       image: "/images/Portfolio_projects/lumi.png",
       description:
-        "A luminous jewelry house experience that combines timeless storytelling, artisan craftsmanship, and ethical luxury for modern women seeking signature pieces.",
+        "A luxury jewelry brand website highlighting signature collections with an elegant shopping experience.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
       link: "https://lumi-co.vercel.app",
-      details: (
-        <div className="space-y-6">
-          <div>
-            <h5 className="font-subheading font-semibold text-foreground mb-2">Navigation</h5>
-            <ul className="list-disc list-inside text-muted-foreground space-y-1">
-              <li>Home</li>
-              <li>About</li>
-              <li>Products</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-          <div className="space-y-3 text-muted-foreground">
-            <p className="italic text-foreground/80">“Crafted with grace, worn with confidence.”</p>
-            <div>
-              <h5 className="font-subheading font-semibold text-foreground mb-2">Our Story</h5>
-              <p>
-                Born in Pune, Lumi &amp; Co. celebrates timeless beauty through handcrafted jewelry. Each
-                collection is designed by artisans who blend heritage techniques with contemporary
-                silhouettes, creating companions for life’s most luminous moments.
-              </p>
-              <p>
-                The brand sources rose gold with warm radiance, ethically mined gemstones, and embraces
-                sustainable practices that honor both craft and planet.
-              </p>
-            </div>
-            <div>
-              <h5 className="font-subheading font-semibold text-foreground mb-2">What We Stand For</h5>
-              <ul className="list-disc list-inside space-y-2">
-                <li>
-                  <span className="font-semibold text-foreground">Timeless Design:</span> Classic elegance to
-                  be treasured for generations.
-                </li>
-                <li>
-                  <span className="font-semibold text-foreground">Sustainability:</span> Ethically sourced
-                  materials and conscious processes.
-                </li>
-                <li>
-                  <span className="font-semibold text-foreground">Craftsmanship:</span> Meticulous attention to
-                  detail by master artisans.
-                </li>
-              </ul>
-            </div>
-            <blockquote className="border-l-4 border-gold/60 pl-4 text-foreground italic">
-              “Jewelry is not an accessory. It&apos;s a reflection of the woman who wears it.”
-            </blockquote>
-            <p className="font-heading text-lg text-foreground">
-              Lumi &amp; Co. — Elegance that illuminates your essence.
-            </p>
-          </div>
-          <div className="text-sm text-muted-foreground">
-            <p>
-              © 2025 Lumi &amp; Co. All rights reserved. Crafted digitally by Zyra Digitals with a focus on
-              immersive storytelling and effortless product discovery.
-            </p>
-          </div>
-        </div>
-      ),
     },
     {
       title: "AmzCoz",

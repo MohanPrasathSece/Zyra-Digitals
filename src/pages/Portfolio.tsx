@@ -78,6 +78,7 @@ const Portfolio = () => {
       description:
         "A luminous jewelry house experience that combines timeless storytelling, artisan craftsmanship, and ethical luxury for modern women seeking signature pieces.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+      link: "https://lumi-co.vercel.app",
       details: (
         <div className="space-y-6">
           <div>

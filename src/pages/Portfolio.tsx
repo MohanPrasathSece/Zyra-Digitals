@@ -78,7 +78,7 @@ const Portfolio = () => {
       image: "/images/Portfolio_projects/amzcoz.png",
       description:
         "An Amazon growth and e-commerce success partner offering end-to-end account management, advertising, and strategic support for brands across the globe.",
-      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      technologies: ["ReactJS", "Tailwind CSS"],
       link: "https://amzcoz.com",
     },
     {
@@ -87,7 +87,7 @@ const Portfolio = () => {
       image: "/images/Portfolio_projects/precision.png",
       description:
         "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
-      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      technologies: ["HTML", "CSS", "JavaScript"],
       link: "https://precision-rootcanal.vercel.app/index.html",
     },
     {
@@ -96,7 +96,7 @@ const Portfolio = () => {
       image: "/images/Portfolio_projects/hamburg.png",
       description:
         "A holistic homeopathy clinic experience highlighting mission, milestones, practitioner bios, and patient success to build trust and drive appointment bookings.",
-      technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+      technologies: ["WordPress", "Elementor"],
       link: "https://hamburghomeopathy.com",
     },
     {
@@ -105,7 +105,7 @@ const Portfolio = () => {
       image: "/images/Portfolio_projects/elevare.png",
       description:
         "A leadership consulting site built with WordPress and Elementor, designed to showcase transformative programs, focus areas, and consultant profiles with strong calls to action.",
-      technologies: ["WordPress", "Elementor", "CSS"],
+      technologies: ["WordPress", "Elementor"],
       link: "https://elevare-leadership.com",
     },
     {
@@ -114,7 +114,7 @@ const Portfolio = () => {
       image: "/images/Portfolio_projects/error-404.png",
       description:
         "A playful, glitch-inspired landing experience for the $404X token, packed with terminal-style effects, interactive puzzles, and immersive storytelling.",
-      technologies: ["React", "Tailwind CSS"],
+      technologies: ["HTML", "CSS", "JavaScript"],
       link: "https://www.lostinthe404.world",
     },
     {
@@ -131,7 +131,7 @@ const Portfolio = () => {
       image: "https://i.ibb.co/Y4LL5j14/Untitled-design.png",
       description:
         "A platform for recruiters to find employees, featuring advanced search filters, candidate matching, and streamlined hiring processes. Built for efficiency and user experience.",
-      technologies: ["React", "TypeScript", "Node.js"],
+      technologies: ["ReactJS"],
     },
   ];
 

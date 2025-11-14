@@ -36,13 +36,13 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-[4.75rem] md:h-[5.5rem]">
           {/* Logo */}
-          <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale" aria-label="Zyra Digitals Home">
+          <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale my-2 md:my-3" aria-label="Zyra Digitals Home">
             <img
               src="/images/logo.jpg"
               alt="Zyra Digitals logo"
-              className="h-10 md:h-22 w-auto object-contain shrink-0"
+              className="h-8 md:h-[4rem] w-auto object-contain shrink-0"
             />
           </Link>
 

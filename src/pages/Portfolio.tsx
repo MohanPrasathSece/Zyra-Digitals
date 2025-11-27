@@ -126,14 +126,7 @@ const Portfolio = () => {
       technologies: ["HTML", "CSS", "JavaScript"],
       link: "https://www.lostinthe404.world",
     },
-    {
-      title: "Present Staffing",
-      category: "Recruitment",
-      image: "https://i.ibb.co/Y4LL5j14/Untitled-design.png",
-      description:
-        "A platform for recruiters to find employees, featuring advanced search filters, candidate matching, and streamlined hiring processes. Built for efficiency and user experience.",
-      technologies: ["ReactJS"],
-    },
+
   ];
 
   useEffect(() => {

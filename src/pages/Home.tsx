@@ -58,10 +58,10 @@ const Home = () => {
     <div>
       <Helmet>
         <title>Zyra Digitals | Premium Web Development Studio</title>
-        <meta name="description" content="Zyra Digitals crafts premium, high-performance websites and digital experiences. Bespoke design, modern tech, and SEO-first builds for brands that care about quality." />
+        <meta name="description" content="Zyra Digitals crafts premium, high-performance websites and digital experiences. Bespoke design, modern tech, and SEO-first builds for brands that care about quality. Founded by Mohan Prasath S." />
         <link rel="canonical" href="https://www.zyradigitals.info/" />
         <meta property="og:title" content="Zyra Digitals | Premium Web Development Studio" />
-        <meta property="og:description" content="Premium, high-performance websites and digital experiences with bespoke design and SEO-first builds." />
+        <meta property="og:description" content="Premium, high-performance websites and digital experiences with bespoke design and SEO-first builds. Founded by Mohan Prasath S." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zyradigitals.info/" />
         <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
@@ -69,9 +69,18 @@ const Home = () => {
         <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" }
+          "@type": "Organization",
+          "name": "Zyra Digitals",
+          "url": "https://www.zyradigitals.info/",
+          "logo": "https://www.zyradigitals.info/images/logo.jpg",
+          "founder": {
+            "@type": "Person",
+            "name": "Mohan Prasath S"
+          },
+          "description": "Premium web development studio crafting elegant, high-performance digital experiences.",
+          "sameAs": [
+            "https://www.instagram.com/zyradigitals.co/",
+            "https://www.linkedin.com/company/zyra-digitals/"
           ]
         })}</script>
       </Helmet>
@@ -105,7 +114,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <FAQ 
+      <FAQ
         title="Common Questions"
         subtitle="Quick answers to help you get started with your project"
         faqs={homeFAQs}

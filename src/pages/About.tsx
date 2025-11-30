@@ -26,10 +26,10 @@ const About = () => {
     <div className="pt-20">
       <Helmet>
         <title>About | Zyra Digitals</title>
-        <meta name="description" content="Boutique web development studio crafting elegant, high-performance digital experiences with precision and care." />
+        <meta name="description" content="Boutique web development studio crafting elegant, high-performance digital experiences with precision and care. Founded by Mohan Prasath S." />
         <link rel="canonical" href="https://www.zyradigitals.info/about" />
         <meta property="og:title" content="About | Zyra Digitals" />
-        <meta property="og:description" content="Premium digital craftsmanship: our story, values, and approach to building exceptional websites." />
+        <meta property="og:description" content="Premium digital craftsmanship: our story, values, and approach to building exceptional websites. Founded by Mohan Prasath S." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zyradigitals.info/about" />
         <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
@@ -37,11 +37,22 @@ const About = () => {
         <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
-            { "@type": "ListItem", position: 2, name: "About", item: "https://www.zyradigitals.info/about" }
-          ]
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Zyra Digitals",
+            "founder": {
+              "@type": "Person",
+              "name": "Mohan Prasath S"
+            }
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
+              { "@type": "ListItem", position: 2, name: "About", item: "https://www.zyradigitals.info/about" }
+            ]
+          }
         })}</script>
       </Helmet>
       {/* Hero Section */}
@@ -52,7 +63,7 @@ const About = () => {
               About Zyra Digitals
             </h1>
             <p className="font-secondary text-base sm:text-lg text-muted-foreground leading-relaxed">
-              A boutique web development studio dedicated to crafting premium digital experiences 
+              A boutique web development studio dedicated to crafting premium digital experiences
               with a focus on elegance, performance, and exclusivity.
             </p>
           </div>

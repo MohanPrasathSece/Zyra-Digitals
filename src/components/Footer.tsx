@@ -5,7 +5,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   // TODO: Replace with your real contact details
   const CONTACT = {
-    email: "zyradigitalsofficial@email.com",
+    email: "zyradigitalsofficial@gmail.com",
     phone: "9025421149",
     whatsapp: "9025421149",
   };

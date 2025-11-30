@@ -20,7 +20,7 @@ export const ContactForm = () => {
 
     // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
     // For now, using mailto as fallback
-    const mailtoLink = `mailto:zyradigitalsofficial@email.com?subject=Contact from ${encodeURIComponent(
+    const mailtoLink = `mailto:zyradigitalsofficial@gmail.com?subject=Contact from ${encodeURIComponent(
       formData.name
     )}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(
       formData.email
@@ -89,8 +89,8 @@ export const ContactForm = () => {
 
       <p className="text-sm text-muted-foreground text-center">
         Or email us directly at{" "}
-        <a href="mailto:zyradigitalsofficial@email.com" className="text-gold hover:underline">
-          zyradigitalsofficial@email.com
+        <a href="mailto:zyradigitalsofficial@gmail.com" className="text-gold hover:underline">
+          zyradigitalsofficial@gmail.com
         </a>
       </p>
     </form>

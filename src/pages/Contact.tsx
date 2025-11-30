@@ -34,7 +34,7 @@ const Contact = () => {
               Let's Create Together
             </h1>
             <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
-              Have a project in mind? We'd love to hear about it. 
+              Have a project in mind? We'd love to hear about it.
               Reach out and let's discuss how we can bring your vision to life.
             </p>
           </div>
@@ -60,7 +60,7 @@ const Contact = () => {
                   Get in Touch
                 </h2>
                 <p className="font-secondary text-lg text-muted-foreground leading-relaxed mb-8">
-                  Whether you have a detailed project brief or just an idea you'd like to explore, 
+                  Whether you have a detailed project brief or just an idea you'd like to explore,
                   we're here to help. Contact us through the form or reach out directly.
                 </p>
               </div>
@@ -73,10 +73,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-subheading font-semibold text-foreground mb-1">Email</h3>
                     <a
-                      href="mailto:zyradigitalsofficial@email.com"
+                      href="mailto:zyradigitalsofficial@gmail.com"
                       className="font-secondary text-muted-foreground hover:text-gold transition-colors"
                     >
-                      zyradigitalsofficial@email.com
+                      zyradigitalsofficial@gmail.com
                     </a>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <FAQ 
+      <FAQ
         title="Common Questions"
         subtitle="Find answers to common questions about our services and process"
         className="bg-gradient-to-br from-background via-primary/5 to-gold/5"

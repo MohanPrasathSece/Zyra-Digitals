@@ -50,52 +50,33 @@ export const Footer = () => {
         {/* Mobile Footer */}
         <div 
           ref={footerRef}
-          className={`md:hidden bg-primary text-primary-foreground px-6 py-8 transition-all duration-700 ease-out transform ${
+          className={`md:hidden bg-primary text-primary-foreground px-6 py-8 rounded-t-3xl transition-all duration-700 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <div className="text-center">
-            <img src="/images/whitelogo.png" alt="Zyra Digitals logo" className="w-28 h-18 object-contain mx-auto mb-4" />
+            <img src="/images/whitelogo.png" alt="Zyra Digitals logo" className="w-20 h-12 object-contain mx-auto mb-4" />
             <p className="text-sm text-primary-foreground/80 mb-6 px-4">Premium web development studio crafting exceptional digital experiences.</p>
             
-            {/* Quick Links */}
-            <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
-              <div>
-                <h4 className="font-semibold mb-2 text-gold">Services</h4>
-                <ul className="space-y-1">
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-gold transition-colors">Web Development</a></li>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-gold transition-colors">Portfolios</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-gold">Company</h4>
-                <ul className="space-y-1">
-                  <li><a href="/about" className="text-primary-foreground/70 hover:text-gold transition-colors">About</a></li>
-                  <li><a href="/portfolio" className="text-primary-foreground/70 hover:text-gold transition-colors">Portfolio</a></li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div className="mb-6 text-sm">
-              <a href={`mailto:${CONTACT.email}`} className="text-primary-foreground/80 hover:text-gold transition-colors block mb-1">
-                {CONTACT.email}
-              </a>
-              <a href={`tel:${CONTACT.phone}`} className="text-primary-foreground/80 hover:text-gold transition-colors">
-                {CONTACT.phone}
-              </a>
-            </div>
-
+            {/* Navigation Links */}
+            <nav className="flex flex-wrap justify-center gap-4 mb-6 text-sm">
+              <a href="/" className="text-primary-foreground/70 hover:text-gold transition-colors">Home</a>
+              <a href="/about" className="text-primary-foreground/70 hover:text-gold transition-colors">About</a>
+              <a href="/services" className="text-primary-foreground/70 hover:text-gold transition-colors">Services</a>
+              <a href="/portfolio" className="text-primary-foreground/70 hover:text-gold transition-colors">Portfolio</a>
+              <a href="/contact" className="text-primary-foreground/70 hover:text-gold transition-colors">Contact</a>
+            </nav>
+            
             {/* Social Links */}
-            <div className="flex justify-center gap-4 mb-4">
-              <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                <Instagram size={18} />
+            <div className="flex justify-center gap-6 mb-4">
+              <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/70 hover:text-gold transition-colors">
+                <Instagram size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                <Linkedin size={18} />
+              <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/70 hover:text-gold transition-colors">
+                <Linkedin size={20} />
               </a>
             </div>
-            <p className="text-xs text-primary-foreground/60">© {currentYear} Zyra Digitals. All rights reserved.</p>
+            <p className="text-xs text-primary-foreground/50">© {currentYear} Zyra Digitals</p>
           </div>
         </div>
 

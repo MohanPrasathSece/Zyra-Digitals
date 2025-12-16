@@ -13,13 +13,6 @@ const Portfolio = () => {
   const testimonials = [
     {
       quote:
-        "SevakAi Labs finally looks as smart as the AI we build. Mohan understood the nuance of our business and shipped a site that feels premium, fast, and investor-ready.",
-      author: "Arjun Nambiar",
-      role: "Founder, SevakAi Labs",
-      avatarInitial: "A",
-    },
-    {
-      quote:
         "AmzCoz needed a partner who could show our Amazon growth story with proof and polish. Zyra Digitals nailed the messaging and gave us a lead magnet that converts.",
       author: "Priya Deshpande",
       role: "Co-Founder, AmzCoz",
@@ -98,17 +91,7 @@ const Portfolio = () => {
       technologies: ["WordPress", "Elementor"],
       link: "https://hamburghomeopathy.com",
     },
-    {
-      title: "SevakAi Labs",
-      category: "Portfolio",
-      image: "https://i.ibb.co/7xdvzpWm/Untitled-design-1.png",
-      description:
-        "A portfolio website for a mobile app development company leveraging AI and ad-driven growth. Showcasing many clients and successful apps, built to highlight credibility, case studies, and services.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      scale: "scale-80",
-      link: "https://sevak-ai-blue.vercel.app",
-    },
-    {
+        {
       title: "Elevaré Leadership Consulting",
       category: "Consulting",
       image: "/images/Portfolio_projects/elevare.png",

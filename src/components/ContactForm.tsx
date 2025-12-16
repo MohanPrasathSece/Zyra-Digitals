@@ -18,23 +18,39 @@ export const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
-    // For now, using mailto as fallback
-    const mailtoLink = `mailto:zyradigitalsofficial@gmail.com?subject=Contact from ${encodeURIComponent(
-      formData.name
-    )}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(
-      formData.email
-    )}`;
+    try {
+      // DYNAMIC URL based on environment
+      // In development, Vite proxys /api to http://localhost:5000/api
+      // In production, the same domain serves both.
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    window.location.href = mailtoLink;
+      const data = await response.json();
 
-    toast({
-      title: "Opening your email client...",
-      description: "Your default email application will open with your message.",
-    });
-
-    setIsSubmitting(false);
-    setFormData({ name: "", email: "", message: "" });
+      if (response.ok) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We've received your message and sent you a confirmation email.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(data.error || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error Sending Message",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

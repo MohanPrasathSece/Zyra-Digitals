@@ -5,8 +5,50 @@ import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQ } from "@/components/FAQ";
 import { Helmet } from "react-helmet-async";
+import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
+  const [servicesVisible, setServicesVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const servicesObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setServicesVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const ctaObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCtaVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (servicesRef.current) {
+      servicesObserver.observe(servicesRef.current);
+    }
+    if (ctaRef.current) {
+      ctaObserver.observe(ctaRef.current);
+    }
+
+    return () => {
+      if (servicesRef.current) {
+        servicesObserver.unobserve(servicesRef.current);
+      }
+      if (ctaRef.current) {
+        ctaObserver.unobserve(ctaRef.current);
+      }
+    };
+  }, []);
+
   const services = [
     {
       icon: Code,
@@ -88,8 +130,13 @@ const Home = () => {
       <Hero />
 
       {/* Services Preview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        ref={servicesRef}
+        className="py-20 bg-background"
+      >
+        <div className={`container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-800 ease-out transform ${
+          servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <div className="text-center mb-16">
             <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
               Our Expertise
@@ -101,7 +148,14 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} index={index} />
+              <div 
+                key={index}
+                className={`transition-all duration-700 ease-out transform delay-${index * 100} ${
+                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                <ServiceCard {...service} index={index} />
+              </div>
             ))}
           </div>
 
@@ -123,19 +177,25 @@ const Home = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-subheading text-5xl sm:text-6xl font-bold mb-6">
-            Ready to Elevate Your Digital Presence?
+      <section 
+        ref={ctaRef}
+        className="py-20 bg-white text-black"
+      >
+        <div className={`container mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-800 ease-out transform ${
+          ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Ready to Elevate Your
+            <span className="block">Digital Presence?</span>
           </h2>
-          <p className="font-secondary text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="font-secondary text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
             Let's collaborate to create something exceptional that sets you apart.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="gold" size="lg" asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="bg-white text-primary border-white hover:bg-white/90">
+            <Button variant="outline" size="lg" asChild className="border-black text-black hover:bg-black hover:text-white px-8 py-3 rounded-lg transition-colors duration-200">
               <Link to="/contact#faq">View All FAQs</Link>
             </Button>
           </div>

@@ -241,23 +241,27 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-white text-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl sm:text-5xl font-bold mb-6">
-            Ready to Transform Your Digital Presence?
-          </h2>
-          <p className="font-secondary text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and create a website that drives real results for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="gold" size="lg" asChild>
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                Start Your Project <ArrowRight size={18} />
-              </a>
-            </Button>
-            <Button variant="ghost" size="lg" asChild className="text-primary-foreground border-primary-foreground/20 hover:bg-white hover:text-primary">
-              <Link to="/portfolio">View Portfolio</Link>
-            </Button>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Ready to Transform Your
+              <span className="block">Digital Presence?</span>
+            </h2>
+            <p className="font-secondary text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss your project and create a website that drives real results for your business.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="gold" size="lg" asChild>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  Start Your Project <ArrowRight size={18} />
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="border-black text-black hover:bg-black hover:text-white px-8 py-3 rounded-lg transition-colors duration-200">
+                <Link to="/portfolio">View Portfolio</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

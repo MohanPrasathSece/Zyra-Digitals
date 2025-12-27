@@ -21,15 +21,15 @@ export function Navbar() {
         }`}
     >
       <div
-        className={`px-6 transition-all duration-300 flex items-center justify-between backdrop-blur-xl bg-white/80 min-h-[50px]
+        className={`px-8 transition-all duration-300 flex items-center justify-between backdrop-blur-xl bg-white/20 min-h-[50px]
           ${scrolled
-            ? 'w-[85%] md:w-[650px] py-0 px-6 rounded-3xl shadow-xl bg-white/90 border border-white/40'
-            : 'w-full py-1.5'
+            ? 'w-[85%] md:w-[650px] py-1 px-8 rounded-lg shadow-xl bg-white/30 border border-white/40'
+            : 'w-full py-1.5 px-48'
           }`}
       >
         <Link
           to="/"
-          className="flex items-center hover-scale transition-transform duration-200 z-50 mr-8"
+          className="flex items-center hover-scale transition-transform duration-200 z-50 mr-0"
           onClick={() => window.scrollTo(0, 0)}
           aria-label="Zyra Digitals Home"
         >
@@ -37,18 +37,30 @@ export function Navbar() {
             src="/images/logo.jpg?v=20251115"
             alt="Zyra Digitals logo"
             className={`h-10 md:h-12 w-auto object-contain shrink-0 transition-all duration-300 ${
-              scrolled ? 'h-16 md:h-20' : ''
+              scrolled ? 'h-11 md:h-12' : ''
             }`}
           />
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-0.5">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/services">Services</NavLink>
-          <NavLink to="/portfolio">Portfolio</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          {scrolled ? (
+            <div className="bg-black rounded-xl border border-gray-800 p-1 flex items-center space-x-0.5">
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/services">Services</NavLink>
+              <NavLink to="/portfolio">Portfolio</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
+            </div>
+          ) : (
+            <>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/services">Services</NavLink>
+              <NavLink to="/portfolio">Portfolio</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -134,15 +146,28 @@ export function Navbar() {
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   const location = useLocation()
+  const [scrolled, setScrolled] = useState(false)
   const isActive = location.pathname === to
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   
   return (
     <Link
       to={to}
-      className={`px-4 py-2 text-base font-medium rounded-xl border transition-all duration-200 ${
-        isActive 
-          ? "text-black bg-gray-100/70 shadow-sm border-gray-300/50" 
-          : "text-gray-600 hover:text-black hover:bg-gray-100/50 border-gray-200/50 hover:border-gray-300/70"
+      className={`group relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
+        scrolled 
+          ? (isActive 
+              ? "text-white bg-white/20 shadow-sm" 
+              : "text-white/80 hover:text-white hover:bg-white/10")
+          : (isActive 
+              ? "text-black bg-gray-100/70 shadow-sm border border-gray-300/50" 
+              : "text-gray-600 hover:text-black hover:bg-gray-100/50 border border-gray-200/50 hover:border-gray-300/70")
       }`}
       onClick={() => window.scrollTo(0, 0)}
     >

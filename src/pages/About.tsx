@@ -57,7 +57,7 @@ const About = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               About Zyra Digitals
@@ -72,7 +72,7 @@ const About = () => {
 
       {/* Story Section (two columns with feature card) */}
       <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <div>
               <h2 className="font-subheading text-2xl sm:text-3xl font-bold text-foreground mb-6">
@@ -107,7 +107,7 @@ const About = () => {
 
       {/* Values Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
           <div className="text-center mb-16">
             <h2 className="font-subheading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Values</h2>
             <p className="font-secondary text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -128,7 +128,7 @@ const About = () => {
 
       {/* Our Process Section - Card Structure */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
           <div className="text-center mb-16">
             <h2 className="font-subheading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Process</h2>
             <p className="font-secondary text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">

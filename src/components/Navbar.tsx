@@ -45,7 +45,7 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-0.5">
           {scrolled ? (
-            <div className="bg-black rounded-xl border border-gray-800 p-1 flex items-center space-x-0.5">
+            <div className="bg-black rounded-xl border border-gray-800 p-2 flex items-center space-x-0.5">
               <NavLink to="/">Home</NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/services">Services</NavLink>
@@ -166,8 +166,8 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
               ? "text-white bg-white/20 shadow-sm" 
               : "text-white/80 hover:text-white hover:bg-white/10")
           : (isActive 
-              ? "text-black bg-gray-100/70 shadow-sm border border-gray-300/50" 
-              : "text-gray-600 hover:text-black hover:bg-gray-100/50 border border-gray-200/50 hover:border-gray-300/70")
+              ? "text-black bg-gray-100/70 shadow-sm" 
+              : "text-gray-600 hover:text-black hover:bg-gray-100/50")
       }`}
       onClick={() => window.scrollTo(0, 0)}
     >

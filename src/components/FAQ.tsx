@@ -96,7 +96,7 @@ export const FAQ = ({
                   // Expanded FAQ Item (using primary color like the design)
                   <div className="bg-primary text-primary-foreground rounded-2xl p-6 sm:p-8 shadow-lg">
                     <div className="flex items-start justify-between mb-4">
-                      <h3 className={`${questionFontClass} text-lg sm:text-xl font-semibold pr-4 leading-relaxed`}>
+                      <h3 className={`${questionFontClass} text-base sm:text-lg font-semibold pr-4 leading-relaxed`}>
                         {faq.question}
                       </h3>
                       <button
@@ -118,7 +118,7 @@ export const FAQ = ({
                     onClick={() => toggleItem(faq.id)}
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className={`${questionFontClass} text-lg sm:text-xl font-semibold text-foreground pr-4`}>
+                      <h3 className={`${questionFontClass} text-base sm:text-lg font-semibold text-foreground pr-4`}>
                         {faq.question}
                       </h3>
                       <button

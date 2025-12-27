@@ -99,7 +99,7 @@ const Home = () => {
             <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
               Everything Your Digital Presence Needs
             </h2>
-            <p className="font-secondary text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-secondary text-2xl text-foreground max-w-2xl mx-auto">
               We build exceptional websites, powerful brands, and growth systems that work together.
             </p>
           </div>

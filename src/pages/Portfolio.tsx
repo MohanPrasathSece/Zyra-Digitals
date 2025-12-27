@@ -345,6 +345,12 @@ const Portfolio = () => {
           <p className="font-secondary text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's collaborate to create something exceptional that showcases your brand.
           </p>
+          <Button variant="gold" size="lg" asChild className="h-16 px-8">
+            <Link to="/contact" className="flex items-center gap-2">
+              Start Your Project
+              <ArrowRight size={16} />
+            </Link>
+          </Button>
         </div>
       </AnimatedSection>
     </div>

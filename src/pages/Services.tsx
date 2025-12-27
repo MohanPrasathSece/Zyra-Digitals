@@ -226,36 +226,66 @@ const Services = () => {
       </AnimatedSection>
 
       {/* Why Choose Us */}
-      <AnimatedSection animation="slide-up" className="py-20 bg-secondary/30">
+      <AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-background via-background to-secondary/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-8">Why Choose Zyra Digitals?</h2>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Why Choose Zyra Digitals?</h2>
+            <p className="font-secondary text-lg text-muted-foreground">Experience the difference with our unique approach</p>
+          </div>
+          
+          <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Card 1 */}
               <AnimatedSection animation="fade-up" delay={0}>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                    <Zap size={28} className="text-foreground" />
+                <div className="group relative bg-card border border-border rounded-xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-foreground/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="inline-flex items-center justify-center rounded-full bg-foreground/10 border-2 border-foreground/20 w-16 h-16 mb-6 group-hover:border-foreground/40 transition-colors duration-300">
+                      <Zap size={28} className="text-foreground" />
+                    </div>
+                    <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">Fast Delivery</h3>
+                    <p className="font-secondary text-muted-foreground mb-4">Most projects completed within 2 weeks or less without compromising quality.</p>
+                    <div className="flex items-center gap-2 text-sm text-foreground/60">
+                      <div className="w-2 h-2 bg-foreground/40 rounded-full"></div>
+                      <span>Lightning Fast Process</span>
+                    </div>
                   </div>
-                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Fast Delivery</h3>
-                  <p className="font-secondary text-muted-foreground">Most projects completed within 2 weeks or less without compromising quality.</p>
                 </div>
               </AnimatedSection>
+
+              {/* Card 2 */}
               <AnimatedSection animation="fade-up" delay={100}>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                    <Palette size={28} className="text-foreground" />
+                <div className="group relative bg-card border border-border rounded-xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-foreground/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="inline-flex items-center justify-center rounded-full bg-foreground/10 border-2 border-foreground/20 w-16 h-16 mb-6 group-hover:border-foreground/40 transition-colors duration-300">
+                      <Palette size={28} className="text-foreground" />
+                    </div>
+                    <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">Custom Design</h3>
+                    <p className="font-secondary text-muted-foreground mb-4">Every website is uniquely crafted to match your brand and vision.</p>
+                    <div className="flex items-center gap-2 text-sm text-foreground/60">
+                      <div className="w-2 h-2 bg-foreground/40 rounded-full"></div>
+                      <span>Tailored Solutions</span>
+                    </div>
                   </div>
-                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Custom Design</h3>
-                  <p className="font-secondary text-muted-foreground">Every website is uniquely crafted to match your brand and vision.</p>
                 </div>
               </AnimatedSection>
+
+              {/* Card 3 */}
               <AnimatedSection animation="fade-up" delay={200}>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                    <Shield size={28} className="text-foreground" />
+                <div className="group relative bg-card border border-border rounded-xl p-8 hover:border-foreground/20 transition-all duration-300 hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-foreground/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="inline-flex items-center justify-center rounded-full bg-foreground/10 border-2 border-foreground/20 w-16 h-16 mb-6 group-hover:border-foreground/40 transition-colors duration-300">
+                      <Shield size={28} className="text-foreground" />
+                    </div>
+                    <h3 className="font-subheading text-xl font-semibold text-foreground mb-3">Ongoing Support</h3>
+                    <p className="font-secondary text-muted-foreground mb-4">30-day support included with maintenance packages available.</p>
+                    <div className="flex items-center gap-2 text-sm text-foreground/60">
+                      <div className="w-2 h-2 bg-foreground/40 rounded-full"></div>
+                      <span>Reliable Assistance</span>
+                    </div>
                   </div>
-                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Ongoing Support</h3>
-                  <p className="font-secondary text-muted-foreground">30-day support included with maintenance packages available.</p>
                 </div>
               </AnimatedSection>
             </div>

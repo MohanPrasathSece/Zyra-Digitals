@@ -2,13 +2,11 @@
 
 import { Helmet } from "react-helmet-async";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { User, Target, Zap, Award, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  useScrollToTop();
   
   const expertise = [
     {
@@ -171,6 +169,183 @@ const About = () => {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Our Process Section */}
+      <AnimatedSection animation="slide-up" className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Process</h2>
+            <p className="font-secondary text-lg text-muted-foreground">How we transform your vision into reality</p>
+          </div>
+          
+          <div className="max-w-5xl mx-auto">
+            {/* Step 1 - Left */}
+            <AnimatedSection animation="slide-left" delay={0}>
+              <div className="relative">
+                <div className="flex flex-col md:flex-row items-center gap-0">
+                  <div className="md:w-1/3">
+                    <div className="relative">
+                      {/* Outer container with hole */}
+                      <div className="bg-gray-100 rounded-2xl p-1 relative">
+                        {/* Hole at top center */}
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                        </div>
+                        {/* Perfect square card */}
+                        <div className="md:transform md:-rotate-3">
+                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                            <div className="flex flex-col h-full">
+                              <div className="flex items-start justify-start mb-4">
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Strategic Branding</h3>
+                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
+                                  1
+                                </div>
+                              </div>
+                              <div className="flex-1 flex items-start pb-0">
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                  We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:w-2/3"></div>
+                </div>
+                {/* Dotted line from hole */}
+                <div className="hidden md:block relative">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
+                    <svg className="w-64 h-24" viewBox="0 0 200 80">
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Step 2 - Right */}
+            <AnimatedSection animation="slide-right" delay={100}>
+              <div className="relative">
+                <div className="flex flex-col md:flex-row-reverse items-center gap-0">
+                  <div className="md:w-1/3">
+                    <div className="relative">
+                      <div className="bg-gray-100 rounded-2xl p-1 relative">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div className="md:transform md:rotate-3">
+                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                            <div className="flex flex-col h-full">
+                              <div className="flex items-start justify-start mb-4">
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Web Development</h3>
+                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
+                                  2
+                                </div>
+                              </div>
+                              <div className="flex-1 flex items-start pb-0">
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                  High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:w-2/3"></div>
+                </div>
+                <div className="hidden md:block relative">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
+                    <svg className="w-64 h-24" viewBox="0 0 200 80">
+                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Step 3 - Left */}
+            <AnimatedSection animation="slide-left" delay={200}>
+              <div className="relative">
+                <div className="flex flex-col md:flex-row items-center gap-0">
+                  <div className="md:w-1/3">
+                    <div className="relative">
+                      <div className="bg-gray-100 rounded-2xl p-1 relative">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div className="md:transform md:-rotate-2">
+                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                            <div className="flex flex-col h-full">
+                              <div className="flex items-start justify-start mb-4">
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>User Experience</h3>
+                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
+                                  3
+                                </div>
+                              </div>
+                              <div className="flex-1 flex items-start pb-0">
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                  Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, effective PPC advertising, and comprehensive analytics tracking.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:w-2/3"></div>
+                </div>
+                <div className="hidden md:block relative">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
+                    <svg className="w-64 h-24" viewBox="0 0 200 80">
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Step 4 - Right */}
+            <AnimatedSection animation="slide-right" delay={300}>
+              <div className="relative">
+                <div className="flex flex-col md:flex-row-reverse items-center gap-0">
+                  <div className="md:w-1/3">
+                    <div className="relative">
+                      <div className="bg-gray-100 rounded-2xl p-1 relative">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div className="md:transform md:rotate-2">
+                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                            <div className="flex flex-col h-full">
+                              <div className="flex items-start justify-start mb-4">
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Digital Growth</h3>
+                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
+                                  4
+                                </div>
+                              </div>
+                              <div className="flex-1 flex items-start pb-0">
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                  SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, brand consistency maintenance, ongoing support, and strategic refinement for sustained growth.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:w-2/3"></div>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </AnimatedSection>

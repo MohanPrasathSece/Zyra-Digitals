@@ -34,14 +34,14 @@ export function Navbar() {
           aria-label="Zyra Digitals Home"
         >
           <img
-            src="/images/logo.jpg?v=20251115"
+            src="/new_logo.jpeg"
             alt="Zyra Digitals logo"
-            className="h-10 md:h-12 w-auto object-contain shrink-0"
+            className="h-10 md:h-12 w-auto object-contain shrink-0 rounded-[20px]"
           />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-0.5">
+        <div className="hidden md:flex items-center space-x-2">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/services">Services</NavLink>
@@ -146,10 +146,10 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className={`px-4 py-2 text-base font-medium rounded-xl transition-all duration-200 ${
+      className={`px-4 py-2 text-base font-medium rounded-2xl transition-all duration-200 border ${
         isActive 
-          ? "text-black bg-gray-100/70 shadow-sm" 
-          : "text-gray-600 hover:text-black hover:bg-gray-100/50"
+          ? "text-black bg-white border-gray-200 shadow-sm" 
+          : "text-gray-600 hover:text-black hover:bg-white/50 border-gray-200/50"
       }`}
       onClick={() => window.scrollTo(0, 0)}
     >

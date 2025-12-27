@@ -1,9 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const NotFound = () => {
   const location = useLocation();
+  useScrollToTop();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

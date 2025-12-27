@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
-import { Quote, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
+import { Quote, ChevronRight, ChevronLeft, ExternalLink, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { Link } from "react-router-dom";
 
 const Portfolio = () => {
+  useScrollToTop();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const testimonials = [
     {
@@ -162,23 +166,52 @@ const Portfolio = () => {
           ]
         })}</script>
       </Helmet>
-      {/* Hero Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-6">
-              Our Portfolio
-            </h1>
-            <p className="font-secondary text-xl text-muted-foreground leading-relaxed">
-              A curated selection of our finest work, showcasing our commitment to 
-              excellence, elegance, and performance.
-            </p>
+      {/* Hero Section - Full Screen Banner */}
+      <AnimatedSection animation="fade-up" className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-gold/10 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="min-h-screen flex items-start justify-center pt-20">
+            <div className="max-w-7xl mx-auto w-full">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-secondary/50 rounded-full px-4 py-2 mb-6">
+                  <ExternalLink className="text-foreground" size={16} />
+                  <span className="font-secondary text-sm text-foreground/80 font-medium">Our Portfolio</span>
+                </div>
+                
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                  Our Work
+                  <span className="block mt-2"><span className="text-gold">Speaks</span> For Itself</span>
+                </h1>
+                
+                <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+                  Explore our latest projects and see how we've helped businesses transform their digital presence with exceptional design and development.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button variant="gold" size="lg" asChild className="h-16 px-8 text-base">
+                    <Link to="/contact" className="flex items-center gap-2">
+                      Start Your Project
+                      <ArrowRight size={16} />
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" size="lg" asChild className="h-16 px-8 text-base border border-border">
+                    <a href="#projects">View Projects</a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Projects Horizontal Scroll */}
-      <section className="py-20 bg-secondary">
+      <AnimatedSection animation="slide-up" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
           <div
@@ -249,10 +282,10 @@ const Portfolio = () => {
           </div>
         </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Testimonial Section */}
-      <section className="py-16 bg-secondary/30">
+      <AnimatedSection animation="fade-up" className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-2xl p-8 sm:p-10 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -292,7 +325,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Project Modal */}
       {selectedProject !== null && (
@@ -304,7 +337,7 @@ const Portfolio = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-background">
+      <AnimatedSection animation="slide-up" className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
             Want to See Your Project Here?
@@ -313,7 +346,7 @@ const Portfolio = () => {
             Let's collaborate to create something exceptional that showcases your brand.
           </p>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

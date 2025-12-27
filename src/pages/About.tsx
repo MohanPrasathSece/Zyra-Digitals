@@ -1,35 +1,55 @@
-// About page reworked to match the requested layout (Story + Values + Approach)
+// About page - Brand Architects
 
 import { Helmet } from "react-helmet-async";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { User, Target, Zap, Award, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const About = () => {
-  const values = [
+  useScrollToTop();
+  
+  const expertise = [
     {
-      title: "Premium Quality",
-      description: "Every project is crafted with meticulous attention to detail and the highest standards of excellence.",
+      icon: Target,
+      title: "Strategic Branding",
+      description: "We craft brand strategies that resonate with your target audience and drive business growth."
     },
     {
-      title: "Minimalistic Design",
-      description: "We believe in the power of simplicity – creating elegant solutions that focus on what truly matters.",
+      icon: Zap,
+      title: "Web Development",
+      description: "High-performance websites that serve as the foundation of your digital presence."
     },
     {
-      title: "Client Partnership",
-      description: "Your success is our success. We work closely with you to understand and exceed your expectations.",
+      icon: User,
+      title: "User Experience",
+      description: "Intuitive designs that create meaningful connections between your brand and customers."
     },
     {
-      title: "Innovation",
-      description: "Staying ahead of trends and technology to deliver cutting‑edge digital experiences.",
+      icon: Award,
+      title: "Digital Growth",
+      description: "SEO and marketing strategies that ensure your brand gets discovered and remembered."
     },
+  ];
+
+  const achievements = [
+    "Built 50+ high-performance websites",
+    "Helped 30+ brands establish their digital presence",
+    "Achieved 100% client satisfaction rate",
+    "Specialized in brand-first development approach",
+    "Expert in SEO and performance optimization",
+    "Committed to ongoing support and growth",
   ];
 
   return (
     <div className="pt-20">
       <Helmet>
-        <title>About | Zyra Digitals</title>
-        <meta name="description" content="Boutique web development studio crafting elegant, high-performance digital experiences with precision and care. Founded by Mohan Prasath S." />
+        <title>Brand Architects | Zyra Digitals</title>
+        <meta name="description" content="More Than an Agency. We're Brand Architects. Zyra Digitals helps businesses evolve into powerful, recognizable brands through strategy, design, technology, and growth systems." />
         <link rel="canonical" href="https://www.zyradigitals.info/about" />
-        <meta property="og:title" content="About | Zyra Digitals" />
-        <meta property="og:description" content="Premium digital craftsmanship: our story, values, and approach to building exceptional websites. Founded by Mohan Prasath S." />
+        <meta property="og:title" content="Brand Architects | Zyra Digitals" />
+        <meta property="og:description" content="We believe a strong brand is not just how it looks — it's how it feels, functions, and performs across every digital touchpoint." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zyradigitals.info/about" />
         <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
@@ -55,122 +75,125 @@ const About = () => {
           }
         })}</script>
       </Helmet>
-      {/* Hero Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              About Zyra Digitals
-            </h1>
-            <p className="font-secondary text-base sm:text-lg text-muted-foreground leading-relaxed">
-              A boutique web development studio dedicated to crafting premium digital experiences
-              with a focus on elegance, performance, and exclusivity.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Story Section (two columns with feature card) */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div>
-              <h2 className="font-subheading text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                Our Story
-              </h2>
-              <div className="space-y-6 font-body text-sm sm:text-base text-foreground/80 leading-relaxed">
-                <p>
-                  Zyra Digitals was born from a passion for creating digital experiences that embody sophistication and elegance. As a boutique web development studio, we craft bespoke solutions that reflect the premium nature of our clients’ brands.
-                </p>
-                <p>
-                  Our approach combines minimalistic design principles with modern technology, ensuring every project looks exceptional and performs flawlessly across devices.
-                </p>
-                <p>
-                  Working as a dedicated freelancer, I bring a personal touch to every project: direct communication, rapid iteration, and a deep understanding of your unique requirements and vision.
-                </p>
-              </div>
-            </div>
-            <div>
-              <div className="group h-full rounded-2xl bg-background border border-border p-10 text-center flex flex-col items-center justify-center ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-                <div className="w-40 h-40 rounded-full border-2 border-foreground flex items-center justify-center mb-6 overflow-hidden bg-card p-4">
-                  <img src="/images/logo.jpg?v=20251115" alt="Zyra Digitals logo" className="w-[135%] h-[135%] object-contain scale-125" />
+      {/* Hero Section - Full Screen Banner */}
+      <AnimatedSection animation="fade-up" className="min-h-screen bg-background relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="min-h-screen flex items-start justify-center pt-20">
+            <div className="max-w-7xl mx-auto w-full">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-secondary/50 rounded-full px-4 py-2 mb-6">
+                  <Star className="text-foreground" size={16} />
+                  <span className="font-secondary text-sm text-foreground/80 font-medium">Brand Architects</span>
                 </div>
-                <h3 className="font-subheading text-lg sm:text-xl font-semibold mb-2 transition-colors duration-200 group-hover:text-foreground">Premium Digital Craftsmanship</h3>
-                <p className="font-secondary text-muted-foreground max-w-md transition-colors duration-200 group-hover:text-foreground/80">
-                  Every line of code, every design element, and every interaction is carefully considered to create experiences that are beautiful and functional.
+                
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                  More Than an Agency.
+                  <span className="block text-gold mt-2">We're</span> Brand Architects.
+                </h1>
+                
+                <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+                  At Zyra Digitals, we believe a strong brand is not just how it looks — it's how it feels, functions, and performs across every digital touchpoint.
                 </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button variant="gold" size="lg" asChild className="h-16 px-8 text-base">
+                    <Link to="/contact" className="flex items-center gap-2">
+                      Start Your Brand Journey
+                      <ArrowRight size={16} />
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" size="lg" asChild className="h-16 px-8 text-base border border-border">
+                    <Link to="/portfolio">View Our Work</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      {/* Values Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
-          <div className="text-center mb-16">
-            <h2 className="font-subheading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Values</h2>
-            <p className="font-secondary text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide every project and client relationship we build.
+      {/* Achievements Section */}
+      <AnimatedSection animation="fade-up" className="py-20 bg-gradient-to-br from-secondary/30 to-gold/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-4">Our Achievements</h2>
+              <p className="font-secondary text-lg text-muted-foreground">
+                Building success stories one brand at a time.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {achievements.map((achievement, index) => (
+                <AnimatedSection key={index} animation="slide-up" delay={index * 50}>
+                  <div className="flex items-start gap-3 p-4 bg-background/50 backdrop-blur border border-border rounded-lg">
+                    <CheckCircle className="text-gold flex-shrink-0 mt-1" size={20} />
+                    <span className="font-secondary text-foreground">{achievement}</span>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Expertise Section */}
+      <AnimatedSection animation="slide-up" className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-4">Our Expertise</h2>
+              <p className="font-secondary text-lg text-muted-foreground max-w-2xl mx-auto">
+                We combine strategic thinking with technical excellence to build brands that scale.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {expertise.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                    <div className="group p-6 bg-secondary/30 border border-border rounded-xl hover:bg-secondary/50 hover:border-gold/30 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                        <Icon className="text-gold" size={24} />
+                      </div>
+                      <h3 className="font-subheading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                      <p className="font-secondary text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* CTA Section */}
+      <AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-gold/10 to-gold/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-6">
+              Ready to Build Your Brand?
+            </h2>
+            <p className="font-secondary text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Let's create a brand that people remember. Your journey starts here.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {values.map((value, index) => (
-              <div key={index} className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-                <h3 className="font-subheading text-lg sm:text-xl font-semibold text-foreground mb-2 transition-colors duration-200 group-hover:text-foreground">{value.title}</h3>
-                <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">{value.description}</p>
-              </div>
-            ))}
+            <Button variant="gold" size="lg" asChild className="h-16 px-8">
+              <Link to="/contact" className="flex items-center gap-2">
+                Start Your Brand Journey
+                <ArrowRight size={16} />
+              </Link>
+            </Button>
           </div>
         </div>
-      </section>
-
-      {/* Our Process Section - Card Structure */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
-          <div className="text-center mb-16">
-            <h2 className="font-subheading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Process</h2>
-            <p className="font-secondary text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-              A streamlined approach to delivering exceptional digital experiences.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                <span className="font-heading text-lg font-bold text-gold">01</span>
-              </div>
-              <h3 className="font-subheading text-lg sm:text-xl font-semibold text-foreground mb-3 transition-colors duration-200 group-hover:text-foreground">Discovery</h3>
-              <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">Understanding your goals, target audience, and project requirements to establish a solid foundation.</p>
-            </div>
-
-            <div className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                <span className="font-heading text-lg font-bold text-gold">02</span>
-              </div>
-              <h3 className="font-subheading text-lg sm:text-xl font-semibold text-foreground mb-3 transition-colors duration-200 group-hover:text-foreground">Design</h3>
-              <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">Creating wireframes and visual designs that prioritize clean, elegant interfaces and user experience.</p>
-            </div>
-
-            <div className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                <span className="font-heading text-lg font-bold text-gold">03</span>
-              </div>
-              <h3 className="font-subheading text-lg sm:text-xl font-semibold text-foreground mb-3 transition-colors duration-200 group-hover:text-foreground">Development</h3>
-              <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">Building reliable, performant code with modern technologies and best practices for optimal results.</p>
-            </div>
-
-            <div className="group rounded-xl border border-border bg-secondary p-8 ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                <span className="font-heading text-lg font-bold text-gold">04</span>
-              </div>
-              <h3 className="font-subheading text-lg sm:text-xl font-semibold text-foreground mb-3 transition-colors duration-200 group-hover:text-foreground">Launch</h3>
-              <p className="font-secondary text-muted-foreground transition-colors duration-200 group-hover:text-foreground/80">Deploying your project, monitoring performance, and making refinements to ensure long-term success.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

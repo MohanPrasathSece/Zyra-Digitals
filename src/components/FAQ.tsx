@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { Typewriter } from "./Typewriter";
 
 interface FAQItem {
   id: string;
@@ -8,7 +9,7 @@ interface FAQItem {
 }
 
 interface FAQProps {
-  title?: string;
+  title?: string | React.ReactNode;
   subtitle?: string;
   faqs?: FAQItem[];
   className?: string;
@@ -78,7 +79,7 @@ export const FAQ = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            {title}
+            {typeof title === 'string' ? <Typewriter text={title} speed={80} /> : title}
           </h2>
           <p className="font-secondary text-lg text-muted-foreground max-w-3xl mx-auto">
             {subtitle}

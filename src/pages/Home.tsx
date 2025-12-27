@@ -4,71 +4,34 @@ import { Button } from "@/components/ui/button";
 import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQ } from "@/components/FAQ";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { Typewriter } from "@/components/Typewriter";
 import { Helmet } from "react-helmet-async";
-import { useState, useEffect, useRef } from "react";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const Home = () => {
-  const [servicesVisible, setServicesVisible] = useState(false);
-  const [ctaVisible, setCtaVisible] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const servicesObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setServicesVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const ctaObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setCtaVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (servicesRef.current) {
-      servicesObserver.observe(servicesRef.current);
-    }
-    if (ctaRef.current) {
-      ctaObserver.observe(ctaRef.current);
-    }
-
-    return () => {
-      if (servicesRef.current) {
-        servicesObserver.unobserve(servicesRef.current);
-      }
-      if (ctaRef.current) {
-        ctaObserver.unobserve(ctaRef.current);
-      }
-    };
-  }, []);
+  useScrollToTop();
 
   const services = [
     {
-      icon: Code,
-      title: "Website Development",
-      description: "Modern, responsive websites built with clean code and best practices.",
+      icon: User,
+      title: "Brand Identity & Design",
+      description: "Strategic brand creation with visual identity, messaging, and design that connects emotionally.",
     },
     {
-      icon: User,
-      title: "Personal Portfolios",
-      description: "Elegant, minimal portfolios to showcase your work and personal brand.",
+      icon: Code,
+      title: "Website Development",
+      description: "High-performance, conversion-focused websites built with clean code and modern technologies.",
     },
     {
       icon: Briefcase,
-      title: "Business Websites",
-      description: "Professional company sites that communicate credibility and drive leads.",
+      title: "SEO & Hosting",
+      description: "SEO optimization and reliable hosting solutions that ensure your brand performs and scales online.",
     },
     {
       icon: ShoppingCart,
-      title: "E‑commerce Websites",
-      description: "Conversion‑focused online stores with smooth UX and secure checkout.",
+      title: "Digital Growth",
+      description: "Comprehensive digital strategies that drive traffic, conversions, and long-term brand growth.",
     },
   ];
 
@@ -77,33 +40,33 @@ const Home = () => {
     {
       id: "faq-home-1",
       question: "What services do you offer?",
-      answer: "We specialize in website development, personal portfolios, business websites, and e-commerce solutions. Our services include custom web development, responsive design, SEO optimization, and ongoing maintenance and support."
+      answer: "We offer comprehensive digital solutions: website development (our core), brand identity & design, SEO optimization, hosting solutions, and digital growth strategies. We create websites that perform and brands that connect."
     },
     {
       id: "faq-home-2",
-      question: "How long does it take to build a website?",
-      answer: "The timeline depends on the complexity and scope of your project. A simple portfolio website typically takes 1-2 weeks, while more complex projects may take up to 2-4 weeks maximum. We'll provide a detailed timeline during our initial consultation."
+      question: "How long does a typical project take?",
+      answer: "Project timelines vary: websites typically take 2-4 weeks, brand identity 1-2 weeks, and full digital ecosystems 4-6 weeks. We provide detailed timelines during consultation based on your specific needs."
     },
     {
       id: "faq-home-3",
-      question: "Do you provide ongoing support after launch?",
-      answer: "Yes, we offer comprehensive post-launch support including bug fixes, security updates, content updates, and technical assistance. We have various maintenance packages to suit different needs and budgets."
+      question: "Do you provide ongoing support and hosting?",
+      answer: "Yes, we offer comprehensive ongoing support including website maintenance, SEO optimization, reliable hosting, performance monitoring, and feature updates to ensure your digital presence continues to grow."
     },
     {
       id: "faq-home-4",
-      question: "What are your pricing options?",
-      answer: "Our pricing varies based on project scope, complexity, and timeline. We offer competitive rates and flexible payment options. Contact us for a detailed quote tailored to your specific needs and budget."
+      question: "What makes your approach different?",
+      answer: "We combine technical excellence with strategic thinking. We build high-performance websites and powerful brands that work together seamlessly, ensuring your digital presence is both technically sound and emotionally resonant."
     }
   ];
 
   return (
     <div>
       <Helmet>
-        <title>Zyra Digitals | Premium Web Development Studio</title>
-        <meta name="description" content="Zyra Digitals crafts premium, high-performance websites and digital experiences. Bespoke design, modern tech, and SEO-first builds for brands that care about quality. Founded by Mohan Prasath S." />
+        <title>Zyra Digitals | Website Design, SEO, Hosting & Brand Creation</title>
+        <meta name="description" content="Zyra Digitals builds high-performance websites, powerful brands, and growth systems. We specialize in web development, SEO, hosting, and strategic brand creation for businesses that want to stand out." />
         <link rel="canonical" href="https://www.zyradigitals.info/" />
-        <meta property="og:title" content="Zyra Digitals | Premium Web Development Studio" />
-        <meta property="og:description" content="Premium, high-performance websites and digital experiences with bespoke design and SEO-first builds. Founded by Mohan Prasath S." />
+        <meta property="og:title" content="Zyra Digitals | Website Design, SEO, Hosting & Brand Creation" />
+        <meta property="og:description" content="We build exceptional websites, powerful brands, and growth systems. Specializing in web development, SEO optimization, hosting, and strategic brand creation." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zyradigitals.info/" />
         <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
@@ -119,7 +82,7 @@ const Home = () => {
             "@type": "Person",
             "name": "Mohan Prasath S"
           },
-          "description": "Premium web development studio crafting elegant, high-performance digital experiences.",
+          "description": "Digital agency specializing in website development, SEO optimization, hosting solutions, and strategic brand creation for businesses that want to perform and stand out.",
           "sameAs": [
             "https://www.instagram.com/zyradigitals.co/",
             "https://www.linkedin.com/company/zyra-digitals/"
@@ -130,77 +93,68 @@ const Home = () => {
       <Hero />
 
       {/* Services Preview */}
-      <section 
-        ref={servicesRef}
-        className="py-20 bg-background"
-      >
-        <div className={`container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-800 ease-out transform ${
-          servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+      <AnimatedSection animation="slide-up" className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
-              Our Expertise
+              Everything Your Digital Presence Needs
             </h2>
             <p className="font-secondary text-xl text-muted-foreground max-w-2xl mx-auto">
-              Delivering premium digital solutions with precision and elegance
+              We build exceptional websites, powerful brands, and growth systems that work together.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {services.map((service, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-700 ease-out transform delay-${index * 100} ${
-                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+              <AnimatedSection 
+                key={index} 
+                animation="fade-up" 
+                delay={index * 100}
               >
                 <ServiceCard {...service} index={index} />
-              </div>
+              </AnimatedSection>
             ))}
           </div>
 
           <div className="text-center">
             <Button variant="ghost-gold" size="lg" asChild>
-              <Link to="/services">View All Services</Link>
+              <Link to="/services">Explore Our Work</Link>
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* FAQ Section */}
-      <FAQ
-        title="Common Questions"
-        subtitle="Quick answers to help you get started with your project"
-        faqs={homeFAQs}
-        className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
-        questionFont="secondary"
-      />
+      <AnimatedSection animation="fade-up">
+        <FAQ
+          title={<Typewriter text="Common Questions" speed={80} />}
+          subtitle="Quick answers to help you get started with your project"
+          faqs={homeFAQs}
+          className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
+          questionFont="secondary"
+        />
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <section 
-        ref={ctaRef}
-        className="py-20 bg-white text-black"
-      >
-        <div className={`container mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-800 ease-out transform ${
-          ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+      <AnimatedSection animation="slide-up" className="py-20 bg-white text-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Ready to Elevate Your
-            <span className="block">Digital Presence?</span>
+            Ready to Build a Brand
+            <span className="block">That Stands Out?</span>
           </h2>
           <p className="font-secondary text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Let's collaborate to create something exceptional that sets you apart.
+            Let's turn your vision into a brand that performs, scales, and lasts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="gold" size="lg" asChild>
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">Start Your Brand Journey</Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="border-black text-black hover:bg-black hover:text-white px-8 py-3 rounded-lg transition-colors duration-200">
-              <Link to="/contact#faq">View All FAQs</Link>
+              <Link to="/portfolio">Explore Our Work</Link>
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

@@ -61,25 +61,25 @@ export const Hero = () => {
         }`}
       >
           <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-            Zyra Digitals
+            We Build Brands
           </h1>
           <p className="font-heading text-2xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">
-            Crafting Premium Digital Experiences
+            That People Remember
           </p>
           <p className="font-secondary text-sm sm:text-base text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Where innovation meets artistry. We transform ideas into exceptional digital experiences that captivate, convert, and inspire lasting connections.
+            We build high-performance websites, powerful brands, and growth systems. Website design, SEO, hosting, and strategic brand creation that works together.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="gold" size="lg" asChild className="h-16 px-10 text-sm sm:text-base [&_svg]:size-5">
               <Link to="/contact" className="flex items-center gap-2">
-                Start Your Project
+                Build Your Brand
                 <ArrowRight size={16} />
               </Link>
             </Button>
             <Button variant="ghost-gold" size="lg" asChild className="h-16 px-10 text-sm sm:text-base">
-              <Link to="/portfolio">View Our Work</Link>
+              <Link to="/portfolio">Explore Our Work</Link>
             </Button>
           </div>
         </div>

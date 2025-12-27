@@ -1,49 +1,64 @@
-import { Code, User, Briefcase, ShoppingCart, Search, Server, RefreshCw, Bot, CheckCircle, ArrowRight, Zap, Shield, Palette } from "lucide-react";
+import { Code, User, Briefcase, ShoppingCart, Search, Server, RefreshCw, Bot, CheckCircle, ArrowRight, Zap, Shield, Palette, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Services = () => {
+  useScrollToTop();
   const coreServices = [
+    {
+      icon: User,
+      title: "Brand Identity & Design",
+      description: "We shape how your brand looks, feels, and communicates through strategic design and messaging.",
+      features: ["Brand Positioning", "Logo & Visual Identity", "Brand Guidelines", "Tone of Voice"],
+    },
     {
       icon: Code,
       title: "Website Development",
-      description: "Custom websites built with modern technologies, responsive design, and clean code architecture.",
-      features: ["React/Next.js", "Responsive Design", "Performance Optimized", "SEO Ready"],
-    },
-    {
-      icon: User,
-      title: "Personal Portfolios",
-      description: "Showcase your work with elegant, minimal portfolios that highlight your unique brand.",
-      features: ["Custom Design", "Project Galleries", "Contact Forms", "Mobile Optimized"],
+      description: "Your website is where your brand comes alive. We build high-performance, conversion-focused websites.",
+      features: ["High-Performance", "Conversion-Focused", "SEO-Ready Structure", "Scalable Architecture"],
     },
     {
       icon: Briefcase,
-      title: "Business Websites",
-      description: "Professional corporate sites that build trust and convert visitors into customers.",
-      features: ["Professional Design", "CMS Integration", "Analytics Setup", "Lead Generation"],
+      title: "UI/UX Design",
+      description: "Intuitive, engaging experiences that feel natural and drive conversions for your business.",
+      features: ["User Research", "Clean UI Design", "Conversion Layouts", "Brand Consistency"],
     },
     {
-      icon: ShoppingCart,
-      title: "E‑commerce Websites",
-      description: "Complete online stores with secure payments, inventory management, and conversion optimization.",
-      features: ["Payment Integration", "Product Management", "Order Tracking", "Mobile Commerce"],
+      icon: Search,
+      title: "SEO Optimization",
+      description: "Superior search engine optimization that elevates your brand's visibility and drives organic traffic with precision-targeted strategies.",
+      features: ["Advanced SEO Strategy", "Technical SEO Audit", "Content Optimization", "Performance Analytics"],
+    },
+    {
+      icon: TrendingUp,
+      title: "Digital Growth & Analytics",
+      description: "Comprehensive digital ecosystem management including social media presence, analytics implementation, and search console optimization for exponential brand growth.",
+      features: ["Social Media Profiles", "Google Analytics Setup", "Search Console Management", "Growth Analytics"],
+    },
+    {
+      icon: Server,
+      title: "Hosting & Maintenance",
+      description: "We keep your brand running smoothly with reliable hosting and ongoing maintenance support.",
+      features: ["Reliable Hosting", "Security Updates", "Performance Monitoring", "Technical Support"],
     }
   ];
 
   const additionalServices = [
-    { icon: Search, title: "SEO Optimization", description: "Improve search rankings with technical SEO and content optimization." },
-    { icon: Server, title: "Hosting & Maintenance", description: "Reliable hosting setup and ongoing maintenance. Free SSL certificate included." },
-    { icon: RefreshCw, title: "Website Redesign", description: "Modernize existing websites with fresh design and improved functionality." },
-    { icon: Bot, title: "AI Integration", description: "Add intelligent features like chatbots and automated workflows." }
+    { icon: Search, title: "Digital Products & Applications", description: "Technology that empowers your brand through custom web applications and business dashboards." },
+    { icon: Server, title: "Ongoing Support & Scaling", description: "We grow with your brand through website maintenance, performance optimization, and feature updates." },
+    { icon: RefreshCw, title: "Brand Evolution", description: "Modernize your brand experience with fresh design and improved digital functionality." },
+    { icon: Bot, title: "Marketing Tools Integration", description: "Connect your brand with powerful marketing tools and customer touchpoints." }
   ];
 
   const processSteps = [
-    { step: "01", title: "Discovery", description: "Understanding your goals, audience, and requirements through detailed consultation." },
-    { step: "02", title: "Strategy", description: "Creating a comprehensive plan including design direction and technical approach." },
-    { step: "03", title: "Design", description: "Crafting beautiful, user-centered designs that align with your brand identity." },
-    { step: "04", title: "Development", description: "Building your website with clean code, best practices, and thorough testing." },
-    { step: "05", title: "Launch", description: "Deploying your site and providing training for content management." }
+    { step: "01", title: "Discover", description: "We understand your business, audience, and goals to shape your brand strategy." },
+    { step: "02", title: "Define", description: "We shape your brand strategy and digital direction for maximum impact." },
+    { step: "03", title: "Design", description: "We craft visually powerful and user-friendly experiences that connect emotionally." },
+    { step: "04", title: "Develop", description: "We bring ideas to life with clean, scalable code that powers your brand experience." },
+    { step: "05", title: "Deliver & Grow", description: "We launch, optimize, and scale your digital presence for long-term success." }
   ];
 
   const whatsappHref = `https://wa.me/9025421149?text=${encodeURIComponent("Hi, I'm interested in your web development services. Can we discuss my project?")}`;
@@ -51,11 +66,11 @@ const Services = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Services | Zyra Digitals</title>
-        <meta name="description" content="Premium website development, business sites, portfolios, e‑commerce, SEO, hosting, and redesign services crafted to perform and convert." />
+        <title>Our Services | Zyra Digitals</title>
+        <meta name="description" content="Everything Your Brand Needs to Grow. We offer website development, brand identity, UI/UX design, and SEO & digital growth services that build brands that people remember." />
         <link rel="canonical" href="https://www.zyradigitals.info/services" />
-        <meta property="og:title" content="Services | Zyra Digitals" />
-        <meta property="og:description" content="From concept to launch: web development, portfolios, business websites, e‑commerce, SEO and more." />
+        <meta property="og:title" content="Our Services | Zyra Digitals" />
+        <meta property="og:description" content="Full-service branding and digital transformation agency. We build brand experiences that scale through strategy, design, technology, and growth systems." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zyradigitals.info/services" />
         <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
@@ -71,7 +86,7 @@ const Services = () => {
         })}</script>
       </Helmet>
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-background to-secondary/30">
+      <AnimatedSection animation="fade-up" className="py-24 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-secondary/50 rounded-full px-4 py-2 mb-6">
@@ -96,10 +111,10 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Core Services - Modern Card Grid */}
-      <section className="py-20 bg-background">
+      <AnimatedSection animation="slide-up" className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gold/10 rounded-full px-4 py-2 mb-6">
@@ -116,10 +131,10 @@ const Services = () => {
             {coreServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div 
-                  key={index} 
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 hover:border-gold/20 hover:-translate-y-1 hover:scale-[1.02]"
-                >
+                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                  <div 
+                    className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 hover:border-gold/20 hover:-translate-y-1 hover:scale-[1.02]"
+                  >
                   {/* Background Pattern */}
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
@@ -168,14 +183,15 @@ const Services = () => {
                   {/* Hover Effect Border */}
                   <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gold/20 transition-all duration-300" />
                 </div>
+                </AnimatedSection>
               );
             })}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Additional Services - Minimal Grid */}
-      <section className="py-20 bg-secondary/30">
+      <AnimatedSection animation="fade-up" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Additional Services</h2>
@@ -188,60 +204,67 @@ const Services = () => {
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div 
-                  key={index} 
-                  className="group flex items-start gap-4 rounded-lg border border-border bg-background p-6 transition-all duration-200 hover:border-foreground/30 hover:shadow-md hover:bg-secondary/20"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center transition-colors group-hover:bg-foreground/5">
-                    <Icon size={20} strokeWidth={1.75} className="text-foreground" />
+                <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
+                  <div 
+                    className="group flex items-start gap-4 rounded-lg border border-border bg-background p-6 transition-all duration-200 hover:border-foreground/30 hover:shadow-md hover:bg-secondary/20"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center transition-colors group-hover:bg-foreground/5">
+                      <Icon size={20} strokeWidth={1.75} className="text-foreground" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-subheading text-lg font-semibold text-foreground mb-1">{service.title}</h3>
+                      <p className="font-secondary text-sm text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-subheading text-lg font-semibold text-foreground mb-1">{service.title}</h3>
-                    <p className="font-secondary text-sm text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
+                </AnimatedSection>
               );
             })}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-secondary/30">
+      <AnimatedSection animation="slide-up" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-8">Why Choose Zyra Digitals?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                  <Zap size={28} className="text-foreground" />
+              <AnimatedSection animation="fade-up" delay={0}>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
+                    <Zap size={28} className="text-foreground" />
+                  </div>
+                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Fast Delivery</h3>
+                  <p className="font-secondary text-muted-foreground">Most projects completed within 2 weeks or less without compromising quality.</p>
                 </div>
-                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Fast Delivery</h3>
-                <p className="font-secondary text-muted-foreground">Most projects completed within 2 weeks or less without compromising quality.</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                  <Palette size={28} className="text-foreground" />
+              </AnimatedSection>
+              <AnimatedSection animation="fade-up" delay={100}>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
+                    <Palette size={28} className="text-foreground" />
+                  </div>
+                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Custom Design</h3>
+                  <p className="font-secondary text-muted-foreground">Every website is uniquely crafted to match your brand and vision.</p>
                 </div>
-                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Custom Design</h3>
-                <p className="font-secondary text-muted-foreground">Every website is uniquely crafted to match your brand and vision.</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
-                  <Shield size={28} className="text-foreground" />
+              </AnimatedSection>
+              <AnimatedSection animation="fade-up" delay={200}>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center rounded-full bg-background border border-border w-16 h-16 mb-4">
+                    <Shield size={28} className="text-foreground" />
+                  </div>
+                  <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Ongoing Support</h3>
+                  <p className="font-secondary text-muted-foreground">30-day support included with maintenance packages available.</p>
                 </div>
-                <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">Ongoing Support</h3>
-                <p className="font-secondary text-muted-foreground">30-day support included with maintenance packages available.</p>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white text-black">
+      <AnimatedSection animation="slide-up" className="py-20 bg-white text-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -264,7 +287,7 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

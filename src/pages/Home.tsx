@@ -96,10 +96,10 @@ const Home = () => {
       <AnimatedSection animation="slide-up" className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-5xl sm:text-6xl font-bold text-foreground mb-4">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
               Everything Your Digital Presence Needs
             </h2>
-            <p className="font-secondary text-2xl text-foreground max-w-2xl mx-auto">
+            <p className="font-secondary text-lg sm:text-xl text-foreground max-w-2xl mx-auto">
               We build exceptional websites, powerful brands, and growth systems that work together.
             </p>
           </div>

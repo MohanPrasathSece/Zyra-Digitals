@@ -114,14 +114,6 @@ export const Footer = () => {
               </form>
             </div>
             
-            <nav className="flex justify-center gap-6 text-sm text-primary-foreground/60">
-              <a href="/" className="hover:text-gold transition-colors">Home</a>
-              <a href="/about" className="hover:text-gold transition-colors">About</a>
-              <a href="/services" className="hover:text-gold transition-colors">Services</a>
-              <a href="/portfolio" className="hover:text-gold transition-colors">Portfolio</a>
-              <a href="/contact" className="hover:text-gold transition-colors">Contact</a>
-            </nav>
-            
             <div className="flex justify-center gap-4">
               <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
                 <Instagram size={16} />

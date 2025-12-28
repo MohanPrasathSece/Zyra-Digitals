@@ -9,6 +9,7 @@ import { Typewriter } from "@/components/Typewriter";
 import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { motion } from "framer-motion";
+import { LogoCarousel } from "@/components/LogoCarousel";
 
 const Home = () => {
   useScrollToTop();
@@ -93,6 +94,7 @@ const Home = () => {
       </Helmet>
       {/* Hero Section */}
       <Hero />
+      <LogoCarousel />
 
       {/* Services Preview */}
       <AnimatedSection animation="slide-up" className="py-20 bg-background">

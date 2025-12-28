@@ -174,39 +174,75 @@ const About = () => {
       </AnimatedSection>
 
       {/* Our Process Section */}
-      <AnimatedSection animation="slide-up" className="py-20 bg-white">
+      <AnimatedSection animation="slide-up" className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Process</h2>
+          <div className="max-w-4xl mx-auto text-center mb-20">
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-6">Our Process</h2>
             <p className="font-secondary text-lg text-muted-foreground">How we transform your vision into reality</p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            {/* Step 1 - Left */}
-            <AnimatedSection animation="slide-left" delay={0}>
-              <div className="relative">
-                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
-                  <div className="md:w-[400px]">
-                    <div className="relative">
-                      {/* Outer container with hole */}
-                      <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        {/* Hole at top center */}
-                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
-                        </div>
-                        {/* Perfect square card */}
-                        <div className="md:transform md:-rotate-3 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-7 shadow-md min-h-[250px] hover:shadow-xl transition-all duration-500 ease-premium">
-                            <div className="flex flex-col h-full">
-                              <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '23px' }}>Design Idea</h3>
-                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
-                                  1
-                                </div>
+          <div className="relative max-w-7xl mx-auto px-4">
+            {/* The Rope (Single Dotted Line) - Only visible on desktop/tablet row */}
+            <div className="hidden md:block absolute top-[12px] left-0 w-full h-px border-t-2 border-dashed border-gray-300 z-0 flex-shrink-0"></div>
+
+            <div className="flex flex-col md:flex-row gap-12 md:gap-6 relative z-10">
+              {[
+                {
+                  id: 1,
+                  title: "Design Idea",
+                  desc: "We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.",
+                  rotation: "-rotate-2"
+                },
+                {
+                  id: 2,
+                  title: "Development",
+                  desc: "High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.",
+                  rotation: "rotate-2"
+                },
+                {
+                  id: 3,
+                  title: "Testing",
+                  desc: "Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, and analytics tracking.",
+                  rotation: "-rotate-1"
+                },
+                {
+                  id: 4,
+                  title: "Launch",
+                  desc: "SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, and strategic refinement for sustained growth.",
+                  rotation: "rotate-3"
+                }
+              ].map((step, index) => (
+                <div key={step.id} className="flex-1">
+                  <AnimatedSection animation="fade-up" delay={index * 150}>
+                    <div className="relative pt-6 md:pt-3">
+                      {/* Rope for Mobile (Vertical) */}
+                      <div className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-6 w-px border-l-2 border-dashed border-gray-300"></div>
+
+                      {/* Hole at top center */}
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center z-20 shadow-sm">
+                        <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                      </div>
+
+                      {/* Card container with gray border casing */}
+                      <div className="bg-gray-100 rounded-2xl p-1 shadow-sm">
+                        {/* The hanging card */}
+                        <div className={`transition-all duration-700 ease-premium hover:rotate-0 hover:scale-[1.03] hover:z-30 cursor-default md:${step.rotation}`}>
+                          <div className="bg-white border-2 border-gray-300 rounded-xl p-6 lg:p-7 shadow-md min-h-[320px] md:min-h-[380px] lg:min-h-[350px] flex flex-col hover:shadow-2xl transition-all duration-500 ease-premium relative overflow-hidden group">
+                            {/* Subtle background number */}
+                            <div className="absolute -right-4 -bottom-4 text-8xl font-bold text-gray-50 group-hover:text-gray-100 transition-colors duration-500 pointer-events-none">
+                              {step.id}
+                            </div>
+
+                            <div className="relative z-10 flex flex-col h-full">
+                              <div className="flex items-center gap-3 mb-6">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-900 text-white font-bold text-sm">
+                                  {step.id}
+                                </span>
+                                <h3 className="font-heading font-bold text-foreground text-xl lg:text-2xl">{step.title}</h3>
                               </div>
-                              <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-relaxed mb-0" style={{ fontSize: '15px' }}>
-                                  We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.
+                              <div className="flex-1">
+                                <p className="font-secondary text-muted-foreground leading-relaxed text-sm lg:text-[15px]">
+                                  {step.desc}
                                 </p>
                               </div>
                             </div>
@@ -214,159 +250,17 @@ const About = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="md:w-2/3"></div>
-                </div>
-                {/* Dotted line from hole */}
-                <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
-                      <path d="M 100 0 Q 105 50 110 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
+                  </AnimatedSection>
 
-            {/* Mobile Dotted Line Connection */}
-            <div className="md:hidden flex justify-center my-0">
-              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
-                <path d="M 16 0 Q 12 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
-              </svg>
+                  {/* Connector rope for mobile between cards */}
+                  {index < 3 && (
+                    <div className="md:hidden flex justify-center h-12">
+                      <div className="w-px h-full border-l-2 border-dashed border-gray-300"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-
-            {/* Step 2 - Right */}
-            <AnimatedSection animation="slide-right" delay={100} className="mt-12 md:mt-24">
-              <div className="relative">
-                <div className="flex flex-col md:flex-row-reverse items-center gap-0">
-                  <div className="md:w-[400px]">
-                    <div className="relative">
-                      <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
-                        </div>
-                        <div className="md:transform md:rotate-3 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-7 shadow-md min-h-[250px] hover:shadow-xl transition-all duration-500 ease-premium">
-                            <div className="flex flex-col h-full">
-                              <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '23px' }}>Development</h3>
-                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
-                                  2
-                                </div>
-                              </div>
-                              <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-relaxed mb-0" style={{ fontSize: '15px' }}>
-                                  High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3"></div>
-                </div>
-                <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
-                      <path d="M 100 0 Q 95 50 90 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Mobile Dotted Line Connection */}
-            <div className="md:hidden flex justify-center my-0">
-              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
-                <path d="M 16 0 Q 20 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
-              </svg>
-            </div>
-
-            {/* Step 3 - Left */}
-            <AnimatedSection animation="slide-left" delay={200} className="mt-12 md:mt-24">
-              <div className="relative">
-                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
-                  <div className="md:w-[400px]">
-                    <div className="relative">
-                      <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
-                        </div>
-                        <div className="md:transform md:-rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-7 shadow-md min-h-[250px] hover:shadow-xl transition-all duration-500 ease-premium">
-                            <div className="flex flex-col h-full">
-                              <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '23px' }}>Testing</h3>
-                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
-                                  3
-                                </div>
-                              </div>
-                              <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-relaxed mb-0" style={{ fontSize: '15px' }}>
-                                  Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, effective PPC advertising, and comprehensive analytics tracking.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3"></div>
-                </div>
-                <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
-                      <path d="M 100 0 Q 105 50 110 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Mobile Dotted Line Connection */}
-            <div className="md:hidden flex justify-center my-0">
-              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
-                <path d="M 16 0 Q 12 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
-              </svg>
-            </div>
-
-            {/* Step 4 - Right */}
-            <AnimatedSection animation="slide-right" delay={300} className="mt-12 md:mt-24">
-              <div className="relative">
-                <div className="flex flex-col md:flex-row-reverse items-center gap-0">
-                  <div className="md:w-[400px]">
-                    <div className="relative">
-                      <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
-                        </div>
-                        <div className="md:transform md:rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-7 shadow-md min-h-[250px] hover:shadow-xl transition-all duration-500 ease-premium">
-                            <div className="flex flex-col h-full">
-                              <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '23px' }}>Launch</h3>
-                                <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
-                                  4
-                                </div>
-                              </div>
-                              <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-relaxed mb-0" style={{ fontSize: '15px' }}>
-                                  SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, brand consistency maintenance, ongoing support, and strategic refinement for sustained growth.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3"></div>
-                </div>
-              </div>
-            </AnimatedSection>
           </div>
         </div>
       </AnimatedSection>

@@ -66,7 +66,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-black hover:bg-black/10 rounded-lg transition-colors duration-200"
+          className="md:hidden p-2 text-black hover:bg-white/20 rounded-lg transition-all duration-200 backdrop-blur-xl bg-white/30 border border-white/40 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,7 +97,7 @@ export function Navbar() {
               : 'opacity-0 scale-95 -translate-y-4'
           }`}
         >
-          <div className="bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl p-8">
+          <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-3xl shadow-2xl p-8">
             {/* Navigation Links */}
             <nav className="space-y-4 mb-8">
               {[

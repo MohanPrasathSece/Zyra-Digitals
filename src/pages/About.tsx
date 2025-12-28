@@ -220,8 +220,8 @@ const About = () => {
                 {/* Dotted line from hole */}
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-20" viewBox="0 0 200 80">
-                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(15 100 40)" />
+                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
+                      <path d="M 100 0 Q 105 50 110 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -230,8 +230,8 @@ const About = () => {
 
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
-              <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
+              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
+                <path d="M 16 0 Q 12 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
@@ -269,8 +269,8 @@ const About = () => {
                 </div>
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-20" viewBox="0 0 200 80">
-                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(-15 100 40)" />
+                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
+                      <path d="M 100 0 Q 95 50 90 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -279,8 +279,8 @@ const About = () => {
 
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
-              <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 24 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
+              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
+                <path d="M 16 0 Q 20 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
@@ -318,8 +318,8 @@ const About = () => {
                 </div>
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
-                    <svg className="w-64 h-20" viewBox="0 0 200 80">
-                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(15 100 40)" />
+                    <svg className="w-64 h-24 overflow-visible" viewBox="0 0 200 100">
+                      <path d="M 100 0 Q 105 50 110 100" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -328,8 +328,8 @@ const About = () => {
 
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
-              <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
+              <svg className="w-12 h-20 overflow-visible" viewBox="0 0 32 80">
+                <path d="M 16 0 Q 12 40 16 80" stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 

@@ -9,7 +9,8 @@ import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 const Portfolio = (): JSX.Element => {
   useScrollToTop();
@@ -56,6 +57,37 @@ const Portfolio = (): JSX.Element => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openGallery = (projectIdx: number) => {
+    setCurrentProjectIndex(projectIdx);
+    setCurrentImageIndex(0);
+    setGalleryOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeGallery = () => {
+    setGalleryOpen(false);
+    document.body.style.overflow = "auto";
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const project = projects[currentProjectIndex];
+    if (project.images) {
+      setCurrentImageIndex((prev) => (prev + 1) % project.images!.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const project = projects[currentProjectIndex];
+    if (project.images) {
+      setCurrentImageIndex((prev) => (prev - 1 + project.images!.length) % project.images!.length);
+    }
+  };
 
   const projects = [
     {
@@ -209,63 +241,85 @@ const Portfolio = (): JSX.Element => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="sticky top-[15vh] w-full"
+              className="sticky top-[10vh] lg:top-[15vh] w-full"
             >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl overflow-hidden"
+                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden"
               >
-                <div className="flex flex-col lg:flex-row min-h-[600px]">
+                <div className="flex flex-col lg:flex-row lg:min-h-[600px]">
                   {/* Project Image Box - Big and Modern */}
-                  <div className="lg:w-2/3 relative overflow-hidden bg-[#151515]">
-                    {/* Main Image */}
-                    <div className="h-full w-full min-h-[400px] lg:min-h-full">
+                  <div
+                    className="lg:w-2/3 relative cursor-pointer"
+                    onClick={() => openGallery(index)}
+                  >
+                    {/* Main Image Wrapper */}
+                    <div className="relative w-full lg:h-full aspect-[16/9] lg:aspect-auto lg:min-h-full bg-[#151515] rounded-t-[2rem] lg:rounded-t-0 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
-                    </div>
 
-                    {/* Image Overlays / Badges */}
-                    <div className="absolute top-8 left-8">
-                      <div className="px-4 py-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white/80 text-xs font-secondary tracking-widest uppercase">
-                        {project.category}
-                      </div>
-                    </div>
-
-                    {/* Multiple Image Preview Placeholders (Hidden until user adds more) */}
-                    <div className="absolute bottom-8 right-8 flex gap-3">
-                      {project.images?.map((_, i) => (
-                        <div key={i} className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-[10px] text-white/50">
-                          {i + 1}
+                      {/* Image Overlays / Badges - Moved Inside */}
+                      <div className="absolute top-4 left-4 lg:top-8 lg:left-8">
+                        <div className="px-3 py-1 lg:px-4 lg:py-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white/80 text-[10px] lg:text-xs font-secondary tracking-widest uppercase">
+                          {project.category}
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Multiple Image Preview Placeholders - Moved Inside */}
+                      <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 flex gap-2 lg:gap-3">
+                        {project.images?.map((_, i) => (
+                          <div key={i} className="w-8 h-8 lg:w-12 lg:h-12 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-[10px] text-white/50">
+                            {i + 1}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
                   {/* Project Details Box - Outside the Image but inside the sticky card */}
-                  <div className="lg:w-1/3 p-8 lg:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10">
+                  <div className="lg:w-1/3 p-6 lg:p-12 flex flex-col justify-start lg:justify-between border-t lg:border-t-0 lg:border-l border-white/10">
                     <div>
-                      <div className="mb-8">
-                        <span className="text-primary font-secondary text-sm font-bold tracking-widest uppercase mb-4 block">
+                      <div className="mb-4 lg:mb-8">
+                        <span className="text-primary font-secondary text-[10px] lg:text-sm font-bold tracking-widest uppercase mb-2 lg:mb-4 block">
                           Project {index + 1}
                         </span>
-                        <h2 className="font-heading text-3xl lg:text-4xl font-bold !text-white mb-6 transition-colors">
-                          {project.title}
-                        </h2>
-                        <p className="font-secondary text-white/60 text-lg leading-relaxed mb-8">
+                        <div className="flex items-start justify-between gap-4 mb-3 lg:mb-6">
+                          <h2 className="font-heading text-xl lg:text-4xl font-bold !text-white transition-colors">
+                            {project.title}
+                          </h2>
+                          {project.link && (
+                            <div className="lg:hidden shrink-0 mt-1">
+                              <Button
+                                asChild
+                                variant="gold"
+                                size="sm"
+                                className="h-7 px-2 text-[10px] uppercase tracking-tighter rounded-md"
+                              >
+                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
+                                  Live <ExternalLink size={10} />
+                                </a>
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+
+
+
+                        <p className="font-secondary text-white/60 text-sm lg:text-lg leading-relaxed mb-6 lg:mb-8 line-clamp-3 lg:line-clamp-none">
                           {project.description}
                         </p>
                       </div>
 
-                      <div className="space-y-6 mb-12">
-                        <div className="flex flex-wrap gap-2">
+                      <div className="space-y-4 lg:space-y-6 mb-8 lg:mb-12">
+                        <div className="flex flex-wrap gap-1.5 lg:gap-2">
                           {project.technologies.map((tech, i) => (
-                            <span key={i} className="px-3 py-1 bg-white/5 rounded-md text-xs font-mono text-white/40 border border-white/5">
+                            <span key={i} className="px-2 py-0.5 lg:px-3 lg:py-1 bg-white/5 rounded-md text-[10px] lg:text-xs font-mono text-white/40 border border-white/5 uppercase">
                               {tech}
                             </span>
                           ))}
@@ -273,7 +327,8 @@ const Portfolio = (): JSX.Element => {
                       </div>
                     </div>
 
-                    <div>
+
+                    <div className="hidden lg:block">
                       {project.link && (
                         <Button
                           asChild
@@ -282,7 +337,7 @@ const Portfolio = (): JSX.Element => {
                           className="w-full h-14 rounded-xl shadow-xl hover:shadow-primary/20 transition-all duration-300"
                         >
                           <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
-                            <span>Experience Launch</span>
+                            <span>Live Link</span>
                             <ExternalLink size={18} />
                           </a>
                         </Button>
@@ -356,6 +411,61 @@ const Portfolio = (): JSX.Element => {
           </Button>
         </div>
       </AnimatedSection>
+      {/* Gallery Modal */}
+      <AnimatePresence>
+        {galleryOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={closeGallery}
+          >
+            <button
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110]"
+              onClick={closeGallery}
+            >
+              <X size={32} />
+            </button>
+
+            <div className="relative w-full max-w-6xl aspect-video flex items-center justify-center">
+              {/* Main Gallery Image */}
+              <motion.img
+                key={currentImageIndex}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                src={projects[currentProjectIndex].images?.[currentImageIndex] || projects[currentProjectIndex].image}
+                alt={projects[currentProjectIndex].title}
+                className="max-w-full max-h-full object-contain pointer-events-none"
+              />
+
+              {/* Navigation Arrows */}
+              {projects[currentProjectIndex].images && projects[currentProjectIndex].images!.length > 1 && (
+                <>
+                  <button
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all"
+                    onClick={prevImage}
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all"
+                    onClick={nextImage}
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
+
+              {/* Image Counter */}
+              <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 text-white/50 font-secondary text-sm">
+                {currentImageIndex + 1} / {projects[currentProjectIndex].images?.length || 1}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

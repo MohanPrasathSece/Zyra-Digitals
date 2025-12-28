@@ -162,8 +162,8 @@ const About = () => {
                       <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
                         <Icon className="text-gold" size={24} />
                       </div>
-                      <h3 className="font-subheading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                      <p className="font-secondary text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      <h3 className="font-subheading text-xl font-semibold text-foreground mb-2">{item.title}</h3>
+                      <p className="font-secondary text-base text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   </AnimatedSection>
                 );

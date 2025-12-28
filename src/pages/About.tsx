@@ -185,7 +185,7 @@ const About = () => {
             {/* Step 1 - Left */}
             <AnimatedSection animation="slide-left" delay={0}>
               <div className="relative">
-                <div className="flex flex-col md:flex-row items-center gap-0">
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
                   <div className="md:w-1/3">
                     <div className="relative">
                       {/* Outer container with hole */}
@@ -196,10 +196,10 @@ const About = () => {
                         </div>
                         {/* Perfect square card */}
                         <div className="md:transform md:-rotate-3">
-                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Strategic Branding</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Design Idea</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   1
                                 </div>
@@ -221,15 +221,22 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
                     </svg>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
 
+            {/* Mobile Dotted Line Connection */}
+            <div className="md:hidden flex justify-center my-0">
+              <svg className="w-8 h-28" viewBox="0 0 32 112">
+                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+
             {/* Step 2 - Right */}
-            <AnimatedSection animation="slide-right" delay={100}>
+            <AnimatedSection animation="slide-right" delay={100} className="mt-8 md:mt-0">
               <div className="relative">
                 <div className="flex flex-col md:flex-row-reverse items-center gap-0">
                   <div className="md:w-1/3">
@@ -239,10 +246,10 @@ const About = () => {
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:rotate-3">
-                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Web Development</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Development</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   2
                                 </div>
@@ -263,17 +270,24 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
                     </svg>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
 
+            {/* Mobile Dotted Line Connection */}
+            <div className="md:hidden flex justify-center my-0">
+              <svg className="w-8 h-28" viewBox="0 0 32 112">
+                <path d="M 16 0 Q 24 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+
             {/* Step 3 - Left */}
-            <AnimatedSection animation="slide-left" delay={200}>
+            <AnimatedSection animation="slide-left" delay={200} className="mt-8 md:mt-0">
               <div className="relative">
-                <div className="flex flex-col md:flex-row items-center gap-0">
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
                   <div className="md:w-1/3">
                     <div className="relative">
                       <div className="bg-gray-100 rounded-2xl p-1 relative">
@@ -281,10 +295,10 @@ const About = () => {
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:-rotate-2">
-                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>User Experience</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Testing</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   3
                                 </div>
@@ -305,15 +319,22 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" stroke-width="3" fill="none" stroke-dasharray="6,6" stroke-linecap="round"/>
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
                     </svg>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
 
+            {/* Mobile Dotted Line Connection */}
+            <div className="md:hidden flex justify-center my-0">
+              <svg className="w-8 h-28" viewBox="0 0 32 112">
+                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+
             {/* Step 4 - Right */}
-            <AnimatedSection animation="slide-right" delay={300}>
+            <AnimatedSection animation="slide-right" delay={300} className="mt-8 md:mt-0">
               <div className="relative">
                 <div className="flex flex-col md:flex-row-reverse items-center gap-0">
                   <div className="md:w-1/3">
@@ -323,10 +344,10 @@ const About = () => {
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:rotate-2">
-                          <div className="bg-white border-2 border-gray-300 aspect-square rounded-lg p-2 shadow-md">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Digital Growth</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Launch</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   4
                                 </div>

@@ -199,13 +199,13 @@ const About = () => {
                           <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Design Idea</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '24px' }}>Design Idea</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   1
                                 </div>
                               </div>
                               <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '16px' }}>
                                   We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.
                                 </p>
                               </div>
@@ -249,13 +249,13 @@ const About = () => {
                           <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Development</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '24px' }}>Development</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   2
                                 </div>
                               </div>
                               <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '16px' }}>
                                   High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.
                                 </p>
                               </div>
@@ -298,13 +298,13 @@ const About = () => {
                           <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Testing</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '24px' }}>Testing</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   3
                                 </div>
                               </div>
                               <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '16px' }}>
                                   Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, effective PPC advertising, and comprehensive analytics tracking.
                                 </p>
                               </div>
@@ -347,13 +347,13 @@ const About = () => {
                           <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
-                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Launch</h3>
+                                <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '24px' }}>Launch</h3>
                                 <div className="w-6 h-6 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold text-sm ml-3">
                                   4
                                 </div>
                               </div>
                               <div className="flex-1 flex items-start pb-0">
-                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '15px' }}>
+                                <p className="font-secondary text-muted-foreground leading-tight text-justify mb-0" style={{ fontSize: '16px' }}>
                                   SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, brand consistency maintenance, ongoing support, and strategic refinement for sustained growth.
                                 </p>
                               </div>

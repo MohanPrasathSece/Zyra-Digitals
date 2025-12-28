@@ -46,25 +46,25 @@ export const Footer = () => {
     setSubmitMessage("");
 
     try {
-      // Send email to your business
-      const response = await fetch('https://formspree.io/f/your-form-id', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          name: "Footer Lead",
           email: email,
-          message: "Interested in brand development or website design services",
-          source: "Footer form",
-          timestamp: new Date().toISOString(),
+          message: "Interested in brand development or website design services (Sent via Footer)",
         }),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setSubmitMessage("Thank you! We'll contact you soon.");
         setEmail("");
       } else {
-        setSubmitMessage("Something went wrong. Please try again.");
+        setSubmitMessage(data.error || "Something went wrong. Please try again.");
       }
     } catch (error) {
       setSubmitMessage("Something went wrong. Please try again.");
@@ -74,18 +74,17 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-background mt-8" role="contentinfo">
-      <div className="w-full px-[15px]">
+    <footer className="mt-8 mb-0 flex-shrink-0" role="contentinfo">
+      <div className="w-full px-[15px] pb-0">
         {/* Mobile Footer */}
-        <div 
+        <div
           ref={footerRef}
-          className={`md:hidden bg-primary text-primary-foreground px-6 py-12 rounded-t-3xl transition-all duration-700 ease-out transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`md:hidden bg-primary text-primary-foreground px-6 py-12 rounded-t-3xl rounded-b-none mb-0 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <div className="text-center space-y-6">
             <img src="/images/whitelogo.png" alt="Zyra Digitals logo" className="w-20 h-12 object-contain mx-auto" />
-            
+
             <div className="space-y-3">
               <p className="text-lg text-primary-foreground/90">Need brand development or website design?</p>
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -113,7 +112,7 @@ export const Footer = () => {
                 )}
               </form>
             </div>
-            
+
             <div className="flex justify-center gap-4">
               <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
                 <Instagram size={16} />
@@ -128,22 +127,21 @@ export const Footer = () => {
                 <Facebook size={16} />
               </a>
             </div>
-            
+
             <p className="text-xs text-primary-foreground/50">© {currentYear} Zyra Digitals</p>
           </div>
         </div>
 
         {/* Desktop Footer */}
-        <div 
-          className={`hidden md:block bg-primary text-primary-foreground rounded-t-[3rem] px-8 py-20 transition-all duration-700 ease-out transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+        <div
+          className={`hidden md:block bg-primary text-primary-foreground rounded-t-[3rem] rounded-b-none px-8 py-20 mb-0 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between">
               {/* Logo - Left */}
               <img src="/images/whitelogo.png" alt="Zyra Digitals logo" className="w-32 h-20 object-contain" />
-              
+
               {/* Brand Development Form - Right */}
               <div className="max-w-md">
                 <div className="text-right space-y-3 mb-4">
@@ -175,7 +173,7 @@ export const Footer = () => {
                 </form>
               </div>
             </div>
-            
+
             <div className="flex items-center justify-between mt-8 pt-6 border-t border-primary-foreground/20">
               <nav className="flex gap-8 text-sm text-primary-foreground/60">
                 <a href="/" className="hover:text-gold transition-colors">Home</a>
@@ -184,7 +182,7 @@ export const Footer = () => {
                 <a href="/portfolio" className="hover:text-gold transition-colors">Portfolio</a>
                 <a href="/contact" className="hover:text-gold transition-colors">Contact</a>
               </nav>
-              
+
               <div className="flex gap-3">
                 <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
                   <Instagram size={18} />
@@ -200,7 +198,7 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
-            
+
             <div className="text-center mt-6">
               <p className="text-sm text-primary-foreground/60">© {currentYear} Zyra Digitals</p>
             </div>

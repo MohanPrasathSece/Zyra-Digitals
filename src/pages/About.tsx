@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { User, Target, Zap, Award, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { InteractiveHeroBackground } from "@/components/InteractiveHeroBackground";
 
 const About = () => {
 
@@ -75,6 +76,7 @@ const About = () => {
       </Helmet>
       {/* Hero Section - Full Screen Banner */}
       <AnimatedSection animation="fade-up" className="min-h-screen bg-background relative overflow-hidden">
+        <InteractiveHeroBackground />
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
 
@@ -182,8 +184,20 @@ const About = () => {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4">
-            {/* The Rope (Single Dotted Line) - Only visible on desktop/tablet row */}
-            <div className="hidden md:block absolute top-[12px] left-0 w-full h-px border-t-2 border-dashed border-gray-300 z-0 flex-shrink-0"></div>
+            {/* The Rope (Curved Dotted Line - Thick & Visible) */}
+            <div className="hidden md:block absolute top-[40px] left-0 w-full h-[400px] z-0 pointer-events-none">
+              <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1200 400">
+                <path
+                  d="M 0 80 Q 600 400, 1200 100"
+                  fill="none"
+                  stroke="#9CA3AF"
+                  strokeWidth="8"
+                  strokeDasharray="20 15"
+                  strokeLinecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
 
             <div className="flex flex-col md:flex-row gap-12 md:gap-6 relative z-10">
               {[
@@ -191,43 +205,47 @@ const About = () => {
                   id: 1,
                   title: "Design Idea",
                   desc: "We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.",
-                  rotation: "-rotate-2"
+                  rotation: "-rotate-2",
+                  topOffset: "md:mt-20"
                 },
                 {
                   id: 2,
                   title: "Development",
                   desc: "High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.",
-                  rotation: "rotate-2"
+                  rotation: "rotate-2",
+                  topOffset: "md:mt-56"
                 },
                 {
                   id: 3,
                   title: "Testing",
                   desc: "Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, and analytics tracking.",
-                  rotation: "-rotate-1"
+                  rotation: "-rotate-1",
+                  topOffset: "md:mt-60"
                 },
                 {
                   id: 4,
                   title: "Launch",
                   desc: "SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, and strategic refinement for sustained growth.",
-                  rotation: "rotate-3"
+                  rotation: "rotate-3",
+                  topOffset: "md:mt-24"
                 }
               ].map((step, index) => (
-                <div key={step.id} className="flex-1">
+                <div key={step.id} className={`flex-1 ${step.topOffset}`}>
                   <AnimatedSection animation="fade-up" delay={index * 150}>
                     <div className="relative pt-6 md:pt-3">
                       {/* Rope for Mobile (Vertical) */}
-                      <div className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-6 w-px border-l-2 border-dashed border-gray-300"></div>
+                      <div className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-6 w-px border-l-4 border-dashed border-gray-300"></div>
 
                       {/* Hole at top center */}
-                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center z-20 shadow-sm">
-                        <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full border-[3px] border-gray-400 flex items-center justify-center z-20 shadow-sm transition-transform duration-500 hover:scale-110">
+                        <div className="w-4 h-4 bg-gray-800 rounded-full"></div>
                       </div>
 
                       {/* Card container with gray border casing */}
-                      <div className="bg-gray-100 rounded-2xl p-1 shadow-sm">
+                      <div className="bg-gray-100 rounded-2xl p-1 shadow-sm group">
                         {/* The hanging card */}
                         <div className={`transition-all duration-700 ease-premium hover:rotate-0 hover:scale-[1.03] hover:z-30 cursor-default md:${step.rotation}`}>
-                          <div className="bg-white border-2 border-gray-300 rounded-xl p-6 lg:p-7 shadow-md min-h-[320px] md:min-h-[380px] lg:min-h-[350px] flex flex-col hover:shadow-2xl transition-all duration-500 ease-premium relative overflow-hidden group">
+                          <div className="bg-white border-2 border-gray-300 rounded-xl p-6 lg:p-7 shadow-md min-h-[320px] md:min-h-[380px] lg:min-h-[350px] flex flex-col hover:shadow-2xl transition-all duration-500 ease-premium relative overflow-hidden">
                             {/* Subtle background number */}
                             <div className="absolute -right-4 -bottom-4 text-8xl font-bold text-gray-50 group-hover:text-gray-100 transition-colors duration-500 pointer-events-none">
                               {step.id}
@@ -255,7 +273,7 @@ const About = () => {
                   {/* Connector rope for mobile between cards */}
                   {index < 3 && (
                     <div className="md:hidden flex justify-center h-12">
-                      <div className="w-px h-full border-l-2 border-dashed border-gray-300"></div>
+                      <div className="w-px h-full border-l-4 border-dashed border-gray-300"></div>
                     </div>
                   )}
                 </div>

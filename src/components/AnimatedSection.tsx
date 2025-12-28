@@ -42,22 +42,22 @@ export const AnimatedSection = ({
   }, [threshold])
 
   const getAnimationClass = () => {
-    const baseClass = 'transition-all duration-400 ease-premium'
+    const baseClass = 'transition-all duration-700 ease-out'
 
     if (!isVisible) {
       switch (animation) {
         case 'fade-up':
-          return `${baseClass} opacity-0 translate-y-6`
-        case 'slide-up':
           return `${baseClass} opacity-0 translate-y-10`
+        case 'slide-up':
+          return `${baseClass} opacity-0 translate-y-20`
         case 'fade-in':
           return `${baseClass} opacity-0`
         case 'slide-left':
-          return `${baseClass} opacity-0 translate-x-6`
+          return `${baseClass} opacity-0 translate-x-10`
         case 'slide-right':
-          return `${baseClass} opacity-0 -translate-x-6`
+          return `${baseClass} opacity-0 -translate-x-10`
         default:
-          return `${baseClass} opacity-0 translate-y-6`
+          return `${baseClass} opacity-0 translate-y-10`
       }
     }
 

@@ -94,7 +94,9 @@ const Home = () => {
       </Helmet>
       {/* Hero Section */}
       <Hero />
-      <LogoCarousel />
+      <AnimatedSection animation="fade-up">
+        <LogoCarousel />
+      </AnimatedSection>
 
       {/* Services Preview */}
       <AnimatedSection animation="slide-up" className="py-20 bg-background">

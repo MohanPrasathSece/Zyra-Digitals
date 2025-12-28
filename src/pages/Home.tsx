@@ -140,12 +140,11 @@ const Home = () => {
       </AnimatedSection>
 
       {/* 3D Project Showcase Section */}
-      <AnimatedSection animation="fade-up" className="py-20 bg-gradient-to-br from-background via-primary/5 to-gold/5 relative overflow-hidden">
+      <AnimatedSection animation="fade-up" className="py-20 bg-background relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gold/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -156,8 +155,8 @@ const Home = () => {
               transition={{ duration: 0.5, type: "spring" }}
               className="inline-block mb-6"
             >
-              <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-gold rounded-full animate-pulse" />
+              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-primary rounded-full animate-pulse" />
               </div>
             </motion.div>
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
@@ -179,7 +178,7 @@ const Home = () => {
               },
               {
                 title: "E-commerce",
-                image: "/images/Portfolio_projects/amzcoz.png", 
+                image: "/images/Portfolio_projects/amzcoz.png",
                 rotateY: -5,
                 delay: 0.1
               },
@@ -201,15 +200,15 @@ const Home = () => {
                 initial={{ opacity: 0, z: -100, rotateY: 45 }}
                 whileInView={{ opacity: 1, z: 0, rotateY: project.rotateY }}
                 viewport={{ amount: 0.5 }}
-                transition={{ 
-                  duration: 1, 
+                transition={{
+                  duration: 1,
                   delay: project.delay,
                   type: "spring",
                   stiffness: 80,
                   damping: 20
                 }}
                 className="relative"
-                style={{ 
+                style={{
                   perspective: "1200px",
                   height: "400px"
                 }}
@@ -217,7 +216,7 @@ const Home = () => {
                 {/* 3D Card Container - Always 3D */}
                 <motion.div
                   className="relative w-full h-full rounded-3xl overflow-hidden cursor-pointer"
-                  style={{ 
+                  style={{
                     transform: `rotateY(${project.rotateY}deg) translateZ(50px)`,
                     transformStyle: "preserve-3d",
                     boxShadow: "0 35px 60px -15px rgba(0, 0, 0, 0.3)"
@@ -229,7 +228,7 @@ const Home = () => {
                 >
                   {/* Card Face */}
                   <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
-                    <div 
+                    <div
                       className="w-full h-full bg-cover bg-center bg-no-repeat"
                       style={{ backgroundImage: `url('${project.image}')` }}
                     >
@@ -239,17 +238,17 @@ const Home = () => {
                   </div>
 
                   {/* 3D Side Faces */}
-                  <div 
+                  <div
                     className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-primary/20 to-primary/10"
-                    style={{ 
+                    style={{
                       right: "-32px",
                       transform: "rotateY(90deg) translateZ(16px)",
                       transformOrigin: "left center"
                     }}
                   />
-                  <div 
-                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-l from-gold/20 to-gold/10"
-                    style={{ 
+                  <div
+                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-l from-primary/20 to-primary/10"
+                    style={{
                       left: "-32px",
                       transform: "rotateY(-90deg) translateZ(16px)",
                       transformOrigin: "right center"
@@ -269,7 +268,7 @@ const Home = () => {
 
                 {/* Floating particles around card */}
                 <motion.div
-                  className="absolute -top-3 -right-3 w-3 h-3 bg-gold rounded-full opacity-80"
+                  className="absolute -top-3 -right-3 w-3 h-3 bg-primary rounded-full opacity-80"
                   animate={{
                     y: [-8, 8, -8],
                     scale: [1, 1.5, 1],
@@ -299,16 +298,16 @@ const Home = () => {
           </div>
 
           {/* CTA Button */}
-          <motion.div 
+          <motion.div
             className="text-center mt-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <Button 
-              variant="gold" 
-              size="lg" 
-              asChild 
+            <Button
+              variant="gold"
+              size="lg"
+              asChild
               className="h-16 px-10 text-base shadow-2xl hover:shadow-gold/20 transform hover:scale-105 transition-all duration-300"
             >
               <Link to="/portfolio" className="flex items-center gap-3">

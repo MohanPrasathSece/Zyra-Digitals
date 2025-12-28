@@ -1,15 +1,13 @@
 import { Hero } from "@/components/Hero";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code, User, Briefcase, ShoppingCart, ChevronRight, ChevronLeft } from "lucide-react";
+import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
-import { ProjectCard } from "@/components/ProjectCard";
 import { FAQ } from "@/components/FAQ";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Typewriter } from "@/components/Typewriter";
 import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
-import { motion } from "framer-motion";
 
 const Home = () => {
   useScrollToTop();
@@ -37,33 +35,6 @@ const Home = () => {
     },
   ];
 
-  const featuredProjects = [
-    {
-      title: "Dental & Healthcare",
-      image: "/images/Portfolio_projects/precision.png",
-      link: "https://precision-rootcanal.vercel.app/index.html",
-    },
-    {
-      title: "Luxury Jewelry",
-      image: "/images/Portfolio_projects/lumi.png",
-      link: "https://lumi-co.vercel.app",
-    },
-    {
-      title: "E-Commerce Growth",
-      image: "/images/Portfolio_projects/amzcoz.png",
-      link: "https://amzcoz.com",
-    },
-    {
-      title: "Medical Clinic",
-      image: "/images/Portfolio_projects/hamburg.png",
-      link: "https://hamburghomeopathy.com",
-    },
-    {
-      title: "Corporate Consulting",
-      image: "/images/Portfolio_projects/elevare.png",
-      link: "https://elevare-leadership.com",
-    },
-  ];
 
   // Featured FAQs for home page
   const homeFAQs = [
@@ -164,88 +135,6 @@ const Home = () => {
             <Button variant="ghost-gold" size="lg" asChild>
               <Link to="/services">Explore Our Work</Link>
             </Button>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Featured Works - Enhanced 3D Arc (Light Style) */}
-      <AnimatedSection animation="fade-up" className="py-20 bg-background overflow-hidden relative">
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Header Layout - Simplified & Smaller */}
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground uppercase tracking-tight">
-              Our Works
-            </h2>
-            <div className="w-16 h-[2px] bg-gold/30 mx-auto mt-4" />
-          </div>
-
-          {/* 3D Arc Gallery - Uniform Card Size */}
-          <div className="relative flex justify-center items-end -space-x-12 sm:-space-x-20 max-w-7xl mx-auto perspective-[2000px] h-[480px] pb-12">
-            {/* Background Decorative "Shuttle" Lines */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
-              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gold" />
-              <div className="absolute top-1/2 left-1/4 w-[1px] h-full bg-gold -translate-y-1/2" />
-              <div className="absolute top-1/2 right-1/4 w-[1px] h-full bg-gold -translate-y-1/2" />
-            </div>
-
-            {featuredProjects.slice(0, 5).map((project, index) => {
-              // Exact 3D Arc Positioning (Fixed Size)
-              const rotationY = (index - 2) * -20;
-              const translateY = Math.abs(index - 2) * 40;
-              const translateZ = (2 - Math.abs(index - 2)) * 40;
-              const zIndex = 30 - Math.abs(index - 2) * 10;
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50, rotateY: 0 }}
-                  whileInView={{ opacity: 1, y: 0, rotateY: rotationY }}
-                  transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="relative group cursor-pointer"
-                  style={{
-                    zIndex: zIndex,
-                    transformStyle: 'preserve-3d',
-                  }}
-                >
-                  <Link
-                    to="/portfolio"
-                    className="relative block w-[160px] sm:w-[240px] aspect-[10/14] rounded-[2.5rem] overflow-hidden bg-white border border-border/50 shadow-xl transition-all duration-500 ease-premium hover:shadow-2xl"
-                    style={{
-                      transform: `translateY(${translateY}px) translateZ(${translateZ}px)`,
-                    }}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-
-                    {/* Minimal Overlay */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
-
-                    {/* Label */}
-                    <div className="absolute inset-x-0 bottom-0 p-6">
-                      <h3 className="font-heading text-white text-[12px] sm:text-sm tracking-[3px] uppercase font-semibold">
-                        {project.title}
-                      </h3>
-                    </div>
-
-                    {/* Shuttle Hover Line Effect */}
-                    <div className="absolute bottom-0 left-0 w-0 h-1 bg-gold transition-all duration-500 group-hover:w-full" />
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-          {/* Navigation Controls */}
-          <div className="flex justify-center items-center gap-6 mt-8">
-            <button className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-gold transition-all duration-300">
-              <ChevronLeft size={18} />
-            </button>
-            <button className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-gold transition-all duration-300">
-              <ChevronRight size={18} />
-            </button>
           </div>
         </div>
       </AnimatedSection>

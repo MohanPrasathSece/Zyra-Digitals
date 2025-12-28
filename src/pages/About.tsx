@@ -5,9 +5,17 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { User, Target, Zap, Award, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { InteractiveHeroBackground } from "@/components/InteractiveHeroBackground";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const expertise = [
     {
@@ -75,14 +83,9 @@ const About = () => {
         })}</script>
       </Helmet>
       {/* Hero Section - Full Screen Banner */}
-      <AnimatedSection animation="fade-up" className="min-h-screen bg-background relative overflow-hidden">
-        <InteractiveHeroBackground />
+      <section className="min-h-screen bg-background relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="min-h-screen flex items-start justify-center pt-20">
@@ -117,7 +120,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* Achievements Section */}
       <AnimatedSection animation="fade-up" className="py-20 bg-gradient-to-br from-secondary/30 to-gold/5">
@@ -184,17 +187,46 @@ const About = () => {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4">
-            {/* The Rope (Curved Dotted Line - Thick & Visible) */}
-            <div className="hidden md:block absolute top-[40px] left-0 w-full h-[400px] z-0 pointer-events-none">
-              <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1200 400">
+            {/* The Rope (Curved Dotted Line - Multi-Strand Professional Effect) */}
+            <div className="hidden md:block absolute top-[40px] left-0 w-full h-[500px] z-0 pointer-events-none">
+              <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1200 500">
+                {/* Glow layer */}
                 <path
-                  d="M 0 80 Q 600 400, 1200 100"
+                  d="M 0 80 Q 600 550, 1200 100"
+                  fill="none"
+                  stroke="rgba(184, 149, 81, 0.2)"
+                  strokeWidth="12"
+                  className="blur-[6px]"
+                />
+                {/* Main Strand */}
+                <path
+                  d="M 0 80 Q 600 550, 1200 100"
                   fill="none"
                   stroke="#9CA3AF"
-                  strokeWidth="8"
-                  strokeDasharray="20 15"
+                  strokeWidth="6"
+                  strokeDasharray="30 20"
                   strokeLinecap="round"
-                  opacity="0.5"
+                />
+                {/* Fiber Strand 1 */}
+                <path
+                  d="M 0 82 Q 600 552, 1200 102"
+                  fill="none"
+                  stroke="#4B5563"
+                  strokeWidth="3"
+                  strokeDasharray="15 35"
+                  strokeDashoffset="10"
+                  strokeLinecap="round"
+                />
+                {/* Fiber Strand 2 (Highlights) */}
+                <path
+                  d="M 0 78 Q 600 548, 1200 98"
+                  fill="none"
+                  stroke="#E5E7EB"
+                  strokeWidth="2"
+                  strokeDasharray="10 40"
+                  strokeDashoffset="20"
+                  strokeLinecap="round"
+                  opacity="0.8"
                 />
               </svg>
             </div>
@@ -206,33 +238,44 @@ const About = () => {
                   title: "Design Idea",
                   desc: "We craft brand strategies that resonate with your target audience and drive business growth through comprehensive brand identity analysis, audience research, competitor insights, strategic positioning, and visual development.",
                   rotation: "-rotate-2",
-                  topOffset: "md:mt-20"
+                  desktopOffset: 120
                 },
                 {
                   id: 2,
                   title: "Development",
                   desc: "High-performance websites that serve as the foundation of your digital presence with custom designs, responsive layouts, e-commerce solutions, CMS integration, and SEO optimization for maximum impact.",
                   rotation: "rotate-2",
-                  topOffset: "md:mt-56"
+                  desktopOffset: 240
                 },
                 {
                   id: 3,
                   title: "Testing",
                   desc: "Intuitive designs that create meaningful connections between your brand and customers through strategic social media presence, compelling content marketing, targeted email campaigns, and analytics tracking.",
                   rotation: "-rotate-1",
-                  topOffset: "md:mt-60"
+                  desktopOffset: 245
                 },
                 {
                   id: 4,
                   title: "Launch",
                   desc: "SEO and marketing strategies that ensure your brand gets discovered and remembered through continuous performance monitoring, conversion optimization, and strategic refinement for sustained growth.",
                   rotation: "rotate-3",
-                  topOffset: "md:mt-24"
+                  desktopOffset: 135
                 }
               ].map((step, index) => (
-                <div key={step.id} className={`flex-1 ${step.topOffset}`}>
+                <div key={step.id} className="flex-1" style={{ marginTop: windowWidth > 768 ? `${step.desktopOffset}px` : '0px' }}>
                   <AnimatedSection animation="fade-up" delay={index * 150}>
-                    <div className="relative pt-6 md:pt-3">
+                    <motion.div
+                      className="relative pt-6 md:pt-3"
+                      animate={{
+                        y: [0, 8, 0],
+                        rotate: [0, index % 2 === 0 ? 0.5 : -0.5, 0]
+                      }}
+                      transition={{
+                        duration: 4 + index,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
                       {/* Rope for Mobile (Vertical) */}
                       <div className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-6 w-px border-l-4 border-dashed border-gray-300"></div>
 
@@ -267,7 +310,7 @@ const About = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </AnimatedSection>
 
                   {/* Connector rope for mobile between cards */}
@@ -280,11 +323,11 @@ const About = () => {
               ))}
             </div>
           </div>
-        </div>
-      </AnimatedSection>
+        </div >
+      </AnimatedSection >
 
       {/* CTA Section */}
-      <AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-gold/10 to-gold/5">
+      < AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-gold/10 to-gold/5" >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-6">
@@ -301,8 +344,8 @@ const About = () => {
             </Button>
           </div>
         </div>
-      </AnimatedSection>
-    </div>
+      </AnimatedSection >
+    </div >
   );
 };
 

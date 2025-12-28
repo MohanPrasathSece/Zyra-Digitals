@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { FloatingOrb } from "@/components/FloatingOrb";
 import { useState, useEffect, useRef } from "react";
+import { Interactive3DHeroBackground } from "@/components/Interactive3DHeroBackground";
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,13 +40,9 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 md:pb-24">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
-        style={{ backgroundImage: "url('/images/bg image.jpg')" }}
-      />
+      <Interactive3DHeroBackground />
 
-      {/* Background Pattern: minimal, sparse diagonal tiles */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 z-0 bg-background" />
 
       {/* Small Orb at top-right (hidden on mobile) */}

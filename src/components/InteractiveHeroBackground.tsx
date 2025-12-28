@@ -28,13 +28,13 @@ export const InteractiveHeroBackground = () => {
                 this.y = y;
                 this.baseX = x;
                 this.baseY = y;
-                this.size = 1.5;
-                this.density = (Math.random() * 30) + 1;
+                this.size = 2.5;
+                this.density = (Math.random() * 40) + 1;
             }
 
             draw() {
                 if (!ctx) return;
-                ctx.fillStyle = 'rgba(184, 149, 81, 0.4)'; // Gold-ish color to match theme
+                ctx.fillStyle = 'rgba(184, 149, 81, 0.9)'; // Even more vibrant
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.closePath();
@@ -93,18 +93,28 @@ export const InteractiveHeroBackground = () => {
             init();
         };
 
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
+        const handleMouseMove = (e: MouseEvent) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
             mouse.active = true;
-        });
+        };
+
+        const handleMouseLeave = () => {
+            mouse.active = false;
+        };
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseleave', handleMouseLeave);
 
         handleResize();
         animate();
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseleave', handleMouseLeave);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);
@@ -112,7 +122,7 @@ export const InteractiveHeroBackground = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="absolute inset-0 pointer-events-none z-0 opacity-40 shadow-inner"
+            className="absolute inset-0 pointer-events-none z-0 opacity-60 shadow-inner"
             style={{ filter: 'blur(0.5px)' }}
         />
     );

@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { Preloader } from "@/components/Preloader";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -58,15 +59,58 @@ const App = () => {
             {!isLoading && <Navbar />}
             <main className="flex-grow">
               <Suspense fallback={<LoadingFallback />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/contact" element={<Contact />} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <AnimatePresence mode="wait">
+                  <Routes location={location} key={location.pathname}>
+                    <Route
+                      path="/"
+                      element={
+                        <PageWrapper>
+                          <Home />
+                        </PageWrapper>
+                      }
+                    />
+                    <Route
+                      path="/about"
+                      element={
+                        <PageWrapper>
+                          <About />
+                        </PageWrapper>
+                      }
+                    />
+                    <Route
+                      path="/services"
+                      element={
+                        <PageWrapper>
+                          <Services />
+                        </PageWrapper>
+                      }
+                    />
+                    <Route
+                      path="/portfolio"
+                      element={
+                        <PageWrapper>
+                          <Portfolio />
+                        </PageWrapper>
+                      }
+                    />
+                    <Route
+                      path="/contact"
+                      element={
+                        <PageWrapper>
+                          <Contact />
+                        </PageWrapper>
+                      }
+                    />
+                    <Route
+                      path="*"
+                      element={
+                        <PageWrapper>
+                          <NotFound />
+                        </PageWrapper>
+                      }
+                    />
+                  </Routes>
+                </AnimatePresence>
               </Suspense>
             </main>
             {!isLoading && <Footer />}
@@ -76,5 +120,16 @@ const App = () => {
     </QueryClientProvider>
   );
 };
+
+const PageWrapper = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default App;

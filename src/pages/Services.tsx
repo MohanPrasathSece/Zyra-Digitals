@@ -137,7 +137,7 @@ const Services = () => {
                   className="sticky"
                   style={{ top: `${6 + index * 1.5}rem` }}
                 >
-                  <div className="group bg-card rounded-2xl border border-border/60 p-6 shadow-sm shadow-black/5 hover:shadow-lg hover:shadow-gold/5 hover:border-gold/30 transition-all duration-300">
+                  <div className="group bg-card rounded-2xl border border-border/60 p-6 shadow-sm shadow-black/5 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:scale-[1.02]">
                     {/* Header */}
                     <div className="mb-6">
                       <div className="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
@@ -156,18 +156,23 @@ const Services = () => {
                     <div className="space-y-3 mb-8 border-t border-border/40 pt-6">
                       {service.features.slice(0, 3).map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-3">
-                          <div className="w-1.5 h-1.5 bg-gold/50 rounded-full group-hover:bg-gold transition-colors duration-300"></div>
+                          <div className="w-1.5 h-1.5 bg-gold/50 rounded-full group-hover:bg-gold transition-colors duration-500 ease-premium"></div>
                           <span className="font-secondary text-sm text-foreground/70">{feature}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Button variant="outline" className="w-full border-border hover:border-gold/50 hover:bg-gold/5 hover:text-foreground transition-all duration-300" asChild>
+                    <Button variant="outline" className="w-full border-border hover:border-gold/50 hover:bg-gold/5 hover:text-foreground transition-all duration-500 ease-premium" asChild>
                       <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                         Get Started
-                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-500 ease-premium" />
                       </a>
                     </Button>
+
+                    {/* Shuttle line */}
+                    <div className="mt-4 overflow-hidden h-[2px] w-full max-w-[40px]">
+                      <div className="h-full w-full bg-gold -translate-x-full transition-transform duration-500 ease-premium group-hover:translate-x-0" />
+                    </div>
                   </div>
                 </div>
               );
@@ -180,7 +185,7 @@ const Services = () => {
               const Icon = service.icon;
               return (
                 <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                  <div className="group h-full bg-card rounded-2xl border border-border/60 p-8 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                  <div className="group h-full bg-card rounded-2xl border border-border/60 p-8 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:scale-[1.02] flex flex-col">
                     {/* Header */}
                     <div className="mb-8">
                       <div className="w-14 h-14 bg-secondary/50 rounded-2xl flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
@@ -211,6 +216,11 @@ const Services = () => {
                         <ArrowRight size={18} />
                       </a>
                     </Button>
+
+                    {/* Shuttle line */}
+                    <div className="mt-8 overflow-hidden h-[2px] w-full max-w-[40px]">
+                      <div className="h-full w-full bg-gold -translate-x-full transition-transform duration-500 ease-premium group-hover:translate-x-0" />
+                    </div>
                   </div>
                 </AnimatedSection>
               );

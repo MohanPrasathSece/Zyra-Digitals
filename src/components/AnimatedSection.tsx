@@ -8,9 +8,9 @@ interface AnimatedSectionProps {
   threshold?: number
 }
 
-export const AnimatedSection = ({ 
-  children, 
-  animation = 'fade-up', 
+export const AnimatedSection = ({
+  children,
+  animation = 'fade-up',
   delay = 0,
   className = '',
   threshold = 0.1
@@ -42,25 +42,25 @@ export const AnimatedSection = ({
   }, [threshold])
 
   const getAnimationClass = () => {
-    const baseClass = 'transition-all duration-1000 ease-out'
-    
+    const baseClass = 'transition-all duration-400 ease-premium'
+
     if (!isVisible) {
       switch (animation) {
         case 'fade-up':
-          return `${baseClass} opacity-0 translate-y-16`
+          return `${baseClass} opacity-0 translate-y-6`
         case 'slide-up':
-          return `${baseClass} opacity-0 translate-y-24`
+          return `${baseClass} opacity-0 translate-y-10`
         case 'fade-in':
           return `${baseClass} opacity-0`
         case 'slide-left':
-          return `${baseClass} opacity-0 translate-x-16`
+          return `${baseClass} opacity-0 translate-x-6`
         case 'slide-right':
-          return `${baseClass} opacity-0 -translate-x-16`
+          return `${baseClass} opacity-0 -translate-x-6`
         default:
-          return `${baseClass} opacity-0 translate-y-16`
+          return `${baseClass} opacity-0 translate-y-6`
       }
     }
-    
+
     return `${baseClass} opacity-100 translate-y-0 translate-x-0`
   }
 

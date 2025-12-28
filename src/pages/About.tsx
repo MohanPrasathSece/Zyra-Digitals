@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  
+
   const expertise = [
     {
       icon: Target,
@@ -77,11 +77,11 @@ const About = () => {
       <AnimatedSection animation="fade-up" className="min-h-screen bg-background relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
-        
+
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="min-h-screen flex items-start justify-center pt-20">
             <div className="max-w-7xl mx-auto w-full">
@@ -90,16 +90,16 @@ const About = () => {
                   <Star className="text-foreground" size={16} />
                   <span className="font-secondary text-sm text-foreground/80 font-medium">Brand Architects</span>
                 </div>
-                
+
                 <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                   More Than an Agency.
                   <span className="block text-gold mt-2">We're</span> Brand Architects.
                 </h1>
-                
+
                 <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
                   At Zyra Digitals, we believe a strong brand is not just how it looks — it's how it feels, functions, and performs across every digital touchpoint.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button variant="gold" size="lg" asChild className="h-16 px-8 text-base">
                     <Link to="/contact" className="flex items-center gap-2">
@@ -127,7 +127,7 @@ const About = () => {
                 Building success stories one brand at a time.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {achievements.map((achievement, index) => (
                 <AnimatedSection key={index} animation="slide-up" delay={index * 50}>
@@ -152,13 +152,13 @@ const About = () => {
                 We combine strategic thinking with technical excellence to build brands that scale.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {expertise.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                    <div className="group p-6 bg-secondary/30 border border-border rounded-xl hover:bg-secondary/50 hover:border-gold/30 transition-all duration-300">
+                    <div className="group p-6 bg-secondary/30 border border-border rounded-xl hover:bg-secondary/50 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:scale-[1.02]">
                       <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
                         <Icon className="text-gold" size={24} />
                       </div>
@@ -180,7 +180,7 @@ const About = () => {
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Process</h2>
             <p className="font-secondary text-lg text-muted-foreground">How we transform your vision into reality</p>
           </div>
-          
+
           <div className="max-w-5xl mx-auto">
             {/* Step 1 - Left */}
             <AnimatedSection animation="slide-left" delay={0}>
@@ -195,8 +195,8 @@ const About = () => {
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         {/* Perfect square card */}
-                        <div className="md:transform md:-rotate-3">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
+                        <div className="md:transform md:-rotate-3 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
                                 <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Design Idea</h3>
@@ -221,7 +221,7 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ const About = () => {
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
               <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
@@ -245,8 +245,8 @@ const About = () => {
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
-                        <div className="md:transform md:rotate-3">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
+                        <div className="md:transform md:rotate-3 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
                                 <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Development</h3>
@@ -270,7 +270,7 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
+                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -280,7 +280,7 @@ const About = () => {
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
               <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 24 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+                <path d="M 16 0 Q 24 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
@@ -294,8 +294,8 @@ const About = () => {
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
-                        <div className="md:transform md:-rotate-2">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
+                        <div className="md:transform md:-rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
                                 <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Testing</h3>
@@ -319,7 +319,7 @@ const About = () => {
                 <div className="hidden md:block relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
                     <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round"/>
+                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ const About = () => {
             {/* Mobile Dotted Line Connection */}
             <div className="md:hidden flex justify-center my-0">
               <svg className="w-8 h-28" viewBox="0 0 32 112">
-                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none"/>
+                <path d="M 16 0 Q 8 56 16 112" stroke="#6B7280" strokeWidth="2" strokeDasharray="4,4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
@@ -343,8 +343,8 @@ const About = () => {
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
-                        <div className="md:transform md:rotate-2">
-                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px]">
+                        <div className="md:transform md:rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
+                          <div className="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-md min-h-[200px] hover:shadow-xl transition-all duration-500 ease-premium">
                             <div className="flex flex-col h-full">
                               <div className="flex items-start justify-start mb-4">
                                 <h3 className="font-heading font-bold text-foreground" style={{ fontSize: '22px' }}>Launch</h3>

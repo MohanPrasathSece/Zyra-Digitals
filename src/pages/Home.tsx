@@ -118,7 +118,7 @@ const Home = () => {
           </div>
 
           {/* Desktop: Animated Grid */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {services.map((service, index) => (
               <AnimatedSection
                 key={index}

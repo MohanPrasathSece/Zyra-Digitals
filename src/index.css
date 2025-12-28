@@ -171,11 +171,11 @@ All colors MUST be HSL.
   /* Premium animations - respecting reduced motion */
   @media (prefers-reduced-motion: no-preference) {
     .hover-lift {
-      transition: var(--transition-elegant);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .hover-lift:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
 
     .hover-scale {
@@ -258,5 +258,9 @@ All colors MUST be HSL.
 
   .translate-z-8 {
     transform: translateZ(8px);
+  }
+
+  .ease-premium {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }

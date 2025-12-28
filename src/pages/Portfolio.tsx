@@ -1,16 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import { Quote, ChevronRight, ChevronLeft, ExternalLink, ArrowRight } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { Quote, ChevronRight, ChevronLeft, ExternalLink, ArrowRight, X } from "lucide-react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const Portfolio = (): JSX.Element => {
   useScrollToTop();
@@ -94,7 +90,7 @@ const Portfolio = (): JSX.Element => {
       title: "Precision Root Canal Therapy & Hygiene",
       category: "Healthcare",
       image: "/images/Portfolio_projects/precision.png",
-      images: ["/images/Portfolio_projects/precision.png"], // Added gallery support
+      images: ["/images/Portfolio_projects/precision.png"],
       description:
         "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
       technologies: ["HTML", "CSS", "JavaScript"],
@@ -165,32 +161,59 @@ const Portfolio = (): JSX.Element => {
     return () => clearInterval(id);
   }, [testimonials.length]);
 
-  const handleTouchEnd = () => {
-    // No-op for now
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.zyradigitals.com/portfolio/#collectionpage",
+        "url": "https://www.zyradigitals.com/portfolio",
+        "name": "Featured Projects | Portfolio | Zyra Digitals",
+        "isPartOf": { "@id": "https://www.zyradigitals.com/#website" },
+        "description": "Showcase of premium website design and development projects by Zyra Digitals.",
+        "breadcrumb": { "@id": "https://www.zyradigitals.com/portfolio/#breadcrumb" },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": projects.map((project, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": project.link,
+            "name": project.title,
+            "item": {
+              "@type": "CreativeWork",
+              "name": project.title,
+              "description": project.description,
+              "image": `https://www.zyradigitals.com${project.image}`,
+              "url": project.link,
+              "creator": {
+                "@type": "Organization",
+                "@id": "https://www.zyradigitals.com/#organization"
+              },
+              "keywords": `${project.category}, website design, web development, UI/UX design, branding`
+            }
+          }))
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.zyradigitals.com/portfolio/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.com/" },
+          { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.zyradigitals.com/portfolio" }
+        ]
+      }
+    ]
   };
 
   return (
     <div className="pt-20">
-      <Helmet>
-        <title>Portfolio | Zyra Digitals</title>
-        <meta name="description" content="Explore selected projects by Zyra Digitals showcasing premium design, performance, and elegant user experiences." />
-        <link rel="canonical" href="https://www.zyradigitals.info/portfolio" />
-        <meta property="og:title" content="Portfolio | Zyra Digitals" />
-        <meta property="og:description" content="A curated selection of work that demonstrates our commitment to quality and performance." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.zyradigitals.info/portfolio" />
-        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
-            { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.zyradigitals.info/portfolio" }
-          ]
-        })}</script>
-      </Helmet>
+      <SEO
+        title="Portfolio"
+        description="Explore selected projects by Zyra Digitals showcasing premium design, performance, and elegant user experiences."
+        canonical="/portfolio"
+        schema={portfolioSchema}
+      />
+
       {/* Hero Section - Reverted to Full Screen Banner */}
       <AnimatedSection animation="fade-up" className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-gold/10 relative overflow-hidden">
         {/* Background Pattern */}
@@ -212,6 +235,7 @@ const Portfolio = (): JSX.Element => {
                 <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                   Our Work
                   <span className="block mt-2"><span className="text-gold">Speaks</span> For Itself</span>
+                  <span className="sr-only"> - Premium UI/UX Design & Website Development Projects</span>
                 </h1>
 
                 <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
@@ -248,25 +272,32 @@ const Portfolio = (): JSX.Element => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-[2rem] shadow-2xl overflow-hidden"
               >
-                <div className="flex flex-col lg:flex-row lg:min-h-[600px]">
+                <div className="flex flex-col lg:flex-row lg:min-h-[600px] bg-white">
                   {/* Project Image Box - Big and Modern */}
                   <div
                     className="lg:w-2/3 relative cursor-pointer"
                     onClick={() => openGallery(index)}
                   >
                     {/* Main Image Wrapper */}
-                    <div className="relative w-full lg:h-full aspect-[16/9] lg:aspect-auto lg:min-h-full bg-[#151515] rounded-t-[2rem] lg:rounded-t-0 overflow-hidden">
+                    <div className="relative w-full lg:h-full aspect-[16/9] lg:aspect-auto lg:min-h-full bg-gray-100 rounded-t-[2rem] lg:rounded-t-0 overflow-hidden">
                       <img
                         src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                        alt={`${project.title} - ${project.category} website design and development by Zyra Digitals | Premium UI/UX design agency`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        onError={(e) => {
+                          // Fallback in case image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = '/images/placeholder-project.png';
+                        }}
                       />
 
                       {/* Image Overlays / Badges - Moved Inside */}
                       <div className="absolute top-4 left-4 lg:top-8 lg:left-8">
-                        <div className="px-3 py-1 lg:px-4 lg:py-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white/80 text-[10px] lg:text-xs font-secondary tracking-widest uppercase">
+                        <div className="px-3 py-1 lg:px-4 lg:py-2 bg-white/80 backdrop-blur-md rounded-full border border-gray-200 text-gray-800 text-[10px] lg:text-xs font-secondary tracking-widest uppercase">
                           {project.category}
                         </div>
                       </div>
@@ -274,7 +305,7 @@ const Portfolio = (): JSX.Element => {
                       {/* Multiple Image Preview Placeholders - Moved Inside */}
                       <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 flex gap-2 lg:gap-3">
                         {project.images?.map((_, i) => (
-                          <div key={i} className="w-8 h-8 lg:w-12 lg:h-12 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-[10px] text-white/50">
+                          <div key={i} className="w-8 h-8 lg:w-12 lg:h-12 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center text-[10px] text-gray-500">
                             {i + 1}
                           </div>
                         ))}
@@ -283,14 +314,14 @@ const Portfolio = (): JSX.Element => {
                   </div>
 
                   {/* Project Details Box - Outside the Image but inside the sticky card */}
-                  <div className="lg:w-1/3 p-6 lg:p-12 flex flex-col justify-start lg:justify-between border-t lg:border-t-0 lg:border-l border-white/10">
+                  <div className="lg:w-1/3 p-6 lg:p-12 flex flex-col justify-start lg:justify-between border-t lg:border-t-0 lg:border-l border-gray-200">
                     <div>
                       <div className="mb-4 lg:mb-8">
                         <span className="text-primary font-secondary text-[10px] lg:text-sm font-bold tracking-widest uppercase mb-2 lg:mb-4 block">
-                          Project {index + 1}
+                          {project.category}
                         </span>
                         <div className="flex items-start justify-between gap-4 mb-3 lg:mb-6">
-                          <h2 className="font-heading text-xl lg:text-4xl font-bold !text-white transition-colors">
+                          <h2 className="font-heading text-2xl lg:text-4xl font-bold text-gray-900 transition-colors">
                             {project.title}
                           </h2>
                           {project.link && (
@@ -311,7 +342,7 @@ const Portfolio = (): JSX.Element => {
 
 
 
-                        <p className="font-secondary text-white/60 text-sm lg:text-lg leading-relaxed mb-6 lg:mb-8 line-clamp-3 lg:line-clamp-none">
+                        <p className="font-secondary text-gray-600 text-sm lg:text-lg leading-relaxed mb-6 lg:mb-8 line-clamp-3 lg:line-clamp-none">
                           {project.description}
                         </p>
                       </div>
@@ -319,7 +350,7 @@ const Portfolio = (): JSX.Element => {
                       <div className="space-y-4 lg:space-y-6 mb-8 lg:mb-12">
                         <div className="flex flex-wrap gap-1.5 lg:gap-2">
                           {project.technologies.map((tech, i) => (
-                            <span key={i} className="px-2 py-0.5 lg:px-3 lg:py-1 bg-white/5 rounded-md text-[10px] lg:text-xs font-mono text-white/40 border border-white/5 uppercase">
+                            <span key={i} className="px-2 py-0.5 lg:px-3 lg:py-1 bg-gray-100 rounded-md text-[10px] lg:text-xs font-mono text-gray-600 border border-gray-200 uppercase">
                               {tech}
                             </span>
                           ))}

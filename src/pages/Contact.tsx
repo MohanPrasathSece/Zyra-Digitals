@@ -1,34 +1,45 @@
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ } from "@/components/FAQ";
 import { Mail, Phone, MapPin, Instagram, Linkedin, ExternalLink } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SEO } from "@/components/SEO";
 
 const Contact = () => {
   useScrollToTop();
+
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://www.zyradigitals.com/contact/#contactpage",
+        "url": "https://www.zyradigitals.com/contact",
+        "name": "Contact Zyra Digitals | Get a Quote",
+        "isPartOf": { "@id": "https://www.zyradigitals.com/#website" },
+        "description": "Get in touch with Zyra Digitals for premium website design, branding, and digital growth services.",
+        "breadcrumb": { "@id": "https://www.zyradigitals.com/contact/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.zyradigitals.com/contact/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.com/" },
+          { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.zyradigitals.com/contact" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="pt-20">
-      <Helmet>
-        <title>Contact | Zyra Digitals</title>
-        <meta name="description" content="Contact Zyra Digitals to discuss your project. Let's build a premium, high-performance website together." />
-        <link rel="canonical" href="https://www.zyradigitals.info/contact" />
-        <meta property="og:title" content="Contact | Zyra Digitals" />
-        <meta property="og:description" content="Have a project in mind? Reach out and let's create something exceptional." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.zyradigitals.info/contact" />
-        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
-            { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.zyradigitals.info/contact" }
-          ]
-        })}</script>
-      </Helmet>
+      <SEO
+        title="Contact Us"
+        description="Contact Zyra Digitals to discuss your project. Let's build a premium, high-performance website together."
+        canonical="/contact"
+        schema={contactSchema}
+      />
+
 
       {/* Hero Section - Old Banner Style */}
       <AnimatedSection animation="fade-up" className="min-h-[70vh] flex items-center bg-gradient-to-br from-background via-secondary/20 to-gold/10 relative overflow-hidden">
@@ -49,6 +60,7 @@ const Contact = () => {
             <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
               Let's Create <br />
               <span className="text-gold">Together</span>
+              <span className="sr-only"> - Get a Quote for Website Design & Branding Services</span>
             </h1>
 
             <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">

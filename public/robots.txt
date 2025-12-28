@@ -1,17 +1,11 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Global Rules
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Sitemap location
-Sitemap: https://www.zyradigitals.info/sitemap.xml
+# Sitemaps
+Sitemap: https://www.zyradigitals.com/sitemap.xml
+Sitemap: https://www.zyradigitals.com/image-sitemap.xml
+
+# Host
+Host: https://www.zyradigitals.com

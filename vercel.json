@@ -5,10 +5,10 @@
       "has": [
         {
           "type": "host",
-          "value": "zyradigitals.info"
+          "value": "zyradigitals.com"
         }
       ],
-      "destination": "https://www.zyradigitals.info/$1",
+      "destination": "https://www.zyradigitals.com/$1",
       "permanent": true
     }
   ],

@@ -4,8 +4,8 @@
 
 ## Force www canonical host
 [[redirects]]
-  from = "https://zyradigitals.info/*"
-  to = "https://www.zyradigitals.info/:splat"
+  from = "https://zyradigitals.com/*"
+  to = "https://www.zyradigitals.com/:splat"
   status = 301
   force = true
 

@@ -1,12 +1,12 @@
 import { Hero } from "@/components/Hero";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code, User, Briefcase, ShoppingCart } from "lucide-react";
+import { Code, User, Briefcase, ShoppingCart, ExternalLink } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQ } from "@/components/FAQ";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Typewriter } from "@/components/Typewriter";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/LogoCarousel";
@@ -37,7 +37,6 @@ const Home = () => {
     },
   ];
 
-
   // Featured FAQs for home page
   const homeFAQs = [
     {
@@ -62,36 +61,72 @@ const Home = () => {
     }
   ];
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.zyradigitals.com/#organization",
+        "name": "Zyra Digitals",
+        "url": "https://www.zyradigitals.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.zyradigitals.com/favicon.png",
+          "width": "512",
+          "height": "512"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Mohan Prasath S"
+        },
+        "sameAs": [
+          "https://www.instagram.com/zyradigitals.co/",
+          "https://www.linkedin.com/company/zyra-digitals/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.zyradigitals.com/#website",
+        "url": "https://www.zyradigitals.com/",
+        "name": "Zyra Digitals",
+        "publisher": { "@id": "https://www.zyradigitals.com/#organization" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.zyradigitals.com/#service",
+        "name": "Zyra Digitals",
+        "image": "https://www.zyradigitals.com/favicon.png",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chennai",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "telephone": "+91-9025421149",
+        "url": "https://www.zyradigitals.com/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": homeFAQs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
   return (
     <div>
-      <Helmet>
-        <title>Zyra Digitals | Website Design, SEO, Hosting & Brand Creation</title>
-        <meta name="description" content="Zyra Digitals builds high-performance websites, powerful brands, and growth systems. We specialize in web development, SEO, hosting, and strategic brand creation for businesses that want to stand out." />
-        <link rel="canonical" href="https://www.zyradigitals.info/" />
-        <meta property="og:title" content="Zyra Digitals | Website Design, SEO, Hosting & Brand Creation" />
-        <meta property="og:description" content="We build exceptional websites, powerful brands, and growth systems. Specializing in web development, SEO optimization, hosting, and strategic brand creation." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.zyradigitals.info/" />
-        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Zyra Digitals",
-          "url": "https://www.zyradigitals.info/",
-          "logo": "https://www.zyradigitals.info/images/logo.jpg",
-          "founder": {
-            "@type": "Person",
-            "name": "Mohan Prasath S"
-          },
-          "description": "Digital agency specializing in website development, SEO optimization, hosting solutions, and strategic brand creation for businesses that want to perform and stand out.",
-          "sameAs": [
-            "https://www.instagram.com/zyradigitals.co/",
-            "https://www.linkedin.com/company/zyra-digitals/"
-          ]
-        })}</script>
-      </Helmet>
+      <SEO
+        schema={homeSchema}
+        keywords="best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Zyra Digitals"
+      />
+
       {/* Hero Section */}
       <Hero />
       <AnimatedSection animation="fade-up">
@@ -143,184 +178,6 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
-      {/* 3D Project Showcase Section */}
-      <AnimatedSection animation="fade-up" className="py-20 bg-background relative overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, type: "spring" }}
-              className="inline-block mb-6"
-            >
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-primary rounded-full animate-pulse" />
-              </div>
-            </motion.div>
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Featured Projects
-            </h2>
-            <p className="font-secondary text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Explore our latest digital masterpieces that blend creativity with cutting-edge technology
-            </p>
-          </div>
-
-          {/* Single Row 3D Project Cards - No Scroll */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              {
-                title: "Leadership",
-                image: "/images/Portfolio_projects/elevare.png",
-                rotateY: -15,
-                delay: 0
-              },
-              {
-                title: "E-commerce",
-                image: "/images/Portfolio_projects/amzcoz.png",
-                rotateY: -5,
-                delay: 0.1
-              },
-              {
-                title: "Creative",
-                image: "/images/Portfolio_projects/error-404.png",
-                rotateY: 5,
-                delay: 0.2
-              },
-              {
-                title: "Healthcare",
-                image: "/images/Portfolio_projects/hamburg.png",
-                rotateY: 15,
-                delay: 0.3
-              }
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, z: -100, rotateY: 45 }}
-                whileInView={{ opacity: 1, z: 0, rotateY: project.rotateY }}
-                viewport={{ amount: 0.5 }}
-                transition={{
-                  duration: 1,
-                  delay: project.delay,
-                  type: "spring",
-                  stiffness: 80,
-                  damping: 20
-                }}
-                className="relative"
-                style={{
-                  perspective: "1200px",
-                  height: "400px"
-                }}
-              >
-                {/* 3D Card Container - Always 3D */}
-                <motion.div
-                  className="relative w-full h-full rounded-3xl overflow-hidden cursor-pointer"
-                  style={{
-                    transform: `rotateY(${project.rotateY}deg) translateZ(50px)`,
-                    transformStyle: "preserve-3d",
-                    boxShadow: "0 35px 60px -15px rgba(0, 0, 0, 0.3)"
-                  }}
-                  whileHover={{
-                    transform: `rotateY(${project.rotateY}deg) translateZ(60px) scale(1.02)`,
-                  }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  {/* Card Face */}
-                  <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
-                    <div
-                      className="w-full h-full bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url('${project.image}')` }}
-                    >
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                    </div>
-                  </div>
-
-                  {/* 3D Side Faces */}
-                  <div
-                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-primary/20 to-primary/10"
-                    style={{
-                      right: "-32px",
-                      transform: "rotateY(90deg) translateZ(16px)",
-                      transformOrigin: "left center"
-                    }}
-                  />
-                  <div
-                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-l from-primary/20 to-primary/10"
-                    style={{
-                      left: "-32px",
-                      transform: "rotateY(-90deg) translateZ(16px)",
-                      transformOrigin: "right center"
-                    }}
-                  />
-
-                  {/* Simple text overlay */}
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="font-heading text-2xl font-light text-white drop-shadow-lg">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* Glass reflection effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
-                </motion.div>
-
-                {/* Floating particles around card */}
-                <motion.div
-                  className="absolute -top-3 -right-3 w-3 h-3 bg-primary rounded-full opacity-80"
-                  animate={{
-                    y: [-8, 8, -8],
-                    scale: [1, 1.5, 1],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.6,
-                    ease: "easeInOut"
-                  }}
-                />
-                <motion.div
-                  className="absolute -bottom-3 -left-3 w-2 h-2 bg-primary rounded-full opacity-60"
-                  animate={{
-                    y: [8, -8, 8],
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * 0.4,
-                    ease: "easeInOut"
-                  }}
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <Button
-              variant="gold"
-              size="lg"
-              asChild
-              className="h-16 px-10 text-base shadow-2xl hover:shadow-gold/20 transform hover:scale-105 transition-all duration-300"
-            >
-              <Link to="/portfolio" className="flex items-center gap-3">
-                <span>View All Projects</span>
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  →
                 </motion.div>
               </Link>
             </Button>

@@ -1,12 +1,13 @@
 import { Code, User, Briefcase, ShoppingCart, Search, Server, RefreshCw, Bot, CheckCircle, ArrowRight, Zap, Shield, Palette, TrendingUp, Bookmark, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SEO } from "@/components/SEO";
 
 const Services = () => {
   useScrollToTop();
+
   const coreServices = [
     {
       icon: Palette,
@@ -63,28 +64,66 @@ const Services = () => {
 
   const whatsappHref = `https://wa.me/9025421149?text=${encodeURIComponent("Hi, I'm interested in your web development services. Can we discuss my project?")}`;
 
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.zyradigitals.com/services/#service",
+        "url": "https://www.zyradigitals.com/services",
+        "name": "Digital Agency Services | Zyra Digitals",
+        "isPartOf": { "@id": "https://www.zyradigitals.com/#website" },
+        "description": "Comprehensive digital solutions including web development, branding, and SEO.",
+        "provider": { "@id": "https://www.zyradigitals.com/#organization" },
+        "breadcrumb": { "@id": "https://www.zyradigitals.com/services/#breadcrumb" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Digital Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Development"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Identity & Design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "SEO Optimization"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.zyradigitals.com/services/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.com/" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.zyradigitals.com/services" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="pt-20">
-      <Helmet>
-        <title>Our Services | Zyra Digitals</title>
-        <meta name="description" content="Everything Your Brand Needs to Grow. We offer website development, brand identity, UI/UX design, and SEO & digital growth services that build brands that people remember." />
-        <link rel="canonical" href="https://www.zyradigitals.info/services" />
-        <meta property="og:title" content="Our Services | Zyra Digitals" />
-        <meta property="og:description" content="Full-service branding and digital transformation agency. We build brand experiences that scale through strategy, design, technology, and growth systems." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.zyradigitals.info/services" />
-        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
-            { "@type": "ListItem", position: 2, name: "Services", item: "https://www.zyradigitals.info/services" }
-          ]
-        })}</script>
-      </Helmet>
+      <SEO
+        title="Our Services"
+        description="Everything Your Brand Needs to Grow. We offer website development, brand identity, UI/UX design, and SEO & digital growth services that build brands that people remember."
+        canonical="/services"
+        schema={servicesSchema}
+      />
+
       {/* Hero Section */}
       <AnimatedSection animation="fade-up" className="py-24 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,6 +134,7 @@ const Services = () => {
             </div>
             <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
               Services That <span className="text-gold">Transform</span> Ideas
+              <span className="sr-only"> - Branding, Digital Solutions & Web Development</span>
             </h1>
             <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
               From concept to launch, we create digital experiences that captivate your audience and drive real business results.

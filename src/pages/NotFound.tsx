@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,10 +15,16 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Helmet>
-        <title>404 | Page Not Found | Zyra Digitals</title>
-        <meta name="robots" content="noindex,follow" />
-      </Helmet>
+      <SEO
+        title="404 - Page Not Found"
+        description="The page you're looking for doesn't exist. Let's get you back to Zyra Digitals' home."
+      />
+      {/* 404 pages are usually better left with default noindex if needed, or just let them exist. 
+          Our SEO component doesn't directly support robots tag yet, but we can add it or just leave as is.
+          Actually, let's add noindex support to SEO component if needed or just use a meta tag here.
+      */}
+      <meta name="robots" content="noindex, follow" />
+
       <AnimatedSection animation="fade-up" className="max-w-md w-full text-center">
         <div className="mb-8 relative">
           <h1 className="text-9xl font-bold font-heading text-gold opacity-20">404</h1>

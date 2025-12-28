@@ -1,14 +1,14 @@
-// About page - Brand Architects
-
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { User, Target, Zap, Award, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const About = () => {
+  useScrollToTop();
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -49,39 +49,44 @@ const About = () => {
     "Committed to ongoing support and growth",
   ];
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.zyradigitals.com/about/#aboutpage",
+        "url": "https://www.zyradigitals.com/about",
+        "name": "About Zyra Digitals | Brand Architects",
+        "isPartOf": { "@id": "https://www.zyradigitals.com/#website" },
+        "description": "Zyra Digitals is a premium branding and web development agency led by Mohan Prasath S.",
+        "breadcrumb": { "@id": "https://www.zyradigitals.com/about/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.zyradigitals.com/about/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.com/" },
+          { "@type": "ListItem", position: 2, name: "About", item: "https://www.zyradigitals.com/about" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Mohan Prasath S",
+        "jobTitle": "Founder",
+        "worksFor": { "@id": "https://www.zyradigitals.com/#organization" }
+      }
+    ]
+  };
+
   return (
     <div className="pt-20">
-      <Helmet>
-        <title>Brand Architects | Zyra Digitals</title>
-        <meta name="description" content="More Than an Agency. We're Brand Architects. Zyra Digitals helps businesses evolve into powerful, recognizable brands through strategy, design, technology, and growth systems." />
-        <link rel="canonical" href="https://www.zyradigitals.info/about" />
-        <meta property="og:title" content="Brand Architects | Zyra Digitals" />
-        <meta property="og:description" content="We believe a strong brand is not just how it looks — it's how it feels, functions, and performs across every digital touchpoint." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.zyradigitals.info/about" />
-        <meta property="og:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.zyradigitals.info/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "mainEntity": {
-            "@type": "Organization",
-            "name": "Zyra Digitals",
-            "founder": {
-              "@type": "Person",
-              "name": "Mohan Prasath S"
-            }
-          },
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.zyradigitals.info/" },
-              { "@type": "ListItem", position: 2, name: "About", item: "https://www.zyradigitals.info/about" }
-            ]
-          }
-        })}</script>
-      </Helmet>
+      <SEO
+        title="Brand Architects"
+        description="More Than an Agency. We're Brand Architects. Zyra Digitals helps businesses evolve into powerful, recognizable brands through strategy, design, technology, and growth systems."
+        canonical="/about"
+        schema={aboutSchema}
+      />
+
       {/* Hero Section - Full Screen Banner */}
       <section className="min-h-screen bg-background relative overflow-hidden">
         {/* Background Pattern */}
@@ -99,6 +104,7 @@ const About = () => {
                 <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                   More Than an Agency.
                   <span className="block text-gold mt-2">We're</span> Brand Architects.
+                  <span className="sr-only"> - Best Web Design Company & Branding Agency in India</span>
                 </h1>
 
                 <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
@@ -264,18 +270,7 @@ const About = () => {
               ].map((step, index) => (
                 <div key={step.id} className="flex-1" style={{ marginTop: windowWidth > 768 ? `${step.desktopOffset}px` : '0px' }}>
                   <AnimatedSection animation="fade-up" delay={index * 150}>
-                    <motion.div
-                      className="relative pt-6 md:pt-3"
-                      animate={{
-                        y: [0, 8, 0],
-                        rotate: [0, index % 2 === 0 ? 0.5 : -0.5, 0]
-                      }}
-                      transition={{
-                        duration: 4 + index,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
+                    <div className="relative pt-6 md:pt-3">
                       {/* Rope for Mobile (Vertical) */}
                       <div className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-6 w-px border-l-4 border-dashed border-gray-300"></div>
 
@@ -285,9 +280,9 @@ const About = () => {
                       </div>
 
                       {/* Card container with gray border casing */}
-                      <div className="bg-gray-100 rounded-2xl p-1 shadow-sm group">
+                      <div className="bg-gray-100 rounded-2xl p-1 shadow-sm group mt-4">
                         {/* The hanging card */}
-                        <div className={`transition-all duration-700 ease-premium hover:rotate-0 hover:scale-[1.03] hover:z-30 cursor-default md:${step.rotation}`}>
+                        <div className="transition-all duration-300 ease-premium hover:scale-[1.02] cursor-default">
                           <div className="bg-white border-2 border-gray-300 rounded-xl p-6 lg:p-7 shadow-md min-h-[320px] md:min-h-[380px] lg:min-h-[350px] flex flex-col hover:shadow-2xl transition-all duration-500 ease-premium relative overflow-hidden">
                             {/* Subtle background number */}
                             <div className="absolute -right-4 -bottom-4 text-8xl font-bold text-gray-50 group-hover:text-gray-100 transition-colors duration-500 pointer-events-none">
@@ -310,7 +305,7 @@ const About = () => {
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   </AnimatedSection>
 
                   {/* Connector rope for mobile between cards */}
@@ -323,11 +318,11 @@ const About = () => {
               ))}
             </div>
           </div>
-        </div >
-      </AnimatedSection >
+        </div>
+      </AnimatedSection>
 
       {/* CTA Section */}
-      < AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-gold/10 to-gold/5" >
+      <AnimatedSection animation="slide-up" className="py-20 bg-gradient-to-br from-gold/10 to-gold/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-heading text-3xl sm:text-5xl font-bold text-foreground mb-6">
@@ -344,8 +339,8 @@ const About = () => {
             </Button>
           </div>
         </div>
-      </AnimatedSection >
-    </div >
+      </AnimatedSection>
+    </div>
   );
 };
 

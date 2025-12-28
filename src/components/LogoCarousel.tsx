@@ -58,8 +58,9 @@ export const LogoCarousel = ({ title = "Brands We've Empowered" }: LogoCarouselP
                         >
                             <img
                                 src={brand.src}
-                                alt={brand.name}
+                                alt={`${brand.name} logo - Trusted by Zyra Digitals`}
                                 className="max-h-32 lg:max-h-36 max-w-[220px] lg:max-w-[280px] object-contain drop-shadow-[0_4px_25px_rgba(0,0,0,0.06)] transition-all"
+                                loading="lazy"
                             />
                         </div>
                     ))}

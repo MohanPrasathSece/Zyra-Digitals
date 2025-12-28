@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Typewriter } from "@/components/Typewriter";
 import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { motion } from "framer-motion";
 
 const Home = () => {
   useScrollToTop();
@@ -105,13 +106,12 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Mobile: Sticky Stack Effect */}
-          <div className="md:hidden flex flex-col gap-4 pb-12 relative">
+          {/* Mobile: Simple Minimal Layout */}
+          <div className="md:hidden space-y-6">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="sticky"
-                style={{ top: `${5 + index * 1}rem` }}
+                className="bg-card border border-border rounded-2xl p-6"
               >
                 <ServiceCard {...service} index={index} />
               </div>
@@ -136,6 +136,192 @@ const Home = () => {
               <Link to="/services">Explore Our Work</Link>
             </Button>
           </div>
+        </div>
+      </AnimatedSection>
+
+      {/* 3D Project Showcase Section */}
+      <AnimatedSection animation="fade-up" className="py-20 bg-gradient-to-br from-background via-primary/5 to-gold/5 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gold/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="inline-block mb-6"
+            >
+              <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-gold rounded-full animate-pulse" />
+              </div>
+            </motion.div>
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              Featured Projects
+            </h2>
+            <p className="font-secondary text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Explore our latest digital masterpieces that blend creativity with cutting-edge technology
+            </p>
+          </div>
+
+          {/* Single Row 3D Project Cards - No Scroll */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                title: "Leadership",
+                image: "/images/Portfolio_projects/elevare.png",
+                rotateY: -15,
+                delay: 0
+              },
+              {
+                title: "E-commerce",
+                image: "/images/Portfolio_projects/amzcoz.png", 
+                rotateY: -5,
+                delay: 0.1
+              },
+              {
+                title: "Creative",
+                image: "/images/Portfolio_projects/error-404.png",
+                rotateY: 5,
+                delay: 0.2
+              },
+              {
+                title: "Healthcare",
+                image: "/images/Portfolio_projects/hamburg.png",
+                rotateY: 15,
+                delay: 0.3
+              }
+            ].map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, z: -100, rotateY: 45 }}
+                whileInView={{ opacity: 1, z: 0, rotateY: project.rotateY }}
+                viewport={{ amount: 0.5 }}
+                transition={{ 
+                  duration: 1, 
+                  delay: project.delay,
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 20
+                }}
+                className="relative"
+                style={{ 
+                  perspective: "1200px",
+                  height: "400px"
+                }}
+              >
+                {/* 3D Card Container - Always 3D */}
+                <motion.div
+                  className="relative w-full h-full rounded-3xl overflow-hidden cursor-pointer"
+                  style={{ 
+                    transform: `rotateY(${project.rotateY}deg) translateZ(50px)`,
+                    transformStyle: "preserve-3d",
+                    boxShadow: "0 35px 60px -15px rgba(0, 0, 0, 0.3)"
+                  }}
+                  whileHover={{
+                    transform: `rotateY(${project.rotateY}deg) translateZ(60px) scale(1.02)`,
+                  }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  {/* Card Face */}
+                  <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
+                    <div 
+                      className="w-full h-full bg-cover bg-center bg-no-repeat"
+                      style={{ backgroundImage: `url('${project.image}')` }}
+                    >
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                    </div>
+                  </div>
+
+                  {/* 3D Side Faces */}
+                  <div 
+                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-primary/20 to-primary/10"
+                    style={{ 
+                      right: "-32px",
+                      transform: "rotateY(90deg) translateZ(16px)",
+                      transformOrigin: "left center"
+                    }}
+                  />
+                  <div 
+                    className="absolute top-0 bottom-0 w-8 bg-gradient-to-l from-gold/20 to-gold/10"
+                    style={{ 
+                      left: "-32px",
+                      transform: "rotateY(-90deg) translateZ(16px)",
+                      transformOrigin: "right center"
+                    }}
+                  />
+
+                  {/* Simple text overlay */}
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="font-heading text-2xl font-light text-white drop-shadow-lg">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  {/* Glass reflection effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                {/* Floating particles around card */}
+                <motion.div
+                  className="absolute -top-3 -right-3 w-3 h-3 bg-gold rounded-full opacity-80"
+                  animate={{
+                    y: [-8, 8, -8],
+                    scale: [1, 1.5, 1],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    delay: index * 0.6,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute -bottom-3 -left-3 w-2 h-2 bg-primary rounded-full opacity-60"
+                  animate={{
+                    y: [8, -8, 8],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: index * 0.4,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <Button 
+              variant="gold" 
+              size="lg" 
+              asChild 
+              className="h-16 px-10 text-base shadow-2xl hover:shadow-gold/20 transform hover:scale-105 transition-all duration-300"
+            >
+              <Link to="/portfolio" className="flex items-center gap-3">
+                <span>View All Projects</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  →
+                </motion.div>
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </AnimatedSection>
 

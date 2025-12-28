@@ -165,6 +165,7 @@ const Contact = () => {
         title="Common Questions"
         subtitle="Find answers to common questions about our services and process"
         className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
+        questionFont="secondary"
       />
     </div>
   );

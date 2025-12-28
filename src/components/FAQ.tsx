@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, HelpCircle, MessageCircle } from "lucide-react";
 import { Typewriter } from "./Typewriter";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
   id: string;
@@ -75,78 +76,148 @@ export const FAQ = ({
   const questionFontClass = questionFont === "primary" ? "font-heading" : "font-secondary";
 
   return (
-    <section id="faq" className={`py-20 bg-background ${className}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className={`py-20 bg-background relative ${className}`}>
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-10 left-10 w-32 h-32 border border-gold/20 rounded-full" />
+        <div className="absolute bottom-10 right-10 w-24 h-24 border border-primary/20 rounded-full" />
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-gold/10 rounded-full transform -translate-y-1/2" />
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            {typeof title === 'string' ? <Typewriter text={title} speed={80} /> : title}
-          </h2>
-          <p className="font-secondary text-lg text-muted-foreground max-w-3xl mx-auto">
+          <div className="inline-block mb-8">
+            <div className="w-1 h-12 bg-gold mx-auto mb-4" />
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-foreground tracking-wide">
+              {typeof title === 'string' ? <Typewriter text={title} speed={80} /> : title}
+            </h2>
+            <div className="w-1 h-12 bg-gold mx-auto mt-4" />
+          </div>
+          <p className="font-secondary text-base text-muted-foreground max-w-2xl mx-auto italic">
             {subtitle}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-8">
           {faqs.map((faq, index) => {
             const isOpen = openItem === faq.id;
-            const isFirst = index === 0;
             
             return (
-              <div key={faq.id} className="group">
-                {isOpen ? (
-                  // Expanded FAQ Item (using primary color like the design)
-                  <div className="bg-primary text-primary-foreground rounded-2xl p-6 sm:p-8 shadow-lg">
-                    <div className="flex items-start justify-between mb-4">
-                      <h3 className={`${questionFontClass} text-base sm:text-lg font-semibold pr-4 leading-relaxed`}>
-                        {faq.question}
-                      </h3>
-                      <button
-                        onClick={() => toggleItem(faq.id)}
-                        className="flex-shrink-0 w-8 h-8 bg-gold rounded-full flex items-center justify-center hover:bg-gold/90 transition-colors"
-                        aria-label="Collapse answer"
-                      >
-                        <Minus className="w-4 h-4 text-primary font-bold" />
-                      </button>
-                    </div>
-                    <p className="font-secondary text-primary-foreground/90 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                ) : (
-                  // Collapsed FAQ Items
-                  <div 
-                    className="bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-gold/30 hover:shadow-md transition-all duration-200 cursor-pointer"
+              <motion.div 
+                key={faq.id} 
+                className="relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                {/* Number indicator */}
+                <div className="absolute -left-8 top-0 text-gold/30 text-2xl font-light">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                
+                <motion.div
+                  className="border-l-2 border-transparent hover:border-gold/30 transition-all duration-700 pl-8"
+                  whileHover={{ x: 4 }}
+                >
+                  <button
                     onClick={() => toggleItem(faq.id)}
+                    className="w-full text-left group"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className={`${questionFontClass} text-base sm:text-lg font-semibold text-foreground pr-4`}>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className={`${questionFontClass} text-lg sm:text-xl font-light text-foreground group-hover:text-gold transition-colors duration-300`}>
                         {faq.question}
                       </h3>
-                      <button
-                        className="flex-shrink-0 w-8 h-8 bg-gold/10 border border-gold/20 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-200"
-                        aria-label="Expand answer"
-                      >
-                        <Plus className="w-4 h-4 text-gold font-bold" />
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-0.5 bg-gold/20 group-hover:bg-gold transition-all duration-300" />
+                        <div className={`w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-all duration-300 ${isOpen ? 'rotate-45' : ''}`} />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: "auto", marginTop: "1rem" }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="relative pl-4">
+                          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gold/50 to-transparent" />
+                          <p className="font-secondary text-muted-foreground leading-relaxed text-base">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </motion.div>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="font-secondary text-muted-foreground mb-4">
-            Still have questions? We're here to help!
-          </p>
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center font-subheading font-semibold text-gold hover:text-gold/80 transition-colors"
-          >
-            Get in Touch →
-          </button>
-        </div>
+        <motion.div 
+          className="text-center mt-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: faqs.length * 0.15 }}
+        >
+          <div className="relative inline-block group">
+            {/* Animated background glow */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-gold/20 to-primary/20 rounded-full blur-xl"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Rotating border effect */}
+            <div className="absolute inset-0 rounded-full border border-gold/30">
+              <div className="absolute inset-0 rounded-full border border-gold/20 animate-spin" style={{ animationDuration: '8s' }} />
+            </div>
+            
+            <motion.button 
+              onClick={() => window.location.href = '/contact'}
+              className="relative px-10 py-4 bg-gradient-to-r from-gold/10 to-primary/10 text-gold font-light tracking-wide rounded-full border border-gold/40 hover:border-gold transition-all duration-500 overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {/* Sliding background effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-gold to-primary opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "0%" }}
+                transition={{ duration: 0.5 }}
+              />
+              
+              {/* Button content */}
+              <div className="relative flex items-center gap-3">
+                <span className="text-lg">Have more questions</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-xl"
+                >
+                  →
+                </motion.div>
+              </div>
+              
+              {/* Corner decorations */}
+              <div className="absolute top-1 left-1 w-2 h-2 bg-gold rounded-full opacity-60" />
+              <div className="absolute top-1 right-1 w-2 h-2 bg-gold rounded-full opacity-60" />
+              <div className="absolute bottom-1 left-1 w-2 h-2 bg-gold rounded-full opacity-60" />
+              <div className="absolute bottom-1 right-1 w-2 h-2 bg-gold rounded-full opacity-60" />
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

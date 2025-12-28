@@ -35,7 +35,15 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    // Only show preloader on first visit, not on page navigation
+    const hasVisited = sessionStorage.getItem('has-visited');
+    if (!hasVisited) {
+      sessionStorage.setItem('has-visited', 'true');
+      return true;
+    }
+    return false;
+  });
 
   useEffect(() => {
     // Prevent scrolling while loading
@@ -51,7 +59,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Preloader onComplete={() => setIsLoading(false)} />
+        {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
         <BrowserRouter>
           <Analytics />
           <ScrollToTop />

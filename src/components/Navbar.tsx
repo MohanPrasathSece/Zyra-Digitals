@@ -24,7 +24,7 @@ export function Navbar() {
         className={`px-8 transition-all duration-300 flex items-center justify-between backdrop-blur-xl bg-white/20 min-h-[50px]
           ${scrolled
             ? 'w-[85%] md:w-[650px] py-1 px-8 rounded-lg shadow-xl bg-white/30 border border-white/40'
-            : 'w-full py-1.5 px-48'
+            : 'w-full py-1.5 px-64'
           }`}
       >
         <Link

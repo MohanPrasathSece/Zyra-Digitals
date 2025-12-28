@@ -191,7 +191,7 @@ const About = () => {
                       {/* Outer container with hole */}
                       <div className="bg-gray-100 rounded-2xl p-1 relative">
                         {/* Hole at top center */}
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         {/* Perfect square card */}
@@ -219,9 +219,9 @@ const About = () => {
                 </div>
                 {/* Dotted line from hole */}
                 <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
-                    <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
+                    <svg className="w-64 h-20" viewBox="0 0 200 80">
+                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(15 100 40)" />
                     </svg>
                   </div>
                 </div>
@@ -242,7 +242,7 @@ const About = () => {
                   <div className="md:w-[400px]">
                     <div className="relative">
                       <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:rotate-3 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
@@ -268,9 +268,9 @@ const About = () => {
                   <div className="md:w-2/3"></div>
                 </div>
                 <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
-                    <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 200 40 Q 100 80 0 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
+                    <svg className="w-64 h-20" viewBox="0 0 200 80">
+                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(-15 100 40)" />
                     </svg>
                   </div>
                 </div>
@@ -291,7 +291,7 @@ const About = () => {
                   <div className="md:w-[400px]">
                     <div className="relative">
                       <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:-rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">
@@ -317,9 +317,9 @@ const About = () => {
                   <div className="md:w-2/3"></div>
                 </div>
                 <div className="hidden md:block relative">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-0">
-                    <svg className="w-64 h-24" viewBox="0 0 200 80">
-                      <path d="M 0 40 Q 100 0 200 40" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-1">
+                    <svg className="w-64 h-20" viewBox="0 0 200 80">
+                      <path d="M 100 0 Q 100 40 100 80" stroke="#6B7280" strokeWidth="3" fill="none" strokeDasharray="6,6" strokeLinecap="round" transform="rotate(15 100 40)" />
                     </svg>
                   </div>
                 </div>
@@ -340,7 +340,7 @@ const About = () => {
                   <div className="md:w-[400px]">
                     <div className="relative">
                       <div className="bg-gray-100 rounded-2xl p-1 relative">
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
                           <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="md:transform md:rotate-2 transition-all duration-500 ease-premium hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-default">

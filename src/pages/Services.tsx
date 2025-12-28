@@ -13,42 +13,36 @@ const Services = () => {
       title: "Brand Identity & Design",
       description: "We shape how your brand looks, feels, and communicates through strategic design and messaging.",
       features: ["Brand Positioning", "Logo & Visual Identity", "Brand Guidelines", "Tone of Voice"],
-      price: "From $1,500",
     },
     {
       icon: Code,
       title: "Website Development",
       description: "Your website is where your brand comes alive. We build high-performance, conversion-focused websites.",
       features: ["High-Performance", "Conversion-Focused", "SEO-Ready Structure", "Scalable Architecture"],
-      price: "From $2,000",
     },
     {
       icon: Briefcase,
       title: "UI/UX Design",
       description: "Intuitive, engaging experiences that feel natural and drive conversions for your business.",
       features: ["User Research", "Clean UI Design", "Conversion Layouts", "Brand Consistency"],
-      price: "From $1,200",
     },
     {
       icon: Search,
       title: "SEO Optimization",
       description: "Superior search engine optimization that elevates your brand's visibility and drives organic traffic.",
       features: ["Advanced SEO Strategy", "Technical SEO Audit", "Content Optimization", "Performance Analytics"],
-      price: "From $1,000",
     },
     {
       icon: TrendingUp,
       title: "Digital Growth & Analytics",
       description: "Comprehensive digital ecosystem management for exponential brand growth and engagement.",
       features: ["Social Media Profiles", "Google Analytics Setup", "Search Console Management", "Growth Analytics"],
-      price: "From $1,800",
     },
     {
       icon: Server,
       title: "Hosting & Maintenance",
       description: "We keep your brand running smoothly with reliable hosting and ongoing maintenance support.",
       features: ["Reliable Hosting", "Security Updates", "Performance Monitoring", "Technical Support"],
-      price: "From $800",
     }
   ];
 
@@ -132,45 +126,91 @@ const Services = () => {
               Comprehensive solutions designed to meet your unique business needs and goals.
             </p>
           </div>
-          
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Mobile: Sticky Stack Effect */}
+          <div className="md:hidden flex flex-col gap-4 relative pb-20">
+            {coreServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="sticky"
+                  style={{ top: `${6 + index * 1.5}rem` }}
+                >
+                  <div className="group bg-card rounded-2xl border border-border/60 p-6 shadow-sm shadow-black/5 hover:shadow-lg hover:shadow-gold/5 hover:border-gold/30 transition-all duration-300">
+                    {/* Header */}
+                    <div className="mb-6">
+                      <div className="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                        <Icon size={24} className="text-foreground/80 group-hover:text-gold transition-colors duration-300" />
+                      </div>
+                    </div>
+
+                    <h3 className="font-heading text-2xl font-bold text-foreground mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="font-secondary text-muted-foreground leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="space-y-3 mb-8 border-t border-border/40 pt-6">
+                      {service.features.slice(0, 3).map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 bg-gold/50 rounded-full group-hover:bg-gold transition-colors duration-300"></div>
+                          <span className="font-secondary text-sm text-foreground/70">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Button variant="outline" className="w-full border-border hover:border-gold/50 hover:bg-gold/5 hover:text-foreground transition-all duration-300" asChild>
+                      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                        Get Started
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Desktop: Animated Grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {coreServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                  <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border-2 border-gray-200/50 hover:border-gold/30 h-full flex flex-col">
-                    {/* Icon Header */}
-                    <div className="p-6 pb-4 flex-grow">
-                      <div className="w-14 h-14 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Icon size={28} className="text-gold" />
-                      </div>
-                      <h3 className="font-heading text-xl font-bold text-foreground mb-2 group-hover:text-gold transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="font-secondary text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                        {service.description}
-                      </p>
-                      
-                      {/* Features */}
-                      <div className="space-y-2">
-                        {service.features.slice(0, 3).map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-gold rounded-full"></div>
-                            <span className="font-secondary text-xs text-gray-600">{feature}</span>
-                          </div>
-                        ))}
+                  <div className="group h-full bg-card rounded-2xl border border-border/60 p-8 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                    {/* Header */}
+                    <div className="mb-8">
+                      <div className="w-14 h-14 bg-secondary/50 rounded-2xl flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                        <Icon size={28} strokeWidth={1.5} className="text-foreground/80 group-hover:text-gold transition-colors duration-300" />
                       </div>
                     </div>
-                    
-                    {/* Footer with button */}
-                    <div className="px-6 py-4 bg-gray-50/50 border-t border-gray-100 mt-auto">
-                      <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white group-hover:bg-gold group-hover:text-gray-900 transition-all duration-300" asChild>
-                        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          Get Started
-                          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                        </a>
-                      </Button>
+
+                    <h3 className="font-heading text-2xl font-bold text-foreground mb-3 group-hover:text-foreground/90">
+                      {service.title}
+                    </h3>
+                    <p className="font-secondary text-muted-foreground text-base leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="space-y-3 mb-8 border-t border-border/40 pt-8 mt-auto">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-3 group/feature">
+                          <CheckCircle size={16} className="text-foreground/30 group-hover/feature:text-gold/60 transition-colors duration-300" />
+                          <span className="font-secondary text-sm text-foreground/70 group-hover/feature:text-foreground/90 transition-colors duration-300">{feature}</span>
+                        </div>
+                      ))}
                     </div>
+
+                    <Button className="w-full bg-foreground text-background hover:bg-gold hover:text-white transition-all duration-300 h-12 rounded-lg" asChild>
+                      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                        Get Started
+                        <ArrowRight size={18} />
+                      </a>
+                    </Button>
                   </div>
                 </AnimatedSection>
               );
@@ -188,13 +228,13 @@ const Services = () => {
               Enhance your website with these specialized services and ongoing support.
             </p>
           </div>
-          
+
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
-                  <div 
+                  <div
                     className="group flex items-start gap-4 rounded-lg border border-border bg-background p-6 transition-all duration-200 hover:border-foreground/30 hover:shadow-md hover:bg-secondary/20"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center transition-colors group-hover:bg-foreground/5">
@@ -221,7 +261,7 @@ const Services = () => {
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">Why Choose Zyra Digitals?</h2>
             <p className="font-secondary text-lg text-muted-foreground">Experience the difference with our unique approach</p>
           </div>
-          
+
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Card 1 */}
@@ -293,7 +333,7 @@ const Services = () => {
             <p className="font-secondary text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               Let's discuss your project and create a website that drives real results for your business.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="gold" size="lg" asChild>
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">

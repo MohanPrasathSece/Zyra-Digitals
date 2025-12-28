@@ -104,11 +104,25 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Mobile: Sticky Stack Effect */}
+          <div className="md:hidden flex flex-col gap-4 pb-12 relative">
             {services.map((service, index) => (
-              <AnimatedSection 
-                key={index} 
-                animation="fade-up" 
+              <div
+                key={index}
+                className="sticky"
+                style={{ top: `${5 + index * 1}rem` }}
+              >
+                <ServiceCard {...service} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Animated Grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {services.map((service, index) => (
+              <AnimatedSection
+                key={index}
+                animation="fade-up"
                 delay={index * 100}
               >
                 <ServiceCard {...service} index={index} />

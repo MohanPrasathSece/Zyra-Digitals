@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -7,20 +8,37 @@ interface ServiceCardProps {
   index?: number;
 }
 
-export const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
+export const ServiceCard = ({ icon: Icon, title, description, index }: ServiceCardProps) => {
   return (
-    <div className="group h-full p-8 rounded-xl bg-card border border-border ring-1 ring-transparent transition-all duration-200 ease-out hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl hover:bg-secondary/40 hover:border-foreground/20 hover:ring-foreground/10 cursor-default">
-      <div className="mb-6">
-        <div className="inline-flex items-center justify-center rounded-lg border border-border w-12 h-12 bg-background transition-all duration-200 group-hover:border-foreground/30 group-hover:bg-foreground/5 group-hover:-translate-y-0.5">
-          <Icon size={24} strokeWidth={1.75} className="text-foreground transition-colors duration-200 group-hover:text-foreground" />
-        </div>
+    <div
+      className={cn(
+        "h-full rounded-2xl border border-border/60 bg-card p-8",
+        "transition-all duration-300 ease-out hover:border-foreground/20 hover:shadow-lg",
+        "flex flex-col items-start gap-6 group"
+      )}
+    >
+      <div className="relative p-3 rounded-xl bg-secondary/50 transition-colors duration-300 group-hover:bg-secondary">
+        <Icon
+          size={28}
+          strokeWidth={1.5}
+          className="text-foreground/80 transition-colors duration-300 group-hover:text-foreground"
+        />
       </div>
-      <h3 className="font-subheading text-xl font-semibold text-card-foreground mb-3 transition-colors duration-200 group-hover:text-foreground">
-        {title}
-      </h3>
-      <p className="font-secondary text-base text-muted-foreground leading-relaxed transition-colors duration-200 group-hover:text-foreground/80">
-        {description}
-      </p>
+
+      <div className="space-y-3">
+        <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground/90 transition-colors duration-300 group-hover:text-foreground">
+          {title}
+        </h3>
+
+        <p className="font-secondary text-base leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground/75">
+          {description}
+        </p>
+      </div>
+
+      {/* Decorative minimal indicator */}
+      <div className="mt-auto pt-4 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="h-px w-full max-w-[40px] bg-foreground/20" />
+      </div>
     </div>
   );
 };

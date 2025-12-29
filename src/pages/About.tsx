@@ -98,23 +98,48 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="min-h-screen flex items-start justify-center pt-20">
             <div className="max-w-7xl mx-auto w-full">
-              <div className="text-center">
-                <div className="inline-flex items-center gap-2 bg-secondary/50 rounded-full px-4 py-2 mb-6">
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <motion.div
+                  className="inline-flex items-center gap-2 bg-secondary/50 rounded-full px-4 py-2 mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
                   <Star className="text-foreground" size={16} />
                   <span className="font-secondary text-sm text-foreground/80 font-medium">Brand Architects</span>
-                </div>
+                </motion.div>
 
-                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                <motion.h1
+                  className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                >
                   More Than an Agency.
                   <span className="block text-gold mt-2">We're</span> Brand Architects.
                   <span className="sr-only"> - Best Web Design Company & Branding Agency in India</span>
-                </h1>
+                </motion.h1>
 
-                <p className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+                <motion.p
+                  className="font-secondary text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.5 }}
+                >
                   At Zyra Digitals, we believe a strong brand is not just how it looks — it's how it feels, functions, and performs across every digital touchpoint.
-                </p>
+                </motion.p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.7 }}
+                >
                   <Button variant="gold" size="lg" asChild className="h-16 px-8 text-base">
                     <Link to="/contact" className="flex items-center gap-2">
                       Start Your Brand Journey
@@ -124,8 +149,8 @@ const About = () => {
                   <Button variant="ghost" size="lg" asChild className="h-16 px-8 text-base border border-border">
                     <Link to="/portfolio">View Our Work</Link>
                   </Button>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>

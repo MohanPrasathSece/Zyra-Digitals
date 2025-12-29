@@ -262,13 +262,6 @@ export const SEO: React.FC<SEOProps> = ({
             <meta property="twitter:site" content={twitterHandle} />
             <meta property="twitter:creator" content={twitterHandle} />
 
-            {/* Structured Data */}
-            {schema && (
-                <script type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
-            )}
-
             {/* Fallback Organization Script */}
             {!title && (
                 <script type="application/ld+json">

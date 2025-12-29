@@ -178,13 +178,6 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
-                </motion.div>
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </AnimatedSection>
-
       {/* FAQ Section */}
       <AnimatedSection animation="fade-up">
         <FAQ

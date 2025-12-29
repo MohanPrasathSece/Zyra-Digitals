@@ -118,9 +118,10 @@ const Services = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Our Services"
-        description="Everything Your Brand Needs to Grow. We offer website development, brand identity, UI/UX design, and SEO & digital growth services that build brands that people remember."
+        title="Services - Website Design, Development & Digital Solutions"
+        description="Zyra Digitals offers professional website design, web development, brand identity, UI/UX design, SEO optimization, and digital growth services in Coimbatore and globally. Best website development company for businesses."
         canonical="/services"
+        keywords="website design services, web development company, professional website developers, best web design agency, custom website development, UI/UX design services, SEO optimization, digital branding, e-commerce development, responsive web design, website designers Coimbatore, famous website development, popular web design services, Zyra Digitals services, frontend development, backend development"
         schema={servicesSchema}
       />
 

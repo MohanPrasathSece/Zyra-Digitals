@@ -56,10 +56,12 @@ const About = () => {
         "@type": "AboutPage",
         "@id": "https://www.zyradigitals.com/about/#aboutpage",
         "url": "https://www.zyradigitals.com/about",
-        "name": "About Zyra Digitals | Brand Architects",
+        "name": "About Zyra Digitals | Premium Website Design & Development Company",
         "isPartOf": { "@id": "https://www.zyradigitals.com/#website" },
-        "description": "Zyra Digitals is a premium branding and web development agency led by Mohan Prasath S.",
-        "breadcrumb": { "@id": "https://www.zyradigitals.com/about/#breadcrumb" }
+        "description": "Zyra Digitals is a leading website design and development company based in Coimbatore, Tamil Nadu. Founded by Mohan Prasath S, we specialize in professional web development, branding, and digital solutions.",
+        "breadcrumb": { "@id": "https://www.zyradigitals.com/about/#breadcrumb" },
+        "specialty": ["Website Design", "Web Development", "Brand Identity", "UI/UX Design", "SEO Optimization"],
+        "areaServed": { "@type": "City", "name": "Coimbatore" }
       },
       {
         "@type": "BreadcrumbList",
@@ -81,9 +83,10 @@ const About = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Brand Architects"
-        description="More Than an Agency. We're Brand Architects. Zyra Digitals helps businesses evolve into powerful, recognizable brands through strategy, design, technology, and growth systems."
+        title="About Us - Brand Architects & Web Development Experts"
+        description="Zyra Digitals (also known as Zyra Digital, Zira Digitals) is a leading website design and development company in Coimbatore, Tamil Nadu. We help businesses evolve into powerful brands through strategy, design, and technology."
         canonical="/about"
+        keywords="Zyra Digitals about, Zyra Digital company, Zira Digitals agency, website design company Coimbatore, best web developers, professional branding agency, famous web design company, website development experts, digital agency team, Mohan Prasath S founder"
         schema={aboutSchema}
       />
 

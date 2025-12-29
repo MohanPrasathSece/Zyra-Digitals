@@ -208,9 +208,10 @@ const Portfolio = (): JSX.Element => {
   return (
     <div className="pt-20">
       <SEO
-        title="Portfolio"
-        description="Explore selected projects by Zyra Digitals showcasing premium design, performance, and elegant user experiences."
+        title="Portfolio - Premium Website Design & Development Projects"
+        description="Explore Zyra Digitals' portfolio showcasing professional website design, web development, UI/UX design, and branding projects. Best website development work from Coimbatore's leading digital agency."
         canonical="/portfolio"
+        keywords="website design portfolio, web development projects, UI/UX design showcase, professional website examples, best website designs, creative web development, portfolio website, Zyra Digitals work, premium web design projects, Coimbatore web designer portfolio"
         schema={portfolioSchema}
       />
 

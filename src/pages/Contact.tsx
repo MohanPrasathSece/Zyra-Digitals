@@ -34,9 +34,10 @@ const Contact = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Contact Us"
-        description="Contact Zyra Digitals to discuss your project. Let's build a premium, high-performance website together."
+        title="Contact Us - Get a Free Quote for Website Design & Development"
+        description="Contact Zyra Digitals (Zyra Digital, Zira Digitals) for professional website design, web development, and branding services. Get a free quote from Coimbatore's best website development company."
         canonical="/contact"
+        keywords="contact web designer, website design quote, get website developed, hire web developer, contact digital agency, website development inquiry, Zyra Digitals contact, web design consultation, Coimbatore website designer contact, professional web development services"
         schema={contactSchema}
       />
 

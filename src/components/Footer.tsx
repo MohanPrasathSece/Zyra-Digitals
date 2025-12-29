@@ -129,6 +129,14 @@ export const Footer = () => {
             </div>
 
             <p className="text-xs text-primary-foreground/50">© {currentYear} Zyra Digitals</p>
+
+            {/* Hidden SEO Text - Google Readable, User Invisible */}
+            <div style={{ position: 'absolute', left: '-9999px', fontSize: '1px', opacity: 0 }} aria-hidden="true">
+              Zyra Digitals is a leading website design and development company in Coimbatore, Tamil Nadu.
+              Users also search for Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, Zyra Digitalz,
+              Zyra Digitel, Zyra Branding Agency, best website developers in Coimbatore, popular website design company,
+              famous web designers in Coimbatore, professional web design services, top website development company.
+            </div>
           </div>
         </div>
 
@@ -201,6 +209,14 @@ export const Footer = () => {
 
             <div className="text-center mt-6">
               <p className="text-sm text-primary-foreground/60">© {currentYear} Zyra Digitals</p>
+
+              {/* Hidden SEO Text - Google Readable, User Invisible */}
+              <div style={{ position: 'absolute', left: '-9999px', fontSize: '1px', opacity: 0 }} aria-hidden="true">
+                Zyra Digitals is a premier website design and development company located in Coimbatore, Tamil Nadu.
+                Commonly searched as Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, Zyra Digitalz,
+                Zyra Digitel, Zyra Branding, best website design company in Coimbatore, famous web development agency,
+                popular website designers, top web design services, professional web developers in Coimbatore.
+              </div>
             </div>
           </div>
         </div>

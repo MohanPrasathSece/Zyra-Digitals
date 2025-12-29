@@ -68,6 +68,18 @@ const Home = () => {
         "@type": "Organization",
         "@id": "https://www.zyradigitals.com/#organization",
         "name": "Zyra Digitals",
+        "alternateName": [
+          "Zyra Digital",
+          "Zira Digitals",
+          "Zyra Digitels",
+          "Zyra Web Design",
+          "Zyra Digitalz",
+          "Zyra Digitel",
+          "Zyra Branding",
+          "Zyra Web",
+          "Zyra Digital Agency",
+          "Zira Digital"
+        ],
         "url": "https://www.zyradigitals.com/",
         "logo": {
           "@type": "ImageObject",
@@ -99,10 +111,20 @@ const Home = () => {
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Chennai",
+          "addressLocality": "Coimbatore",
           "addressRegion": "Tamil Nadu",
           "addressCountry": "IN"
         },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Coimbatore"
+          },
+          {
+            "@type": "State",
+            "name": "Tamil Nadu"
+          }
+        ],
         "telephone": "+91-9025421149",
         "url": "https://www.zyradigitals.com/"
       },
@@ -124,7 +146,7 @@ const Home = () => {
     <div>
       <SEO
         schema={homeSchema}
-        keywords="best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Zyra Digitals"
+        keywords="Zyra Digitals, Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, best website design company Coimbatore, website development Coimbatore, web design agency Coimbatore, professional website developers, famous web design company, popular website development, top web designers in Coimbatore, best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Tamil Nadu website design, Coimbatore digital agency, modern website design, responsive web development"
       />
 
       {/* Hero Section */}

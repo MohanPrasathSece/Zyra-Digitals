@@ -183,39 +183,40 @@ export const Footer = () => {
             </div>
 
             <div className="flex items-center justify-between mt-8 pt-6 border-t border-primary-foreground/20">
-              <nav className="flex gap-8 text-sm text-primary-foreground/60">
-                <a href="/" className="hover:text-gold transition-colors">Home</a>
-                <a href="/about" className="hover:text-gold transition-colors">About</a>
-                <a href="/services" className="hover:text-gold transition-colors">Services</a>
-                <a href="/portfolio" className="hover:text-gold transition-colors">Portfolio</a>
-                <a href="/contact" className="hover:text-gold transition-colors">Contact</a>
+              <nav className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-primary-foreground/60">
+                <Link to="/" className="hover:text-gold transition-colors">Home - Best Web Design Coimbatore</Link>
+                <Link to="/about" className="hover:text-gold transition-colors">About - Brand Architects</Link>
+                <Link to="/services" className="hover:text-gold transition-colors">Digital Services & SEO</Link>
+                <Link to="/portfolio" className="hover:text-gold transition-colors">Our Portfolio of Work</Link>
+                <Link to="/contact" className="hover:text-gold transition-colors">Get a Free Quote</Link>
               </nav>
 
-              <div className="flex gap-3">
-                <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                  <Instagram size={18} />
+              <div className="flex gap-4">
+                <a href="https://www.instagram.com/zyradigitals.co/" target="_blank" rel="noopener noreferrer" aria-label="Follow Zyra Digitals on Instagram" className="text-primary-foreground/60 hover:text-gold transition-colors">
+                  <Instagram size={20} />
                 </a>
-                <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                  <Linkedin size={18} />
+                <a href="https://www.linkedin.com/company/zyra-digitals/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Zyra Digitals on LinkedIn" className="text-primary-foreground/60 hover:text-gold transition-colors">
+                  <Linkedin size={20} />
                 </a>
-                <a href="https://wa.me/9025421149" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                  <MessageCircle size={18} />
+                <a href="https://wa.me/9025421149" target="_blank" rel="noopener noreferrer" aria-label="Contact Zyra Digitals on WhatsApp" className="text-primary-foreground/60 hover:text-gold transition-colors">
+                  <MessageCircle size={20} />
                 </a>
-                <a href="https://www.facebook.com/zyradigitals" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/60 hover:text-gold transition-colors">
-                  <Facebook size={18} />
+                <a href="https://www.facebook.com/zyradigitals" target="_blank" rel="noopener noreferrer" aria-label="Follow Zyra Digitals on Facebook" className="text-primary-foreground/60 hover:text-gold transition-colors">
+                  <Facebook size={20} />
                 </a>
               </div>
             </div>
 
-            <div className="text-center mt-6">
-              <p className="text-sm text-primary-foreground/60">© {currentYear} Zyra Digitals</p>
+            <div className="text-center mt-10">
+              <p className="text-sm text-primary-foreground/60">© {currentYear} Zyra Digitals. All Rights Reserved.</p>
+              <p className="text-xs text-primary-foreground/40 mt-2 italic px-4">Based in Coimbatore, Tamil Nadu, Serving Brands Globally.</p>
 
-              {/* Hidden SEO Text - Google Readable, User Invisible */}
+              {/* Hidden SEO Text - Google Readable, Contextual Information */}
               <div style={{ position: 'absolute', left: '-9999px', fontSize: '1px', opacity: 0 }} aria-hidden="true">
-                Zyra Digitals is a premier website design and development company located in Coimbatore, Tamil Nadu.
-                Commonly searched as Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, Zyra Digitalz,
-                Zyra Digitel, Zyra Branding, best website design company in Coimbatore, famous web development agency,
-                popular website designers, top web design services, professional web developers in Coimbatore.
+                Zyra Digitals (Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, Zyra Digitalz, Zyra Digitel, Zyra Branding) is a top-tier website design and development agency in Coimbatore.
+                We specialize in building high-performance websites using React, Next.js, WordPress, and WooCommerce.
+                Voted as one of the best web design companies in Coimbatore, we provide professional UI/UX design, search engine optimization (SEO),
+                and brand identity creation for businesses in Tamil Nadu and worldwide. Best website developers for e-commerce, portfolios, and corporate sites.
               </div>
             </div>
           </div>

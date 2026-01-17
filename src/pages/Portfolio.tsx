@@ -7,6 +7,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Portfolio = (): JSX.Element => {
   useScrollToTop();
@@ -285,6 +286,8 @@ const Portfolio = (): JSX.Element => {
         schema={portfolioSchema}
       />
 
+      <Breadcrumbs />
+
       {/* Hero Section - Reverted to Full Screen Banner */}
       <AnimatedSection animation="fade-up" className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-gold/10 relative overflow-hidden">
         {/* Background Pattern */}
@@ -355,10 +358,10 @@ const Portfolio = (): JSX.Element => {
                     <div className="relative w-full lg:h-full aspect-[16/9] lg:aspect-auto lg:min-h-full bg-gray-100 rounded-t-[2rem] lg:rounded-t-0 overflow-hidden">
                       <img
                         src={project.image}
-                        alt={`${project.title} - ${project.category} website design and development by Zyra Digitals | Premium UI/UX design agency`}
+                        alt={`${project.title} - ${project.category} Portfolio | Zyra Digitals`}
+                        title={`${project.title} Design & Development Project`}
                         loading="lazy"
-                        className={`w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 ${project.title === "CrowdVerse" ? "scale-75" : ""
-                          }`}
+                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none ${project.title === "CrowdVerse" ? "" : ""}`}
                         onError={(e) => {
                           // Fallback in case image fails to load
                           const target = e.target as HTMLImageElement;

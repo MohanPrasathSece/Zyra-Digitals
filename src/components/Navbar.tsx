@@ -35,7 +35,7 @@ export function Navbar() {
         >
           <img
             src="/zyra_digitals_grey_bg-removebg-preview.png"
-            alt="Zyra Digitals logo"
+            alt="Zyra Digitals - Best Website Design & Development Agency in Coimbatore"
             className={`h-10 md:h-12 w-auto object-contain shrink-0 transition-all duration-300 ${scrolled ? 'h-11 md:h-12' : ''
               }`}
           />

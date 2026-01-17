@@ -146,25 +146,36 @@ const Home = () => {
     <div>
       <SEO
         schema={homeSchema}
-        keywords="Zyra Digitals, Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, best website design company Coimbatore, website development Coimbatore, web design agency Coimbatore, professional website developers, famous web design company, popular website development, top web designers in Coimbatore, best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Tamil Nadu website design, Coimbatore digital agency, modern website design, responsive web development"
+        title="Best Website Design & Development Company in Coimbatore"
+        description="Zyra Digitals (Zyra Digital) is the top-rated website design and development agency in Coimbatore. We craft high-performance websites, premium brands, and strategic growth systems for modern businesses."
+        keywords="Zyra Digitals, Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, best website design company Coimbatore, website development Coimbatore, web design agency Coimbatore, professional website developers, famous web design company, popular website development, top web designers in Coimbatore, best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Tamil Nadu website design, Coimbatore digital agency, modern website design, responsive web development, e-commerce website development Coimbatore, SEO services Coimbatore"
       />
 
       {/* Hero Section */}
       <Hero />
+
       <AnimatedSection animation="fade-up">
         <LogoCarousel />
       </AnimatedSection>
 
-      {/* Services Preview */}
-      <AnimatedSection animation="slide-up" className="py-20 bg-background">
+      {/* Services Preview - Enhanced for SEO */}
+      <section id="services-preview" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-              Everything Your Digital Presence Needs
-            </h2>
-            <p className="font-secondary text-lg sm:text-xl text-foreground max-w-2xl mx-auto">
-              We build exceptional websites, powerful brands, and growth systems that work together.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                Everything Your <br />
+                <span className="text-gold">Digital Presence</span> Needs
+              </h2>
+              <p className="font-secondary text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+                We build exceptional websites, powerful brands, and high-performance growth systems.
+                As the leading <Link to="/services" className="text-gold hover:underline">web development company in Coimbatore</Link>, we ensure your brand stands out.
+              </p>
+            </motion.div>
           </div>
 
           {/* Mobile: Simple Minimal Layout */}
@@ -198,7 +209,7 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
       <AnimatedSection animation="fade-up">
         <FAQ

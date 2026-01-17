@@ -41,7 +41,7 @@ export const Header = () => {
           <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale my-2 md:my-3" aria-label="Zyra Digitals Home">
             <img
               src="/zyra_digitals_grey_bg-removebg-preview.png"
-              alt="Zyra Digitals logo"
+              alt="Zyra Digitals - Best Web Design Agency Coimbatore"
               className="h-10 md:h-[4.5rem] w-auto object-contain shrink-0"
             />
           </Link>
@@ -54,8 +54,8 @@ export const Header = () => {
                 to={link.to}
                 onClick={handleNavClick(link.to)}
                 className={`font-body text-base font-medium transition-colors ${isActive(link.to)
-                    ? "text-gold"
-                    : "text-foreground hover:text-gold"
+                  ? "text-gold"
+                  : "text-foreground hover:text-gold"
                   }`}
               >
                 {link.label}
@@ -87,8 +87,8 @@ export const Header = () => {
                   to={link.to}
                   onClick={handleNavClick(link.to)}
                   className={`font-body text-base font-medium transition-colors ${isActive(link.to)
-                      ? "text-gold"
-                      : "text-foreground hover:text-gold"
+                    ? "text-gold"
+                    : "text-foreground hover:text-gold"
                     }`}
                 >
                   {link.label}

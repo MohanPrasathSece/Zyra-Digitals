@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const About = () => {
   useScrollToTop();
@@ -89,6 +90,8 @@ const About = () => {
         keywords="Zyra Digitals about, Zyra Digital company, Zira Digitals agency, website design company Coimbatore, best web developers, professional branding agency, famous web design company, website development experts, digital agency team, Mohan Prasath S founder"
         schema={aboutSchema}
       />
+
+      <Breadcrumbs />
 
       {/* Hero Section - Full Screen Banner */}
       <section className="min-h-screen bg-background relative overflow-hidden">

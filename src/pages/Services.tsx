@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Services = () => {
   useScrollToTop();
@@ -124,6 +125,8 @@ const Services = () => {
         keywords="website design services, web development company, professional website developers, best web design agency, custom website development, UI/UX design services, SEO optimization, digital branding, e-commerce development, responsive web design, website designers Coimbatore, famous website development, popular web design services, Zyra Digitals services, frontend development, backend development"
         schema={servicesSchema}
       />
+
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <AnimatedSection animation="fade-up" className="py-24 bg-gradient-to-br from-background to-secondary/30">

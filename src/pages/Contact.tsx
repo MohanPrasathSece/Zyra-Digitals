@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Instagram, Linkedin, ExternalLink } from "lucide-r
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Contact = () => {
   useScrollToTop();
@@ -40,6 +41,8 @@ const Contact = () => {
         keywords="contact web designer, website design quote, get website developed, hire web developer, contact digital agency, website development inquiry, Zyra Digitals contact, web design consultation, Coimbatore website designer contact, professional web development services"
         schema={contactSchema}
       />
+
+      <Breadcrumbs />
 
 
       {/* Hero Section - Old Banner Style */}

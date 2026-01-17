@@ -40,7 +40,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick('/')} className="flex items-center hover-scale my-2 md:my-3" aria-label="Zyra Digitals Home">
             <img
-              src="/images/logo.jpg?v=20251115"
+              src="/zyra_digitals_grey_bg-removebg-preview.png"
               alt="Zyra Digitals logo"
               className="h-10 md:h-[4.5rem] w-auto object-contain shrink-0"
             />
@@ -53,11 +53,10 @@ export const Header = () => {
                 key={link.to}
                 to={link.to}
                 onClick={handleNavClick(link.to)}
-                className={`font-body text-base font-medium transition-colors ${
-                  isActive(link.to)
+                className={`font-body text-base font-medium transition-colors ${isActive(link.to)
                     ? "text-gold"
                     : "text-foreground hover:text-gold"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -87,11 +86,10 @@ export const Header = () => {
                   key={link.to}
                   to={link.to}
                   onClick={handleNavClick(link.to)}
-                  className={`font-body text-base font-medium transition-colors ${
-                    isActive(link.to)
+                  className={`font-body text-base font-medium transition-colors ${isActive(link.to)
                       ? "text-gold"
                       : "text-foreground hover:text-gold"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

@@ -27,24 +27,31 @@ const Portfolio = (): JSX.Element => {
     },
     {
       quote:
-        "Hamburg Homeopathy Clinic now feels as warm online as it does in person. The storytelling, timelines, and team section capture our ethos beautifully.",
+        "Lumi & Co. is built on craftsmanship and elegance. Zyra Digitals created a digital experience that honors our artisans and connects with customers who value timeless beauty.",
       author: "Meera Iyer",
-      role: "Founder, Hamburg Homeopathy Clinic",
+      role: "Founder, Lumi & Co.",
       avatarInitial: "M",
     },
     {
       quote:
-        "Elevaré needed a digital space that matched our leadership labs. Zyra Digitals translated our narrative into a bold WordPress experience that wins corporate mandates.",
-      author: "Sanjana Mehta",
-      role: "Principal Consultant, Elevaré Leadership Consulting",
-      avatarInitial: "S",
+        "CrowdVerse needed a platform that combines real-time data with community insights. Zyra Digitals delivered a sleek, intuitive interface that makes complex market analytics accessible to every trader.",
+      author: "Arjun Patel",
+      role: "Founder, CrowdVerse",
+      avatarInitial: "A",
     },
     {
       quote:
-        "$404X is meant to feel like a glitchy adventure. Mohan's team delivered an immersive React experience that our community can't stop talking about.",
-      author: "Varun Rao",
-      role: "Creative Producer, 404X Collective",
-      avatarInitial: "V",
+        "SeekBuyLove is all about helping customers fall in love with fashion. The e-commerce platform Zyra built is beautiful, fast, and converts browsers into buyers seamlessly.",
+      author: "Kavya Sharma",
+      role: "CEO, SeekBuyLove",
+      avatarInitial: "K",
+    },
+    {
+      quote:
+        "Launch & Close needed a website that reflects our operator-first approach. Zyra Digitals built a platform that communicates our value proposition clearly and drives qualified leads.",
+      author: "Adrian Mitchell",
+      role: "Founder, Launch & Close",
+      avatarInitial: "A",
     },
   ];
 
@@ -89,8 +96,15 @@ const Portfolio = (): JSX.Element => {
     {
       title: "Precision Root Canal Therapy & Hygiene",
       category: "Healthcare",
-      image: "/images/Portfolio_projects/precision.png",
-      images: ["/images/Portfolio_projects/precision.png"],
+      image: "/images/Portfolio_projects/precision/precision.png",
+      images: [
+        "/images/Portfolio_projects/precision/precision.png",
+        "/images/Portfolio_projects/precision/image.png",
+        "/images/Portfolio_projects/precision/image copy.png",
+        "/images/Portfolio_projects/precision/image copy 2.png",
+        "/images/Portfolio_projects/precision/image copy 3.png",
+        "/images/Portfolio_projects/precision/image copy 4.png"
+      ],
       description:
         "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
       technologies: ["HTML", "CSS", "JavaScript"],
@@ -100,19 +114,32 @@ const Portfolio = (): JSX.Element => {
     {
       title: "Lumi & Co.",
       category: "Luxury Jewelry",
-      image: "/images/Portfolio_projects/lumi.png",
-      images: ["/images/Portfolio_projects/lumi.png"],
+      image: "/images/Portfolio_projects/lumi/lumi.png",
+      images: [
+        "/images/Portfolio_projects/lumi/lumi.png",
+        "/images/Portfolio_projects/lumi/image.png",
+        "/images/Portfolio_projects/lumi/image copy.png",
+        "/images/Portfolio_projects/lumi/image copy 2.png",
+        "/images/Portfolio_projects/lumi/image copy 3.png"
+      ],
       description:
-        "A luxury jewelry brand website highlighting signature collections with an elegant shopping experience.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+        "A handcrafted jewelry brand from Pune showcasing timeless elegance through ethically-sourced materials, rose gold designs, and sustainable practices that celebrate individuality.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
       link: "https://lumi-co.vercel.app",
       color: "#fffafa"
     },
     {
       title: "AmzCoz",
       category: "E-Commerce Growth",
-      image: "/images/Portfolio_projects/amzcoz.png",
-      images: ["/images/Portfolio_projects/amzcoz.png"],
+      image: "/images/Portfolio_projects/amzcoz/amzcoz.png",
+      images: [
+        "/images/Portfolio_projects/amzcoz/amzcoz.png",
+        "/images/Portfolio_projects/amzcoz/image.png",
+        "/images/Portfolio_projects/amzcoz/image copy.png",
+        "/images/Portfolio_projects/amzcoz/image copy 2.png",
+        "/images/Portfolio_projects/amzcoz/image copy 3.png",
+        "/images/Portfolio_projects/amzcoz/image copy 4.png"
+      ],
       description:
         "An Amazon growth and e-commerce success partner offering end-to-end account management, advertising, and strategic support for brands across the globe.",
       technologies: ["ReactJS", "Tailwind CSS"],
@@ -120,39 +147,82 @@ const Portfolio = (): JSX.Element => {
       color: "#f5f5f5"
     },
     {
-      title: "Hamburg Homeopathy Clinic",
-      category: "Healthcare",
-      image: "/images/Portfolio_projects/hamburg.png",
-      images: ["/images/Portfolio_projects/hamburg.png"],
+      title: "CrowdVerse",
+      category: "FinTech & Analytics",
+      image: "/images/Portfolio_projects/crowdverse/image.png",
+      images: [
+        "/images/Portfolio_projects/crowdverse/image.png",
+        "/images/Portfolio_projects/crowdverse/image copy.png",
+        "/images/Portfolio_projects/crowdverse/image copy 2.png",
+        "/images/Portfolio_projects/crowdverse/image copy 3.png",
+        "/images/Portfolio_projects/crowdverse/image copy 4.png",
+        "/images/Portfolio_projects/crowdverse/image copy 5.png"
+      ],
       description:
-        "A holistic homeopathy clinic experience highlighting mission, milestones, practitioner bios, and patient success to build trust and drive appointment bookings.",
-      technologies: ["WordPress", "Elementor"],
-      link: "https://hamburghomeopathy.com",
-      color: "#fafafa"
+        "A real-time market analytics platform delivering crowd sentiment on stocks and cryptocurrencies, combining trader votes with AI-powered insights for smarter investment decisions.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "AI Integration"],
+      link: "#",
+      color: "#f0f4ff"
     },
     {
-      title: "Elevaré",
-      category: "Consulting",
-      image: "/images/Portfolio_projects/elevare.png",
-      images: ["/images/Portfolio_projects/elevare.png"],
+      title: "SeekBuyLove",
+      category: "Fashion E-Commerce",
+      image: "/images/Portfolio_projects/seekbuylove/image.png",
+      images: [
+        "/images/Portfolio_projects/seekbuylove/image.png",
+        "/images/Portfolio_projects/seekbuylove/image copy.png",
+        "/images/Portfolio_projects/seekbuylove/image copy 2.png",
+        "/images/Portfolio_projects/seekbuylove/image copy 3.png",
+        "/images/Portfolio_projects/seekbuylove/image copy 4.png"
+      ],
       description:
-        "A leadership consulting site built with WordPress and Elementor, designed to showcase transformative programs, focus areas, and consultant profiles with strong calls to action.",
-      technologies: ["WordPress", "Elementor"],
-      link: "https://elevare-leadership.com",
-      color: "#f8f8f8"
+        "A modern e-commerce clothing store offering curated fashion collections with an intuitive shopping experience designed to help customers discover and love their style.",
+      technologies: ["WordPress", "WooCommerce"],
+      link: "#",
+      color: "#fff5f5"
     },
     {
-      title: "Error 404",
-      category: "Web Experience",
-      image: "/images/Portfolio_projects/error-404.png",
-      images: ["/images/Portfolio_projects/error-404.png"],
+      title: "Launch & Close",
+      category: "B2B SaaS & Growth",
+      image: "/images/Portfolio_projects/launch&close/image.png",
+      images: [
+        "/images/Portfolio_projects/launch&close/image.png",
+        "/images/Portfolio_projects/launch&close/image copy.png",
+        "/images/Portfolio_projects/launch&close/image copy 2.png",
+        "/images/Portfolio_projects/launch&close/image copy 3.png",
+        "/images/Portfolio_projects/launch&close/image copy 4.png"
+      ],
       description:
-        "A playful, glitch-inspired landing experience for the $404X token, packed with terminal-style effects, interactive puzzles, and immersive storytelling.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      link: "https://www.lostinthe404.world",
-      color: "#111111"
+        "A full-stack growth partner for startups and SMBs, bridging the gap between strategy and execution with senior revenue operators who build, execute, and transfer complete sales systems.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      link: "#",
+      color: "#f8f8ff"
     },
   ];
+
+  // Keyboard navigation for gallery
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!galleryOpen) return;
+
+      if (e.key === "ArrowRight") {
+        const project = projects[currentProjectIndex];
+        if (project.images) {
+          setCurrentImageIndex((prev) => (prev + 1) % project.images!.length);
+        }
+      } else if (e.key === "ArrowLeft") {
+        const project = projects[currentProjectIndex];
+        if (project.images) {
+          setCurrentImageIndex((prev) => (prev - 1 + project.images!.length) % project.images!.length);
+        }
+      } else if (e.key === "Escape") {
+        closeGallery();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [galleryOpen, currentProjectIndex]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -287,7 +357,8 @@ const Portfolio = (): JSX.Element => {
                         src={project.image}
                         alt={`${project.title} - ${project.category} website design and development by Zyra Digitals | Premium UI/UX design agency`}
                         loading="lazy"
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        className={`w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 ${project.title === "CrowdVerse" ? "scale-75" : ""
+                          }`}
                         onError={(e) => {
                           // Fallback in case image fails to load
                           const target = e.target as HTMLImageElement;

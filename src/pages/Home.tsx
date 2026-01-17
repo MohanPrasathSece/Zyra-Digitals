@@ -200,14 +200,12 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
-      {/* FAQ Section */}
       <AnimatedSection animation="fade-up">
         <FAQ
-          title={<Typewriter text="Common Questions" speed={80} />}
+          title="Common Questions"
           subtitle="Quick answers to help you get started with your project"
           faqs={homeFAQs}
           className="bg-gradient-to-br from-background via-primary/5 to-gold/5"
-          questionFont="secondary"
         />
       </AnimatedSection>
 

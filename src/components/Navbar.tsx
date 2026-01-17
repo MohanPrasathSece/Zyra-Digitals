@@ -34,7 +34,7 @@ export function Navbar() {
           aria-label="Zyra Digitals Home"
         >
           <img
-            src="/images/logo.jpg?v=20251115"
+            src="/zyra_digitals_grey_bg-removebg-preview.png"
             alt="Zyra Digitals logo"
             className={`h-10 md:h-12 w-auto object-contain shrink-0 transition-all duration-300 ${scrolled ? 'h-11 md:h-12' : ''
               }`}

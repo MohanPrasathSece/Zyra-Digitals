@@ -184,13 +184,11 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <AnimatedSection animation="fade-up">
         <FAQ
           title="Common Questions"
           subtitle="Find answers to common questions about our services and process"
           className="bg-secondary/30"
-          questionFont="secondary"
         />
       </AnimatedSection>
     </div>

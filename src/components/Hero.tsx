@@ -57,7 +57,7 @@ export const Hero = () => {
           }`}
       >
         <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-          We Build Brands
+          We Build <span className="text-metallic-gold">Brands</span>
           <span className="sr-only"> - Best Website Design & Web Development Agency</span>
         </h1>
         <p className="font-heading text-2xl sm:text-4xl lg:text-5xl text-foreground/80 mb-8 italic">

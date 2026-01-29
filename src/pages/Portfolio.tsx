@@ -7,11 +7,31 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "@/components/SEO";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Portfolio = (): JSX.Element => {
   useScrollToTop();
   const testimonials = [
+    {
+      quote:
+        "Absolutely mind blowing work and very cooperative as well. Great rates and work ethic—never faced any issue and the responses were always on time. Loved working with Zyra Digitals for the MVP of my startup!",
+      author: "Aryan Kapoor",
+      role: "Founder, Nexus",
+      avatarInitial: "A",
+    },
+    {
+      quote:
+        "Zyra Digitals are the best. They completed the website within the deadline and delivered a clean, professional, and user-friendly experience. I highly recommend them to anyone looking to create premium websites.",
+      author: "James Wilson",
+      role: "Marketing Head, Elevate",
+      avatarInitial: "J",
+    },
+    {
+      quote:
+        "This agency understands every detail and made my website and my friend's website at a very reasonable price, which looks very premium. Highly recommended!",
+      author: "Ishaan Verma",
+      role: "CEO, Zentry",
+      avatarInitial: "I",
+    },
     {
       quote:
         "AmzCoz needed a partner who could show our Amazon growth story with proof and polish. Zyra Digitals nailed the messaging and gave us a lead magnet that converts.",
@@ -32,27 +52,6 @@ const Portfolio = (): JSX.Element => {
       author: "Meera Iyer",
       role: "Founder, Lumi & Co.",
       avatarInitial: "M",
-    },
-    {
-      quote:
-        "CrowdVerse needed a platform that combines real-time data with community insights. Zyra Digitals delivered a sleek, intuitive interface that makes complex market analytics accessible to every trader.",
-      author: "Arjun Patel",
-      role: "Founder, CrowdVerse",
-      avatarInitial: "A",
-    },
-    {
-      quote:
-        "SeekBuyLove is all about helping customers fall in love with fashion. The e-commerce platform Zyra built is beautiful, fast, and converts browsers into buyers seamlessly.",
-      author: "Kavya Sharma",
-      role: "CEO, SeekBuyLove",
-      avatarInitial: "K",
-    },
-    {
-      quote:
-        "Launch & Close needed a website that reflects our operator-first approach. Zyra Digitals built a platform that communicates our value proposition clearly and drives qualified leads.",
-      author: "Adrian Mitchell",
-      role: "Founder, Launch & Close",
-      avatarInitial: "A",
     },
   ];
 
@@ -279,14 +278,16 @@ const Portfolio = (): JSX.Element => {
   return (
     <div className="pt-20">
       <SEO
-        title="Portfolio - Premium Website Design & Development Projects"
-        description="Explore Zyra Digitals' portfolio showcasing professional website design, web development, UI/UX design, and branding projects. Best website development work from Coimbatore's leading digital agency."
+        title="Portfolio | Premium Website Design & Development Showcase"
+        description="Explore the award-winning portfolio of Zyra Digitals. See how we've helped businesses like Precision Root Canal, Lumi & Co, and AmzCoz achieve digital excellence through custom web development and premium design."
         canonical="/portfolio"
-        keywords="website design portfolio, web development projects, UI/UX design showcase, professional website examples, best website designs, creative web development, portfolio website, Zyra Digitals work, premium web design projects, Coimbatore web designer portfolio"
+        keywords="website design portfolio, web development projects, UI/UX design showcase, professional website examples, best website designs, creative web development, portfolio website, Zyra Digitals work, premium web design projects, Coimbatore web designer portfolio, healthcare web design, luxury jewelry website, e-commerce success stories"
         schema={portfolioSchema}
+        publishedTime="2025-01-01T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
+        section="Portfolio"
       />
 
-      <Breadcrumbs />
 
       {/* Hero Section - Reverted to Full Screen Banner */}
       <AnimatedSection animation="fade-up" className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-gold/10 relative overflow-hidden">
@@ -351,19 +352,32 @@ const Portfolio = (): JSX.Element => {
                 <div className="flex flex-col lg:flex-row lg:min-h-[600px] bg-white">
                   {/* Project Image Box - Big and Modern */}
                   <div
-                    className="lg:w-2/3 relative cursor-pointer"
+                    className="lg:w-2/3 relative cursor-pointer overflow-hidden flex flex-col"
                     onClick={() => openGallery(index)}
                   >
+                    {/* MacBook/Browser Header */}
+                    <div className="bg-[#f0f0f0] border-b border-gray-200 px-4 py-3 flex items-center gap-4 relative z-20">
+                      <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-sm"></div>
+                        <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-sm"></div>
+                        <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-sm"></div>
+                      </div>
+                      <div className="flex-1 max-w-md mx-auto h-7 bg-white/80 rounded-lg flex items-center justify-center px-4 border border-gray-200/50">
+                        <div className="text-[10px] font-mono text-gray-400 truncate">
+                          {project.link ? project.link.replace('https://', '').replace('http://', '') : `zyradigitals.com/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Main Image Wrapper */}
-                    <div className="relative w-full lg:h-full aspect-[16/9] lg:aspect-auto lg:min-h-full bg-gray-100 rounded-t-[2rem] lg:rounded-t-0 overflow-hidden">
+                    <div className="relative w-full flex-1 aspect-[16/9] lg:aspect-auto bg-gray-100 overflow-hidden">
                       <img
                         src={project.image}
                         alt={`${project.title} - ${project.category} Portfolio | Zyra Digitals`}
                         title={`${project.title} Design & Development Project`}
                         loading="lazy"
-                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none ${project.title === "CrowdVerse" ? "" : ""}`}
+                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none`}
                         onError={(e) => {
-                          // Fallback in case image fails to load
                           const target = e.target as HTMLImageElement;
                           target.onerror = null;
                           target.src = '/images/placeholder-project.png';
@@ -380,7 +394,7 @@ const Portfolio = (): JSX.Element => {
                       {/* Multiple Image Preview Placeholders - Moved Inside */}
                       <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 flex gap-2 lg:gap-3">
                         {project.images?.map((_, i) => (
-                          <div key={i} className="w-8 h-8 lg:w-12 lg:h-12 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center text-[10px] text-gray-500">
+                          <div key={i} className="w-8 h-8 lg:w-12 lg:h-12 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center text-[10px] text-gray-500 font-bold shadow-sm">
                             {i + 1}
                           </div>
                         ))}

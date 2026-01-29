@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin, Instagram, Linkedin, ExternalLink } from "lucide-r
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Contact = () => {
   useScrollToTop();
@@ -35,14 +34,16 @@ const Contact = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Contact Us - Get a Free Quote for Website Design & Development"
-        description="Contact Zyra Digitals (Zyra Digital, Zira Digitals) for professional website design, web development, and branding services. Get a free quote from Coimbatore's best website development company."
+        title="Contact Zyra Digitals | Start Your Premium Project Today"
+        description="Ready to elevate your digital presence? Contact Zyra Digitals for a free quote on website design, branding, and development. We're here to turn your vision into a high-performance brand."
         canonical="/contact"
-        keywords="contact web designer, website design quote, get website developed, hire web developer, contact digital agency, website development inquiry, Zyra Digitals contact, web design consultation, Coimbatore website designer contact, professional web development services"
+        keywords="contact web designer, website design quote, get website developed, hire web developer, contact digital agency, website development inquiry, Zyra Digitals contact, web design consultation, Coimbatore website designer contact, professional web development services, start a startup project, hire brand architect"
         schema={contactSchema}
+        publishedTime="2025-01-01T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
+        section="Contact"
       />
 
-      <Breadcrumbs />
 
 
       {/* Hero Section - Old Banner Style */}

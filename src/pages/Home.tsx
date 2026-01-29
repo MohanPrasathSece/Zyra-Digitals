@@ -146,9 +146,11 @@ const Home = () => {
     <div>
       <SEO
         schema={homeSchema}
-        title="Best Website Design & Development Company in Coimbatore"
-        description="Zyra Digitals (Zyra Digital) is the top-rated website design and development agency in Coimbatore. We craft high-performance websites, premium brands, and strategic growth systems for modern businesses."
-        keywords="Zyra Digitals, Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, best website design company Coimbatore, website development Coimbatore, web design agency Coimbatore, professional website developers, famous web design company, popular website development, top web designers in Coimbatore, best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Tamil Nadu website design, Coimbatore digital agency, modern website design, responsive web development, e-commerce website development Coimbatore, SEO services Coimbatore"
+        title="Zyra Digitals | Best Website Design & Development Company in Coimbatore"
+        description="Zyra Digitals (Zyra Digital) is the top-rated website design and development agency in Coimbatore. We craft ultra-premium, high-performance websites and powerful brand identities for modern businesses worldwide."
+        keywords="Zyra Digitals, Zyra Digital, Zira Digitals, Zyra Digitels, Zyra Web Design, best website design company Coimbatore, website development Coimbatore, web design agency Coimbatore, professional website developers, famous web design company, popular website development, top web designers in Coimbatore, best website design company, web development agency, branding and digital solutions, website designer near me, web development company in India, premium UI/UX design, Mohan Prasath S, Tamil Nadu website design, Coimbatore digital agency, modern website design, responsive web development, e-commerce website development Coimbatore, SEO services Coimbatore, business growth systems, high-performance web agency"
+        publishedTime="2025-01-01T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
       />
 
       {/* Hero Section */}

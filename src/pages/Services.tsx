@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const Services = () => {
   useScrollToTop();
@@ -119,14 +118,16 @@ const Services = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Services - Website Design, Development & Digital Solutions"
-        description="Zyra Digitals offers professional website design, web development, brand identity, UI/UX design, SEO optimization, and digital growth services in Coimbatore and globally. Best website development company for businesses."
+        title="Our Services | Full-Stack Web Development & Strategic Branding"
+        description="Explore the comprehensive digital services offered by Zyra Digitals. From premium website design and e-commerce development to strategic branding and SEO optimization, we provide end-to-end digital growth solutions."
         canonical="/services"
-        keywords="website design services, web development company, professional website developers, best web design agency, custom website development, UI/UX design services, SEO optimization, digital branding, e-commerce development, responsive web design, website designers Coimbatore, famous website development, popular web design services, Zyra Digitals services, frontend development, backend development"
+        keywords="website design services, web development company, professional website developers, best web design agency, custom website development, UI/UX design services, SEO optimization, digital branding, e-commerce development, responsive web design, website designers Coimbatore, famous website development, popular web design services, Zyra Digitals services, frontend development, backend development, brand evolution, digital growth analytics"
         schema={servicesSchema}
+        publishedTime="2025-01-01T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
+        section="Services"
       />
 
-      <Breadcrumbs />
 
       {/* Hero Section */}
       <AnimatedSection animation="fade-up" className="py-24 bg-gradient-to-br from-background to-secondary/30">

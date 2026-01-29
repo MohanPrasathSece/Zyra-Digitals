@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const About = () => {
   useScrollToTop();
@@ -84,14 +83,15 @@ const About = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="About Us - Brand Architects & Web Development Experts"
-        description="Zyra Digitals (also known as Zyra Digital, Zira Digitals) is a leading website design and development company in Coimbatore, Tamil Nadu. We help businesses evolve into powerful brands through strategy, design, and technology."
+        title="About Zyra Digitals | Premium Brand Architects & Web Experts"
+        description="Learn about Zyra Digitals, the leading website design and branding agency in Coimbatore. Founded by Mohan Prasath S, we help businesses transform into powerful brands through strategic design and cutting-edge technology."
         canonical="/about"
-        keywords="Zyra Digitals about, Zyra Digital company, Zira Digitals agency, website design company Coimbatore, best web developers, professional branding agency, famous web design company, website development experts, digital agency team, Mohan Prasath S founder"
+        keywords="Zyra Digitals about, Zyra Digital company, Zira Digitals agency, website design company Coimbatore, best web developers, professional branding agency, famous web design company, website development experts, digital agency team, Mohan Prasath S founder, brand architects Coimbatore, luxury web design India, startup growth partner"
         schema={aboutSchema}
+        publishedTime="2025-01-01T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
       />
 
-      <Breadcrumbs />
 
       {/* Hero Section - Full Screen Banner */}
       <section className="min-h-screen bg-background relative overflow-hidden">

@@ -10,6 +10,7 @@ import { SEO } from "@/components/SEO";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/LogoCarousel";
+import { TechStack } from "@/components/TechStack";
 
 const Home = () => {
   useScrollToTop();
@@ -212,6 +213,10 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <AnimatedSection animation="fade-up">
+        <TechStack />
+      </AnimatedSection>
 
       <AnimatedSection animation="fade-up">
         <FAQ

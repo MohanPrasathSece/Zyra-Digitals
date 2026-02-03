@@ -56,15 +56,15 @@ export const TechStack = () => {
 const TechIcon = ({ tech, index }: { tech: { name: string; logo: string }; index: number }) => {
     return (
         <motion.div
-            className="relative group flex flex-col items-center gap-3 px-4"
+            className="relative group flex flex-col items-center gap-4 px-6"
             animate={{
-                y: [0, -60, 0, 60, 0], // Big curves as requested
+                y: [0, -80, 0, 80, 0], // Even bigger curves
             }}
             transition={{
-                duration: 8,
+                duration: 10, // Slower, more majestic wave
                 repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.4, // Staggered for organic deep wave
+                ease: [0.45, 0, 0.55, 1], // Custom cubic-bezier for a perfect sine-wave feel
+                delay: index * 0.5, // Adjusted stagger for better wave formation
             }}
         >
             <div className="flex items-center justify-center transition-all duration-500 hover:scale-150">
@@ -76,7 +76,7 @@ const TechIcon = ({ tech, index }: { tech: { name: string; logo: string }; index
                     loading="lazy"
                 />
             </div>
-            <span className="text-[10px] font-secondary font-bold text-foreground/40 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-[11px] font-secondary font-bold text-foreground/40 uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {tech.name}
             </span>
         </motion.div>

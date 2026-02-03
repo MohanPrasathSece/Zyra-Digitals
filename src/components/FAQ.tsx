@@ -99,21 +99,21 @@ export const FAQ = ({
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`group rounded-2xl border transition-all duration-300 ${isOpen
-                      ? "bg-card border-gold/30 shadow-xl shadow-gold/5"
-                      : "bg-white border-border hover:border-gold/20 hover:shadow-lg"
+                    ? "bg-card border-gold/30 shadow-xl shadow-gold/5"
+                    : "bg-white border-border hover:border-gold/20 hover:shadow-lg"
                     }`}
                 >
                   <button
                     onClick={() => toggleItem(faq.id)}
                     className="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4"
                   >
-                    <span className={`font-heading text-lg sm:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-gold" : "text-foreground group-hover:text-gold"
+                    <span className={`font-secondary text-lg sm:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-gold" : "text-foreground group-hover:text-gold"
                       }`}>
                       {faq.question}
                     </span>
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen
-                        ? "bg-gold border-gold text-white rotate-180"
-                        : "bg-secondary/10 border-border text-foreground group-hover:border-gold/30 group-hover:text-gold"
+                      ? "bg-gold border-gold text-white rotate-180"
+                      : "bg-secondary/10 border-border text-foreground group-hover:border-gold/30 group-hover:text-gold"
                       }`}>
                       <ChevronDown size={20} />
                     </div>

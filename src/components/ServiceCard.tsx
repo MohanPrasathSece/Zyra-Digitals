@@ -20,7 +20,7 @@ export const ServiceCard = ({ icon: Icon, title, description, index }: ServiceCa
       </div>
 
       <div className="space-y-2">
-        <h3 className="font-heading text-[22px] font-semibold tracking-tight text-foreground/90 transition-colors duration-300 group-hover:text-foreground">
+        <h3 className="font-secondary text-[22px] font-semibold tracking-tight text-foreground/90 transition-colors duration-300 group-hover:text-foreground">
           {title}
         </h3>
 

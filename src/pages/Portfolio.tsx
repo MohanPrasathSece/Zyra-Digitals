@@ -108,7 +108,7 @@ const Portfolio = (): JSX.Element => {
       description:
         "A specialist dental clinic website for a London-based endodontic practice, showcasing expertise, advanced technology, and streamlined appointment booking.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      link: "https://precision-rootcanal.vercel.app/index.html",
+      link: "https://www.precisionrct.co.uk/",
       color: "#f8f9fa"
     },
     {
@@ -125,7 +125,7 @@ const Portfolio = (): JSX.Element => {
       description:
         "A handcrafted jewelry brand from Pune showcasing timeless elegance through ethically-sourced materials, rose gold designs, and sustainable practices that celebrate individuality.",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
-      link: "https://lumi-co.vercel.app",
+      link: "https://lumi-co.vercel.app/",
       color: "#fffafa"
     },
     {
@@ -161,7 +161,7 @@ const Portfolio = (): JSX.Element => {
       description:
         "A real-time market analytics platform delivering crowd sentiment on stocks and cryptocurrencies, combining trader votes with AI-powered insights for smarter investment decisions.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "AI Integration"],
-      link: "#",
+      link: "https://crowdverse.in/",
       color: "#f0f4ff"
     },
     {
@@ -178,7 +178,7 @@ const Portfolio = (): JSX.Element => {
       description:
         "A modern e-commerce clothing store offering curated fashion collections with an intuitive shopping experience designed to help customers discover and love their style.",
       technologies: ["WordPress", "WooCommerce"],
-      link: "#",
+      link: "https://seekbuylove.in/",
       color: "#fff5f5"
     },
     {
@@ -195,7 +195,7 @@ const Portfolio = (): JSX.Element => {
       description:
         "A full-stack growth partner for startups and SMBs, bridging the gap between strategy and execution with senior revenue operators who build, execute, and transfer complete sales systems.",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
-      link: "#",
+      link: "https://launchandclose.com/",
       color: "#f8f8ff"
     },
   ];

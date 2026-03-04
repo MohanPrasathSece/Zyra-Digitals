@@ -5,7 +5,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
-    const { name, email, message } = req.body;
+    const { name, email, message, isChatbot } = req.body;
 
     if (!name || !email || !message) {
         return res.status(400).json({ error: 'All fields are required' });
@@ -17,16 +17,32 @@ export default async function handler(req, res) {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
+        tls: {
+            rejectUnauthorized: false
+        }
     });
 
     try {
         // 1. Send Email to Admin
+        const adminSubject = isChatbot
+            ? `🤖 New AI Lead: ${name} (via Zyra Chatbot)`
+            : `New Contact Form Submission from ${name}`;
+
+        const adminHtml = isChatbot
+            ? `<h3>🤖 New AI Lead Collected</h3>
+               <p><strong>Source:</strong> Zyra Digital Assistant</p>
+               <p><strong>Name:</strong> ${name}</p>
+               <p><strong>Email:</strong> ${email}</p>
+               <p><strong>Project Details:</strong></p>
+               <div style="background: #f4f4f4; padding: 15px; border-radius: 8px;">${message.replace(/\n/g, '<br>')}</div>`
+            : `<h3>New Contact Form Submission</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`;
+
         const adminMailOptions = {
-            from: `"${name}" <${email}>`, // Show sender's name
-            to: process.env.ADMIN_EMAIL || 'zyradigitalsofficial@gmail.com', // Admin email
-            subject: `New Contact Form Submission from ${name}`,
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-            html: `<h3>New Contact Form Submission</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
+            from: `"${name}" <${email}>`,
+            to: process.env.ADMIN_EMAIL || 'zyradigitalsofficial@gmail.com',
+            subject: adminSubject,
+            text: `Source: Zyra Chatbot\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+            html: adminHtml,
         };
 
         await transporter.sendMail(adminMailOptions);

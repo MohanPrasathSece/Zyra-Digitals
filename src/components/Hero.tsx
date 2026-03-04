@@ -45,11 +45,6 @@ export const Hero = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 bg-background" />
 
-      {/* Small Orb at top-right (hidden on mobile) */}
-      <div className="hidden sm:block absolute top-24 right-4 sm:top-28 sm:right-10 z-10">
-        <FloatingOrb />
-      </div>
-
       {/* Content */}
       <div
         ref={heroRef}

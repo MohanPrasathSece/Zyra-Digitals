@@ -10,6 +10,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { Preloader } from "@/components/Preloader";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { Chatbot } from "@/components/Chatbot";
+
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
@@ -122,6 +124,7 @@ const App = () => {
               </Suspense>
             </main>
             {!isLoading && <Footer />}
+            <Chatbot />
           </div>
         </BrowserRouter>
       </TooltipProvider>

@@ -142,16 +142,16 @@ const ChatOrb = ({ onClick }: { onClick: () => void }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-zinc-200" />
                 <div className="absolute top-2 sm:top-3 lg:top-3 left-2 sm:left-3 lg:left-3 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white/80 blur-[8px]" />
                 <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4">
-                    <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
+                    <div className="relative" style={{ transform: `translate(${eye.x}px, 0px)` }}>
                         <div
-                            className="w-1.5 sm:w-2 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "1px sm:1.5px" : "16px sm:20px lg:28px" }}
+                            className="w-2 sm:w-2.5 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ height: blinking ? "2px" : "20px sm:24px lg:28px" }}
                         />
                     </div>
-                    <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
+                    <div className="relative" style={{ transform: `translate(${eye.x}px, 0px)` }}>
                         <div
-                            className="w-1.5 sm:w-2 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "1px sm:1.5px" : "16px sm:20px lg:28px" }}
+                            className="w-2 sm:w-2.5 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ height: blinking ? "2px" : "20px sm:24px lg:28px" }}
                         />
                     </div>
                 </div>
@@ -629,7 +629,7 @@ export const Chatbot = () => {
                         initial={{ opacity: 0, y: 24, scale: 0.94 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 24, scale: 0.94 }}
-                        className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 lg:bottom-12 lg:right-14 z-50 w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] sm:max-w-[350px] lg:max-w-[370px] h-[calc(100vh-6rem)] sm:h-[calc(100vh-8rem)] lg:h-[610px] max-h-[calc(100vh-6rem)] sm:max-h-[calc(100vh-8rem)] lg:max-h-[86vh] bg-white border border-gray-100 rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] shadow-[0_24px_60px_-12px_rgba(0,0,0,0.28)] overflow-hidden flex flex-col font-sans"
+                        className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 lg:bottom-12 lg:right-14 z-50 w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] sm:max-w-[320px] lg:max-w-[340px] h-[calc(100vh-7rem)] sm:h-[calc(100vh-9rem)] lg:h-[550px] max-h-[calc(100vh-7rem)] sm:max-h-[calc(100vh-9rem)] lg:max-h-[75vh] bg-white border border-gray-100 rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] shadow-[0_24px_60px_-12px_rgba(0,0,0,0.28)] overflow-hidden flex flex-col font-sans"
                     >
                         {/* Header */}
                         <div className="bg-[#B8860B] px-5 py-4 flex items-center justify-between shrink-0">

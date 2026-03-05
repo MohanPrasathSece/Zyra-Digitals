@@ -560,14 +560,33 @@ export const Chatbot = () => {
     const finishLead = async (phone: string) => {
         const finalLead = { ...lead, phone };
         try {
-            const messageContent = [
-                `Service: ${finalLead.service}`,
-                finalLead.platform && `Platform: ${finalLead.platform}`,
-                finalLead.websiteType && `Website Type: ${finalLead.websiteType}`,
-                `Timeline: ${finalLead.timeline}`,
-                `Project: ${finalLead.projectDetails}`,
-                `Email: ${finalLead.email}`,
-                `Phone: ${finalLead.phone || "N/A"}`
+            // Format as chat conversation from Zyra
+            const chatHistory = [
+                `👋 Hello! I'm Zyra, your digital assistant from Zyra Digitals.`,
+                `👤 **Lead Name:** ${finalLead.name}`,
+                `📧 **Email:** ${finalLead.email}`,
+                finalLead.phone && `📱 **Phone:** ${finalLead.phone}`,
+                ``,
+                `💬 **Chat Conversation:**`,
+                ``,
+                `**Zyra:** What would you like help with today?`,
+                `**${finalLead.name}:** ${finalLead.service}`,
+                finalLead.platform && `**Zyra:** What development platform do you prefer?`,
+                finalLead.platform && `**${finalLead.name}:** ${finalLead.platform}`,
+                finalLead.websiteType && `**Zyra:** What type of website are you planning to build?`,
+                finalLead.websiteType && `**${finalLead.name}:** ${finalLead.websiteType}`,
+                `**Zyra:** Could you briefly describe your project or business?`,
+                `**${finalLead.name}:** ${finalLead.projectDetails}`,
+                `**Zyra:** What timeline are you working with?`,
+                `**${finalLead.name}:** ${finalLead.timeline}`,
+                `**Zyra:** Where should we send your project details or quote?`,
+                `**${finalLead.name}:** ${finalLead.email}`,
+                finalLead.phone && `**Zyra:** Would you like to share a phone number?`,
+                finalLead.phone && `**${finalLead.name}:** ${finalLead.phone}`,
+                ``,
+                `✅ **Lead Status:** Qualified - Ready for follow-up`,
+                `🕐 **Submitted:** ${new Date().toLocaleString()}`,
+                `🤖 **Source:** Zyra AI Chatbot`
             ].filter(Boolean).join("\n");
 
             await fetch("/api/contact", {
@@ -576,7 +595,7 @@ export const Chatbot = () => {
                 body: JSON.stringify({
                     name: finalLead.name,
                     email: finalLead.email || "chatbot@zyradigitals.com",
-                    message: messageContent,
+                    message: chatHistory,
                     isChatbot: true
                 })
             });

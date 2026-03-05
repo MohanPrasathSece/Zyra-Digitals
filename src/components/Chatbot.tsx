@@ -142,16 +142,16 @@ const ChatOrb = ({ onClick }: { onClick: () => void }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-zinc-200" />
                 <div className="absolute top-2 sm:top-3 lg:top-3 left-2 sm:left-3 lg:left-3 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white/80 blur-[8px]" />
                 <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4">
-                    <div className="relative" style={{ transform: `translate(${eye.x}px, 0px)` }}>
+                    <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
                         <div
-                            className="w-2 sm:w-2.5 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "2px" : "20px sm:24px lg:28px" }}
+                            className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ width: blinking ? "2px sm:2.5px lg:3px" : "8px sm:10px lg:12px", height: blinking ? "2px sm:2.5px lg:3px" : "8px sm:10px lg:12px" }}
                         />
                     </div>
-                    <div className="relative" style={{ transform: `translate(${eye.x}px, 0px)` }}>
+                    <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
                         <div
-                            className="w-2 sm:w-2.5 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "2px" : "20px sm:24px lg:28px" }}
+                            className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ width: blinking ? "2px sm:2.5px lg:3px" : "8px sm:10px lg:12px", height: blinking ? "2px sm:2.5px lg:3px" : "8px sm:10px lg:12px" }}
                         />
                     </div>
                 </div>

@@ -121,12 +121,12 @@ const ChatOrb = ({ onClick }: { onClick: () => void }) => {
     }, []);
 
     return (
-        <div className="fixed bottom-16 right-16 z-[60] flex flex-col items-end gap-3 pointer-events-none">
+        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 lg:bottom-16 lg:right-16 z-[60] flex flex-col items-end gap-3 pointer-events-none">
             <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
-                className="bg-white px-4 py-2 rounded-2xl shadow-lg border border-gray-100 text-gray-700 text-sm font-medium mb-1"
+                className="bg-white px-3 py-2 sm:px-4 sm:py-2 rounded-2xl shadow-lg border border-gray-100 text-gray-700 text-xs sm:text-sm font-medium mb-1 max-w-[200px] sm:max-w-none"
             >
                 Hey! How can I help? 👋
             </motion.div>
@@ -137,21 +137,21 @@ const ChatOrb = ({ onClick }: { onClick: () => void }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onClick}
-                className="w-24 h-24 rounded-full shadow-[0_15px_50px_-10px_rgba(0,0,0,0.3)] cursor-pointer overflow-hidden pointer-events-auto relative"
+                className="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full shadow-[0_15px_50px_-10px_rgba(0,0,0,0.3)] cursor-pointer overflow-hidden pointer-events-auto relative"
             >
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-zinc-200" />
-                <div className="absolute top-3 left-3 w-12 h-12 rounded-full bg-white/80 blur-[8px]" />
-                <div className="absolute inset-0 flex items-center justify-center gap-4">
+                <div className="absolute top-2 sm:top-3 lg:top-3 left-2 sm:left-3 lg:left-3 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white/80 blur-[8px]" />
+                <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4">
                     <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
                         <div
-                            className="w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "2px" : "28px" }}
+                            className="w-1.5 sm:w-2 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ height: blinking ? "1px sm:1.5px" : "16px sm:20px lg:28px" }}
                         />
                     </div>
                     <div className="relative" style={{ transform: `translate(${eye.x}px, ${eye.y}px)` }}>
                         <div
-                            className="w-3 rounded-full bg-black/90 transition-all duration-75"
-                            style={{ height: blinking ? "2px" : "28px" }}
+                            className="w-1.5 sm:w-2 lg:w-3 rounded-full bg-black/90 transition-all duration-75"
+                            style={{ height: blinking ? "1px sm:1.5px" : "16px sm:20px lg:28px" }}
                         />
                     </div>
                 </div>
@@ -397,6 +397,12 @@ export const Chatbot = () => {
         }
 
         // ── FAQ intercept (available at any step) ────────────────────────────────
+        // But first check if this is an exact service option to avoid hijacking service selection
+        if (step === "COLLECTING_SERVICE" && SERVICES.includes(query)) {
+            handleServiceSelection(query);
+            return;
+        }
+        
         if (faq) {
             botSay(faq.answer);
             askNextAfterFAQ(900);
@@ -623,7 +629,7 @@ export const Chatbot = () => {
                         initial={{ opacity: 0, y: 24, scale: 0.94 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 24, scale: 0.94 }}
-                        className="fixed bottom-12 right-14 z-50 w-[90vw] sm:w-[370px] h-[610px] max-h-[86vh] bg-white border border-gray-100 rounded-[2rem] shadow-[0_24px_60px_-12px_rgba(0,0,0,0.28)] overflow-hidden flex flex-col font-sans"
+                        className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 lg:bottom-12 lg:right-14 z-50 w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] sm:max-w-[350px] lg:max-w-[370px] h-[calc(100vh-6rem)] sm:h-[calc(100vh-8rem)] lg:h-[610px] max-h-[calc(100vh-6rem)] sm:max-h-[calc(100vh-8rem)] lg:max-h-[86vh] bg-white border border-gray-100 rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] shadow-[0_24px_60px_-12px_rgba(0,0,0,0.28)] overflow-hidden flex flex-col font-sans"
                     >
                         {/* Header */}
                         <div className="bg-[#B8860B] px-5 py-4 flex items-center justify-between shrink-0">
@@ -702,23 +708,23 @@ export const Chatbot = () => {
                         </div>
 
                         {/* Input */}
-                        <div className="px-4 pb-5 pt-2 bg-white shrink-0 border-t border-gray-50">
+                        <div className="px-3 pb-3 pt-2 sm:px-4 sm:pb-5 bg-white shrink-0 border-t border-gray-50">
                             <form
                                 onSubmit={handleSubmit}
-                                className="flex items-center bg-white rounded-[1.2rem] border border-gray-200 px-4 py-1 shadow-sm focus-within:border-[#B8860B] focus-within:ring-1 focus-within:ring-[#B8860B]/20 transition-all"
+                                className="flex items-center bg-white rounded-[0.8rem] sm:rounded-[1.2rem] border border-gray-200 px-3 py-2 sm:px-4 sm:py-1 shadow-sm focus-within:border-[#B8860B] focus-within:ring-1 focus-within:ring-[#B8860B]/20 transition-all"
                             >
                                 <Input
                                     value={userInput}
                                     onChange={e => setUserInput(e.target.value)}
                                     placeholder="Type a message..."
-                                    className="border-none bg-transparent focus-visible:ring-0 text-[14px] h-11 flex-grow p-0 placeholder:text-gray-400"
+                                    className="border-none bg-transparent focus-visible:ring-0 text-[13px] sm:text-[14px] h-9 sm:h-11 flex-grow p-0 placeholder:text-gray-400"
                                 />
                                 <button
                                     type="submit"
                                     disabled={!userInput.trim()}
-                                    className="ml-2 p-1.5 text-[#B8860B] disabled:text-gray-300 transition-colors"
+                                    className="ml-2 p-1.5 sm:p-1.5 text-[#B8860B] disabled:text-gray-300 transition-colors"
                                 >
-                                    <Send size={22} strokeWidth={2} />
+                                    <Send size={18} strokeWidth={2} className="sm:w-[22px] sm:h-[22px]" />
                                 </button>
                             </form>
                         </div>

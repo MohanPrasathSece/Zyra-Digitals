@@ -37,7 +37,6 @@ const Contact = () => {
         title="Contact Zyra Digitals | Start Your Premium Project Today"
         description="Ready to elevate your digital presence? Contact Zyra Digitals for a free quote on website design, branding, and development. We're here to turn your vision into a high-performance brand."
         canonical="/contact"
-        keywords="contact web designer, website design quote, get website developed, hire web developer, contact digital agency, website development inquiry, Zyra Digitals contact, web design consultation, Coimbatore website designer contact, professional web development services, start a startup project, hire brand architect"
         schema={contactSchema}
         publishedTime="2025-01-01T00:00:00Z"
         modifiedTime={new Date().toISOString()}

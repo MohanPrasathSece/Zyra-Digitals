@@ -161,25 +161,8 @@ const Portfolio = (): JSX.Element => {
       description:
         "A real-time market analytics platform delivering crowd sentiment on stocks and cryptocurrencies, combining trader votes with AI-powered insights for smarter investment decisions.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "AI Integration"],
-      link: "https://crowdverse.in/",
+      link: "https://crowd-verse.vercel.app/",
       color: "#f0f4ff"
-    },
-    {
-      title: "SeekBuyLove",
-      category: "Fashion E-Commerce",
-      image: "/images/Portfolio_projects/seekbuylove/image.png",
-      images: [
-        "/images/Portfolio_projects/seekbuylove/image.png",
-        "/images/Portfolio_projects/seekbuylove/image copy.png",
-        "/images/Portfolio_projects/seekbuylove/image copy 2.png",
-        "/images/Portfolio_projects/seekbuylove/image copy 3.png",
-        "/images/Portfolio_projects/seekbuylove/image copy 4.png"
-      ],
-      description:
-        "A modern e-commerce clothing store offering curated fashion collections with an intuitive shopping experience designed to help customers discover and love their style.",
-      technologies: ["WordPress", "WooCommerce"],
-      link: "https://seekbuylove.in/",
-      color: "#fff5f5"
     },
     {
       title: "Launch & Close",
@@ -281,7 +264,6 @@ const Portfolio = (): JSX.Element => {
         title="Portfolio | Premium Website Design & Development Showcase"
         description="Explore the award-winning portfolio of Zyra Digitals. See how we've helped businesses like Precision Root Canal, Lumi & Co, and AmzCoz achieve digital excellence through custom web development and premium design."
         canonical="/portfolio"
-        keywords="website design portfolio, web development projects, UI/UX design showcase, professional website examples, best website designs, creative web development, portfolio website, Zyra Digitals work, premium web design projects, Coimbatore web designer portfolio, healthcare web design, luxury jewelry website, e-commerce success stories"
         schema={portfolioSchema}
         publishedTime="2025-01-01T00:00:00Z"
         modifiedTime={new Date().toISOString()}
